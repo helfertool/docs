@@ -47,7 +47,7 @@ master_doc = 'index'
 
 # General information about the project.
 project = u'Helfertool'
-copyright = u'2016, Sven Hertle'
+copyright = u'2018, Sven Hertle'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the

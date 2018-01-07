@@ -34,14 +34,10 @@ Text after registration:
     This text is shown after a helper registered on top of the page.
 
 E-Mail:
-    This mail address is used as sender of the confirmation mails.
-    It is possible that some people response to these mails when they want to
+    This mail address is used as reply-to address for the confirmation mails.
+    Usually some people respond to these mails when they want to
     contact you. So you should make sure that mails sent to this address are
     read.
-
-    Additionally a mail is sent to this address if someone gives a wrong mail
-    address in the registration form or the confirmation mail cannot be
-    delivered for some other reason. But this should not happen too often.
 
 Logo:
     This image is displayed on top of the registration form.
@@ -49,6 +45,11 @@ Logo:
     Please use a reasonable image size!
     The image is not scaled down automatically at the moment.
     A width of 400 px should be really enough!
+
+Logo for Facebook:
+    This image will be shown when a link to the event is posted on Facebook.
+    The image size should be 1052 x 548 px, a higher resolution does not bring
+    a better result here since Facebook scales the image down.
 
 Maximal overlapping of shifts:
     If two shifts overlap more than this value in minutes it is not possible to
@@ -103,3 +104,11 @@ Use badge creation:
 Manage gifts for helpers:
     You can manage whether a helper got the T-shirt, the gifts for the shifts
     and payed caution for that, see :ref:`gifts`.
+
+Use the inventory functionality:
+    Helpers may receive some items like flashlights during their shift,
+    you can manage the loan using barcodes on the badges and items.
+
+Available T-shirt sizes:
+    You can specify the available T-shirt sizes here, if "Ask for T-shirt size"
+    is enabled.

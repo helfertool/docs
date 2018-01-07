@@ -3,3 +3,6 @@
 =====
 Gifts
 =====
+
+.. note::
+   This section is missing, sorry!

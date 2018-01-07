@@ -13,4 +13,5 @@ Contents:
    links
    badges/index
    gifts
+   inventory
    faq/index

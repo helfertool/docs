@@ -13,3 +13,6 @@ free to submit corrections and additions.
    :maxdepth: 2
 
    dependencies
+   installation
+   configuration
+   update
