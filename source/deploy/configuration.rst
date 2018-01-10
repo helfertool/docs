@@ -1,8 +1,8 @@
 .. _configuration:
 
-=============
-Configuration
-=============
+=====================
+Configuration options
+=====================
 
 .. note::
    This section is missing, sorry!

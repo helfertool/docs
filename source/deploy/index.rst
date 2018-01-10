@@ -13,6 +13,35 @@ free to submit corrections and additions.
    :maxdepth: 2
 
    dependencies
-   installation
+   installation/index
    configuration
-   update
+   updates
+
+
+..
+   app deployment
+       virtualenv
+       bower
+       git clone
+       basic settings (db, rabbitmq -> rabbitmq kann noch nicht getestet werden?)
+
+       migrate, test runserver, test celery
+
+       collectstatic
+
+   uwsgi
+       config
+
+   apache/nginx
+       config
+
+
+
+
+   further settings
+   howto ldap
+
+
+   testing installation
+       mail
+       badges

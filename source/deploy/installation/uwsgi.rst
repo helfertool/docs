@@ -1,8 +1,8 @@
-.. _update:
+.. _uwsgi:
 
-======
-Update
-======
+=====
+uWSGI
+=====
 
 .. note::
    This section is missing, sorry!
