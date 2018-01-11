@@ -45,16 +45,20 @@ MariaDB
 
 .. code-block:: none
 
-   sudo apt install mariadb-server
+   sudo apt install mariadb-server libmysqlclient-dev python3-dev
 
 Then create an user and database:
 
 .. code-block:: none
 
    sudo mysql
-   MariaDB [(none)]> CREATE DATABASE helfertool CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci;
+   MariaDB [(none)]> CREATE DATABASE helfertool;
    MariaDB [(none)]> CREATE USER helfertool IDENTIFIED BY '<PASSWORD>';
    MariaDB [(none)]> GRANT ALL PRIVILEGES ON helfertool.* TO helfertool;
+   MariaDB [(none)]> ALTER DATABASE helfertool CHARACTER SET utf8;
+
+..
+   MariaDB [(none)]> CREATE DATABASE helfertool CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci;
 
 PostgreSQL
 ^^^^^^^^^^
@@ -91,4 +95,5 @@ username to your needs.
 
 .. code-block:: none
 
-   adduser --system --home /srv/helfertool --disabled-password helfertool
+   addgroup --system helfertool
+   adduser --system --home /srv/helfertool --ingroup helfertool --disabled-password helfertool
