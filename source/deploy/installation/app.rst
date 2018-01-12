@@ -161,14 +161,21 @@ Allowed hosts
 
        ALLOWED_HOSTS = ['app.helfertool.org', 'www.app.helfertool.org']
 
+Make sure that the file is only readable for the ``helfertool`` user since
+it contains passwords:
+
+.. code-block:: none
+
+   chmod 0600 helfertool/settings.py
+
 Finally, commit the changes:
 
 .. code-block:: none
 
    git commit -a -m "Basic configuration"
 
-Migrations and user creation
-----------------------------
+Migrations, static files and user creation
+------------------------------------------
 
 To setup the database, the following command has to be executed:
 
@@ -176,7 +183,14 @@ To setup the database, the following command has to be executed:
 
    python manage.py migrate
 
-Now we can create the first user:
+The following command collects all static files in one directory that will
+be delivered by the webserver later:
+
+.. code-block:: none
+
+   python manage.py collectstatic
+
+Now we can also create the first user:
 
 .. code-block:: none
 

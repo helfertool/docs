@@ -12,31 +12,8 @@ free to submit corrections and additions.
 .. toctree::
    :maxdepth: 2
 
+   overview
    dependencies
    installation/index
    configuration
    updates
-
-
-..
-   app deployment
-       collectstatic
-
-       TODO: get celery running
-
-   uwsgi
-       config
-
-   apache/nginx
-       config
-
-
-
-
-   further settings
-   howto ldap
-
-
-   testing installation
-       mail
-       badges
