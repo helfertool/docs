@@ -16,4 +16,5 @@ free to submit corrections and additions.
    dependencies
    installation/index
    configuration
+   cli
    updates
