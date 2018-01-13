@@ -13,7 +13,7 @@ Apache
 ------
 
 Place the configuration in ``/etc/apache2/sites-available/helfertool.conf``,
-the file is also in the git repository under ``apache.conf``.
+the file is also in the git repository under ``stuff/deployment/apache.conf``.
 Review and adapt the settings carefully.
 
 .. code-block:: none
