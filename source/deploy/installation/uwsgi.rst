@@ -40,5 +40,5 @@ service:
    sudo ln -s /etc/uwsgi/apps-available/helfertool.ini /etc/uwsgi/apps-enabled/helfertool.ini
    sudo systemctl restat uwsgi
 
-If you want, you can check for errors in `/var/log/uwsgi/app/helfertool.log`.
+If you want, you can check for errors in ``/var/log/uwsgi/app/helfertool.log``.
 Otherwise we will notice possible problems soon.
