@@ -116,4 +116,4 @@ Nginx
 
 .. note::
 
-   The documentation is not yet complete, sorry!
+   The documentation is not complete yet, sorry!

@@ -43,7 +43,7 @@ MariaDB
 PostgreSQL
     .. note::
 
-       The documentation is not yet complete, sorry!
+       The documentation is not complete yet, sorry!
 
 Bower
 -----
@@ -122,7 +122,7 @@ Database
 
     .. note::
 
-       The documentation is not yet complete, sorry!
+       The documentation is not complete yet, sorry!
 
 RabbitMQ
     The connection to RabbitMQ has also to be configured:
