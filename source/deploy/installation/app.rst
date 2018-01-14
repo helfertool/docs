@@ -147,7 +147,7 @@ Secret key
 
 Debug
     Set ``DEBUG`` to ``False``, you should never deploy a Django app with enabled
-    debuging!
+    debugging!
 
     .. code-block:: none
 
@@ -161,14 +161,14 @@ Allowed hosts
 
        ALLOWED_HOSTS = ['app.helfertool.org', 'www.app.helfertool.org']
 
-Make sure that the file is only readable for the ``helfertool`` user since
+Make sure that the file is only readable for the user ``helfertool`` since
 it contains passwords:
 
 .. code-block:: none
 
    chmod 0600 helfertool/settings.py
 
-Finally, commit the changes:
+Finally, commit the changes to the local git branch:
 
 .. code-block:: none
 
