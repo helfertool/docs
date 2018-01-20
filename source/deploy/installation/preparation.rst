@@ -60,6 +60,14 @@ Then create an user and database:
 ..
    MariaDB [(none)]> CREATE DATABASE helfertool CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci;
 
+You probably have to load the time zone tables into the database, otherwise
+you will see some strange Django errors:
+
+.. code-block:: none
+
+   mysql_tzinfo_to_sql /usr/share/zoneinfo | sudo mysql -u root mysql
+   sudo systemctl restart mysql
+
 PostgreSQL
 ^^^^^^^^^^
 .. code-block:: none
