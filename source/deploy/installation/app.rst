@@ -43,7 +43,7 @@ MariaDB
 PostgreSQL
     .. note::
 
-       The documentation is not complete yet, sorry!
+       pip install psycopg2
 
 Bower
 -----
@@ -120,9 +120,18 @@ Database
 
     For PostgreSQL use this configration:
 
-    .. note::
+    .. code-block:: none
 
-       The documentation is not complete yet, sorry!
+       DATABASES = {
+           'default': {
+               'ENGINE': 'django.db.backends.postgresql',
+               'NAME': 'helfertool',
+               'USER': 'helfertool',
+               'PASSWORD': '<PASSWORD>',
+               'HOST': '127.0.0.1',
+               'PORT': '5432',
+           }
+       }
 
 RabbitMQ
     The connection to RabbitMQ has also to be configured:
