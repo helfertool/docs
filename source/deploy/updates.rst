@@ -32,6 +32,10 @@ This are the steps that are necessary to update Helfertool:
    # update static files
    python manage.py collectstatic --noinput
 
+   # reload app server
+   cd ..
+   touch app_reload
+
 Additionally, you should update the Python libraries from time to time,
 `pip-review <https://github.com/jgonggrijp/pip-review>`_ is a good tool for
 that.
