@@ -114,6 +114,88 @@ Try to access the website, it should work now!
 Nginx
 -----
 
-.. note::
+Place the configuration in ``/etc/nginx/sites-available/helfertool.conf``,
+the file is also in the git repository under ``stuff/deployment/nginx.conf``.
+Review and adapt the settings carefully.
 
-   The documentation is not complete yet, sorry!
+.. code-block:: none
+
+   upstream django {
+       server 127.0.0.1:3001;
+   }
+
+   # HTTP: redirect to HTTPS
+   server {
+       # server info
+       listen 80 default_server;
+       listen [::]:80 default_server;
+
+       server_name app.helfertool.org;
+       server_tokens off;
+
+       # redirect
+       return 301 https://$server_name$request_uri;
+
+       # logging
+       access_log /var/log/nginx/helfertool_access.log;
+       error_log /var/log/nginx/helfertool_error.log error;
+   }
+
+   # HTTPS: serve app
+   server {
+       # server info
+       listen 443 ssl default_server;
+       listen [::]:443 ssl default_server;
+
+       server_name app.helfertool.org;
+       server_tokens off;
+
+       # TLS settings
+       ssl_certificate /etc/ssl/certs/ssl-cert-snakeoil.pem;
+       ssl_certificate_key /etc/ssl/private/ssl-cert-snakeoil.key;
+
+       ssl_protocols TLSv1 TLSv1.1 TLSv1.2;
+       ssl_ciphers HIGH:!aNULL:!MD5;
+
+       add_header Strict-Transport-Security "max-age=15552000";
+
+       # static files and reverse proxy
+       location /static {
+           alias /srv/helfertool/helfertool/static;
+       }
+
+       location /media {
+           alias /srv/helfertool/helfertool/media;
+       }
+
+       location / {
+           uwsgi_pass django;
+           include /etc/nginx/uwsgi_params;
+       }
+
+       error_page 502 /static/helfertool/unavailable.html;
+
+       # security options
+       add_header X-Content-Type-Options nosniff;
+       add_header X-XSS-Protection "1; mode=block";
+       add_header Content-Security-Policy "default-src: https: 'unsafe-inline'";
+
+       # logging
+       access_log /var/log/nginx/helfertool_access.log;
+       error_log /var/log/nginx/helfertool_error.log error;
+   }
+
+We have to add the ``www-data`` user to the ``helfertool`` group so that
+Nginx can read the static files.
+Possible other solutions are running the complete Nginx server as
+``helfertool`` or adjusting the file permissions of the static files directory.
+
+Then activate the new vHost and if necessary disable the default vHost.
+
+.. code-block:: none
+
+   sudo ln -s /etc/nginx/sites-available/helfertool.conf /etc/nginx/sites-enabled/helfertool.conf
+   sudo rm /etc/nginx/sites-enabled/default
+   sudo systemctl restart nginx
+
+Try to access the website, it should work now!
