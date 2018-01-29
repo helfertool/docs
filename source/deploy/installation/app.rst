@@ -41,7 +41,7 @@ MariaDB
        pip install mysqlclient
 
 PostgreSQL
-    .. note::
+    .. code-block:: none
 
        pip install psycopg2
 
