@@ -28,10 +28,6 @@ Apache
 Nginx
 ^^^^^
 
-.. warning::
-   The documentation for a deployment with Nginx is not finished yet, so you
-   have to configure the webserver on your own.
-
 .. code-block:: none
 
    sudo apt install nginx
