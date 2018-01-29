@@ -12,7 +12,7 @@ The following package names should work on Ubuntu 16.04 LTS and Debian stretch:
 
 .. code-block:: none
 
-   sudo apt install python3 python3-venv rabbitmq-server uwsgi uwsgi-plugin-python3 npm texlive-base git
+   sudo apt install python3 python3-venv rabbitmq-server uwsgi uwsgi-plugin-python3 npm git texlive-latex-extra texlive-fonts-recommended texlive-lang-german
 
 Additionally, you need a webserver that acts as reverse proxy and delivers
 static files.
