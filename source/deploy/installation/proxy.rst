@@ -81,7 +81,9 @@ Review and adapt the settings carefully.
        Header set Content-Security-Policy "default-src: https: 'unsafe-inline'"
 
        # disable php
-       SetHandler default-handler
+       <Files *>
+           SetHandler default-handler
+       </Files>
 
        # redirect to "app.helfertool.org" if necessary (without www)
        # enable if app should only be served under one domain, this is recommended
