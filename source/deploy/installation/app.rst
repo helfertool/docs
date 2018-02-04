@@ -86,17 +86,15 @@ Basic settings
 
 After the installation of the dependencies it's time for some basic
 configuration.
-To make further updates easier, we recommend to switch to a local git branch
-for configuration changes:
+
+The local configuration has to be places in ``helfertool/settings_local.py``,
+so create this file from the template:
 
 .. code-block:: none
 
-   git config user.email "admin@localhost"
-   git config user.name "Administrator"
-   git checkout -b local
+   cp helfertool/settings_local.dist.py helfertool/settings_local.py
 
-The configuration can be found in ``helfertool/settings.py``, so open this file
-with your favourite editor.
+Open the file ``helfertool/settings_local.py`` with your favourite editor.
 These are the most important settings, that should be set now:
 
 Database
@@ -175,13 +173,7 @@ it contains passwords:
 
 .. code-block:: none
 
-   chmod 0600 helfertool/settings.py
-
-Finally, commit the changes to the local git branch:
-
-.. code-block:: none
-
-   git commit -a -m "Basic configuration"
+   chmod 0600 helfertool/settings_local.py
 
 Migrations, static files and user creation
 ------------------------------------------

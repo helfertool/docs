@@ -14,13 +14,10 @@ This are the steps that are necessary to update Helfertool:
    cd helfertool
 
    # update source code
-   git checkout master
    git pull
-   git checkout local
-   git merge master
 
-   # make sure the configuration is not readable for all users
-   chmod 0600 helfertool/settings.py
+   # review for new config options
+   diff helfertool/settings_local.dist.py helfertool/settings_local.py
 
    # update dependencies
    pip install -r requirements.txt
