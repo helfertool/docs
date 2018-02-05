@@ -51,15 +51,16 @@ Basic settings
 After the installation of the dependencies it's time for some basic
 configuration.
 
-The local configuration has to be places in ``helfertool/settings_local.py``,
+The local configuration has to be places in
+``helfertool/helfertool/settings_local.py``,
 so create this file from the template:
 
 .. code-block:: none
 
-   cp helfertool/settings_local.dist.py helfertool/settings_local.py
+   cp helfertool/helfertool/settings_local.dist.py helfertool/helfertool/settings_local.py
 
-Open the file ``helfertool/settings_local.py`` with your favourite editor.
-These are the most important settings, that should be set now:
+Open the file ``helfertool/helfertool/settings_local.py`` with your favourite
+editor. These are the most important settings, that should be set now:
 
 Database
     For MariaDB use this configuration:
@@ -114,7 +115,7 @@ Secret key
 
     .. code-block:: none
 
-       ./stuff/bin/gen-secret-key.py
+       ./helfertool/stuff/bin/gen-secret-key.py
 
 Debug
     Set ``DEBUG`` to ``False``, you should never deploy a Django app with enabled
@@ -137,7 +138,7 @@ it contains passwords:
 
 .. code-block:: none
 
-   chmod 0600 helfertool/settings_local.py
+   chmod 0600 helfertool/helfertool/settings_local.py
 
 Bower
 -----
