@@ -21,7 +21,6 @@ This are the steps that are necessary to update Helfertool:
 
    # update dependencies
    pip install -r requirements.txt
-   python manage.py bower install
 
    # install migrations
    python manage.py migrate

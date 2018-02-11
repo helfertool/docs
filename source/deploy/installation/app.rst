@@ -25,7 +25,7 @@ Now get the source code:
 
 .. code-block:: none
 
-   git clone https://github.com/helfertool/helfertool.git
+   git clone --depth 1 https://github.com/helfertool/helfertool.git
 
 Than install the Python dependencies:
 
@@ -139,42 +139,6 @@ it contains passwords:
 .. code-block:: none
 
    chmod 0600 helfertool/helfertool/settings_local.py
-
-Bower
------
-
-Next, we need Bower to install the CSS and JS libraries:
-
-.. code-block:: none
-
-   npm install bower
-   # fix so that bower is found inside the virtualenv
-   ln -s "$(pwd)/node_modules/bower/bin/bower" "bin/bower"
-
-Try to run bower with the command ``bower``.
-If you receive the following error message, you have to create a symlink from
-``node`` to ``nodejs``.
-
-.. code-block:: none
-
-   /usr/bin/env: ‘node’: No such file or directory
-
-If necessary, create this symlink:
-
-.. code-block:: none
-
-   sudo ln -s /usr/bin/nodejs /usr/bin/node
-
-.. note::
-   Bower is deprecated, so it will be replaced by something else in the future.
-   But for now, it does its job.
-
-Now we can install the JS and CSS dependencies:
-
-.. code-block:: none
-
-   cd helfertool
-   python manage.py bower install
 
 Migrations, static files and user creation
 ------------------------------------------
