@@ -43,7 +43,7 @@ MariaDB
 PostgreSQL
     .. code-block:: none
 
-       pip install psycopg2
+       pip install psycopg2-binary
 
 Basic settings
 --------------
