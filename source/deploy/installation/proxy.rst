@@ -76,9 +76,10 @@ Review and adapt the settings carefully.
        Header set Strict-Transport-Security "max-age=15552000"
 
        # security options
+       Header set X-Frame-Options DENY
        Header set X-Content-Type-Options nosniff
        Header set X-XSS-Protection "1; mode=block"
-       Header set Content-Security-Policy "default-src: https: 'unsafe-inline'"
+       Header set Content-Security-Policy "default-src https: 'unsafe-inline'; object-src 'none'; frame-ancestors 'none'; base-uri 'none'; form-action 'self'"
 
        # disable php
        <Files *>
@@ -178,9 +179,10 @@ Review and adapt the settings carefully.
        error_page 502 /static/helfertool/unavailable.html;
 
        # security options
+       add_header X-Frame-Options DENY;
        add_header X-Content-Type-Options nosniff;
        add_header X-XSS-Protection "1; mode=block";
-       add_header Content-Security-Policy "default-src: https: 'unsafe-inline'";
+       add_header Content-Security-Policy "default-src https: 'unsafe-inline'; object-src 'none'; frame-ancestors 'none'; base-uri 'none'; form-action 'self'";
 
        # logging
        access_log /var/log/nginx/helfertool_access.log;
