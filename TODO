@@ -1,0 +1,13 @@
+Prepratation
+    Docker or DB on other host: accept from more than localhost
+Installation
+    apache: reverse proxy: a2enmod remoteip
+Configuration options
+    proxy security warning (https://docs.djangoproject.com/en/1.11/ref/settings/#secure-proxy-ssl-header)
+Validating
+    mail: Host header, correct URL
+    axes: IP address
+Updates
+Other
+    Manual (src directory)
+    CLI
