@@ -45,6 +45,10 @@
     color: #146855;
 }
 
+.highlight {
+    background-color: #c6e4dd;
+}
+
 /*
  * Code block captions
  */
