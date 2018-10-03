@@ -13,7 +13,7 @@ or pull request on `Github <https://github.com/helfertool/docs>`_.
 .. toctree::
    :maxdepth: 1
 
-   deploy/index
+   admin/index
    user/index
 
 

@@ -4,6 +4,12 @@
 Manual installation
 ===================
 
+.. note::
+
+   This instructions are not up-to-date!
+
+   If you really do not want to use the Docker image, they may nevertheless provide enough guidance.
+
 Dependencies
 ------------
 

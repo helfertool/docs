@@ -44,3 +44,10 @@
 .rst-content code.literal {
     color: #146855;
 }
+
+/*
+ * Code block captions
+ */
+.caption-text {
+    font-weight: bold;
+}
