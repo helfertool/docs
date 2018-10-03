@@ -2,23 +2,52 @@
  * Top left
  */
 .wy-side-nav-search {
-    background-color: #3aafb9;
+    background-color: #1ea082;
+}
+
+.wy-nav-side {
+    background-color: #1ea082;
 }
 
 /*
  * Menu clicked
  */
-.wy-menu-vertical a:active {
-    background: #3aafb9;
+.wy-menu-vertical a:hover {
+    background: rgba(255,255,255,0.1);
 }
 
 /*
  * Links
  */
 .wy-nav-content a, .wy-nav-content a:hover, .wy-nav-content a:active, .wy-nav-content a:focus, .wy-nav-content a:visited {
-    color: #3aafb9;
+    color: #1ea082;
 }
 
 .wy-nav-content a:hover, .wy-nav-content a:active {
     text-decoration: underline;
+}
+
+/*
+ * Notes
+ */
+.rst-content .note {
+    background-color: #c6e4dd;
+}
+
+.rst-content .note .admonition-title {
+    background-color: #1ea082;
+}
+
+/*
+ * Code
+ */
+.rst-content code.literal {
+    color: #146855;
+}
+
+/*
+ * Code block captions
+ */
+.caption-text {
+    font-weight: bold;
 }

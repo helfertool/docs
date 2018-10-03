@@ -1,8 +1,41 @@
-.. _app:
+.. _manual:
 
-===
-App
-===
+===================
+Manual installation
+===================
+
+.. note::
+
+   This instructions are not up-to-date!
+
+   If you really do not want to use the Docker image, they may nevertheless provide enough guidance.
+
+Dependencies
+------------
+
+.. code-block:: none
+
+   sudo apt install python3 python3-venv rabbitmq-server uwsgi uwsgi-plugin-python3 git texlive-latex-extra texlive-fonts-recommended texlive-lang-german
+
+..
+   sudo apt install apache2 libapache2-mod-proxy-uwsgi
+   sudo apt install mariadb-server libmysqlclient-dev python3-dev
+
+User
+----
+
+The app should run as an own user, so create one.
+In this manual the app will be placed in ``/srv/helfertool``, adapt this and the
+username to your needs.
+
+.. code-block:: none
+
+   addgroup --system helfertool
+   adduser --system --home /srv/helfertool --ingroup helfertool --disabled-password helfertool
+
+
+Python and app
+--------------
 
 All following commands should be executed under the user that was created in
 the last step (here ``helfertool``):
@@ -10,9 +43,6 @@ the last step (here ``helfertool``):
 .. code-block:: none
 
    sudo -u helfertool bash
-
-Python and app
---------------
 
 First, create the virtual environment and activate it:
 
@@ -179,3 +209,61 @@ We can also check the connection to RabbitMQ by starting the some workers:
 .. code-block:: none
 
    celery -A helfertool worker -c 2 --loglevel=info
+
+uWSGI
+-----
+
+Since the Django part is working now, it's time to configure the application
+server uWSGI.
+The configuration has to be placed in ``/etc/uwsgi/apps-available``, for
+example in ``/etc/uwsgi/apps-available/helfertool.ini``.
+
+.. code-block:: none
+
+   [uwsgi]
+   plugin          = python35
+   set-ph          = basedir=/srv/helfertool
+   chdir           = %(basedir)/helfertool
+   pythonpath      = %(basedir)/lib/python3.5/site-packages
+   wsgi-file       = %(basedir)/helfertool/helfertool/wsgi.py
+   stats           = %(basedir)/uwsgistats.socket
+   socket          = 127.0.0.1:3001
+   workers         = 6
+   touch-reload    = %(basedir)/app_reload
+   vacuum          = True
+   uid             = helfertool
+   gid             = helfertool
+
+   smart-attach-daemon = %(basedir)/celery.pid %(basedir)/bin/celery -A helfertool worker -c 2 --pidfile=%(basedir)/celery.pid
+   exec-as-user-atexit = kill -HUP $(cat %(basedir)/celery.pid)
+
+The file is also part of the git repository in ``stuff/deployment/uwsgi.conf``.
+Adapt the paths, number of workers and if necessary other settings to your
+needs.
+
+Then create a symlink in the ``apps-enabled`` directory and restart the
+service:
+
+.. code-block:: none
+
+   sudo ln -s /etc/uwsgi/apps-available/helfertool.ini /etc/uwsgi/apps-enabled/helfertool.ini
+   sudo systemctl restat uwsgi
+
+If you want, you can check for errors in ``/var/log/uwsgi/app/helfertool.log``.
+Otherwise we will notice possible problems soon.
+
+Reverse proxy
+-------------
+
+The webserver has to work as reverse proxy in front of uWSGI and also serve
+the static files.
+The following section describes the setup with Apache and Nginx, but you
+could also use tools like HAProxy or Varnish.
+
+Place the configuration in ``/etc/apache2/sites-available/helfertool.conf``,
+the file is also in the git repository under ``stuff/deployment/apache.conf``.
+
+Place the configuration in ``/etc/nginx/sites-available/helfertool.conf``,
+the file is also in the git repository under ``stuff/deployment/nginx.conf``.
+
+Review and adapt the settings carefully.

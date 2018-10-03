@@ -10,12 +10,10 @@ Helfertool
 Welcome to the Helfertool documentation! Please feel free to create an issue
 or pull request on `Github <https://github.com/helfertool/docs>`_.
 
-This documentation is split into different sections:
-
 .. toctree::
    :maxdepth: 1
 
-   deploy/index
+   admin/index
    user/index
 
 
