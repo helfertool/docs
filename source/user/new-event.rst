@@ -11,7 +11,7 @@ Name for URL:
     This is the name used in the URL for the registration.
 
     Example: if the name for the URL is *testevent* then the registration is
-    available under http://demo.helfertool.org/testevent.
+    available under http://app.helfertool.org/testevent.
 
     .. warning::
         You should not change this value after the registration was opened or
