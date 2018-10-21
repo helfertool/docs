@@ -178,6 +178,7 @@ To setup the database, the following command has to be executed:
 .. code-block:: none
 
    python manage.py migrate
+   python manage.py createcachetable
 
 The following command collects all static files in one directory that will
 be delivered by the webserver later:
