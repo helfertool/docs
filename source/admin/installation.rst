@@ -132,11 +132,11 @@ Details about the configuration file can be found :ref:`here <configuration>`.
 First start
 -----------
 
-Now is is time for the first start of the Helfertool:
+Now is is time for the first start of the Helfertool, we should also enable the autostart here:
 
 .. code-block:: none
 
-   systemctl start helfertool
+   systemctl enable --now helfertool
 
 To check the progress, you can use ``journalctl``:
 
