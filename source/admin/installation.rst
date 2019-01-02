@@ -24,6 +24,8 @@ The `helfertoolctl` package can be installed from the Debian repository https://
    sudo apt update
    sudo apt install helfertoolctl
 
+The available Debian and CentOS repositories are listed in the section about :ref:`helfertoolctl`.
+
 Database
 --------
 
