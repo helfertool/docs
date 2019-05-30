@@ -138,13 +138,13 @@ Now is is time for the first start of the Helfertool, we should also enable the 
 
 .. code-block:: none
 
-   systemctl enable --now helfertool
+   sudo systemctl enable --now helfertool
 
 To check the progress, you can use ``journalctl``:
 
 .. code-block:: none
 
-   journalctl -f -u helfertool
+   sudo journalctl -f -u helfertool
 
 On the first start, the database migration are applied and after that the container is running and
 listens on port 8000.
@@ -285,10 +285,5 @@ To finalize the installation and create an admin account, run:
 
 .. code-block:: none
 
-   helfertoolctl init
-   helfertoolctl createadmin
-
-..
-  Validation page:
-     mail: Host header, correct URL
-     axes: IP address
+   sudo helfertoolctl init
+   sudo helfertoolctl createadmin
