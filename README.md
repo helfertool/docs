@@ -1,5 +1,9 @@
 # Helfertool documentation
 
-Build:
+## Build
 
     make html
+
+## Publish
+
+    ./deploy.sh
