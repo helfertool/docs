@@ -131,6 +131,41 @@ To get the number of events, jobs, shifts and total number of helpers including 
 
    sudo helfertoolctl statistics
 
+Commands for automation
+-----------------------
+
+Open / close public registration automatically
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+``helfertoolctl`` provides commands to open and close the registration of events:
+
+.. code-block:: none
+
+   sudo helfertoolctl open <url_name>
+   sudo helfertoolctl close <url_name>
+
+To open the registration for a event at a specific time, the ``at`` daemon
+can be used:
+
+.. code-block:: none
+
+   at '13:55 10/18/2018'
+
+Disable old accounts
+^^^^^^^^^^^^^^^^^^^^
+
+Inactive accounts can be disabled with the ``disableaccounts`` command. Inactive means that
+
+ * the user did not log in since a specified date or
+ * the user never logged in, but the account was created before the specified date.
+
+Accounts from external authentication sources (LDAP) are not changed since the
+active flag is synced again from there.
+
+.. code-block:: none
+
+   sudo helfertoolctl disableaccounts [--dry-run] YYYY-MM-DD
+
 Advanced commands
 -----------------
 
@@ -150,7 +185,7 @@ To run some Django management command directly, run:
 
 .. code-block:: none
 
-   sudo helfertoolctl manage
+   sudo helfertoolctl manage [...]
 
 Log file postrotate
 ^^^^^^^^^^^^^^^^^^^
@@ -160,20 +195,3 @@ After the log file was rotated (by logrotate), `postrotate` must be executed:
 .. code-block:: none
 
    sudo helfertoolctl postrotate
-
-Open / close public registration automatically
-----------------------------------------------
-
-``helfertoolctl`` provides commands to open and close the registration of events:
-
-.. code-block:: none
-
-   sudo helfertoolctl open <url_name>
-   sudo helfertoolctl close <url_name>
-
-To open the registration for a event at a specific time, the ``at`` daemon
-can be used:
-
-.. code-block:: none
-
-   at '13:55 10/18/2018'
