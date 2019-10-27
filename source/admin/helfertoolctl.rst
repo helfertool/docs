@@ -12,11 +12,11 @@ There are Debian and CentOS repositories for `helfertoolctl` on https://repo.hel
 Debian
 ^^^^^^
 
-There is a stable repository for Debian Stretch:
+There is a stable repository for Debian Buster:
 
 .. code-block:: none
 
-   deb https://repo.helfertool.org/debian/ stretch main
+   deb https://repo.helfertool.org/debian/ buster main
 
 Additionally, there is a repository for Debian Unstable that may contain a less stable version:
 

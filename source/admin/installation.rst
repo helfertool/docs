@@ -4,7 +4,7 @@
 Installation
 ============
 
-This installation guide is written for Debian Stretch.
+This installation guide is written for Debian Buster.
 
 Docker and helfertoolctl
 ------------------------
@@ -17,7 +17,7 @@ The `helfertoolctl` package can be installed from the Debian repository https://
 
    sudo apt install apt-transport-https dirmngr
 
-   echo "deb https://repo.helfertool.org/debian/ stretch main" | sudo tee /etc/apt/sources.list.d/helfertool.list
+   echo "deb https://repo.helfertool.org/debian/ buster main" | sudo tee /etc/apt/sources.list.d/helfertool.list
 
    sudo apt-key adv --recv-keys FA1023F9F6AC494F
 
@@ -48,12 +48,12 @@ By default, PostgreSQL only listens to localhost. To allow access from the Docke
 the following configuration files need to be modified:
 
 .. code-block:: none
-   :caption: /etc/postgresql/9.6/main/postgresql.conf
+   :caption: /etc/postgresql/11/main/postgresql.conf
 
    listen_addresses = '*'
 
 .. code-block:: none
-   :caption: /etc/postgresql/9.6/main/pg_hba.conf
+   :caption: /etc/postgresql/11/main/pg_hba.conf
 
    # connection from docker container
    host    all             all             172.17.0.0/16           md5
