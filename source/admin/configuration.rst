@@ -124,7 +124,7 @@ Mail server
        sender_name: "Helfertool"
 
        # Forward received mails that are not handled automatically to this address (with this display name)
-       #forward_unhandled_address: "helfertool@localhost"
+       #forward_unhandled_address: "helfertoolintern@localhost"
        #forward_unhandled_name: "Helfertool"
 
        # Batch size if a high amount of mails is sent
