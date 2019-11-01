@@ -33,4 +33,3 @@ Please feel free to submit corrections and additions.
    configuration
    updates
    helfertoolctl
-   alternative/index
