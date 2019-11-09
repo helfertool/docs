@@ -147,7 +147,9 @@ To check the progress, you can use ``journalctl``:
    sudo journalctl -f -u helfertool
 
 On the first start, the database migration are applied and after that the container is running and
-listens on port 8000.
+listens on port 8000 (on localhost only by default).
+Due to the set headers, the Helfertool is not usable without TLS, so the reverse proxy needs
+to be configured.
 
 Reverse proxy
 -------------
