@@ -61,7 +61,7 @@ To start the Helfertool service, run:
 
    sudo systemctl start helfertool
 
-It is also possible to run `helfertoolctl start`, but usually the systemd service should be used.
+It is also possible to run ``helfertoolctl start``, but usually the systemd service should be used.
 
 Stop
 ^^^^
@@ -72,7 +72,7 @@ To stop the Helfertool service, run:
 
    sudo systemctl stop helfertool
 
-It is also possible to run `helfertoolctl stop`, but usually the systemd service should be used.
+It is also possible to run ``helfertoolctl stop``, but usually the systemd service should be used.
 
 Reload
 ^^^^^^
@@ -83,7 +83,7 @@ It is possible to reload the configuration file without restarting the Docker co
 
    sudo systemctl reload helfertool
 
-`helfertoolctl reload` is the same here and can also be called.
+``helfertoolctl reload`` is the same here and can also be called.
 
 Updates
 ^^^^^^^
@@ -137,7 +137,7 @@ Commands for automation
 Open / close public registration automatically
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-``helfertoolctl`` provides commands to open and close the registration of events:
+`helfertoolctl` provides commands to open and close the registration of events:
 
 .. code-block:: none
 
@@ -190,7 +190,7 @@ To run some Django management command directly, run:
 Log file postrotate
 ^^^^^^^^^^^^^^^^^^^
 
-After the log file was rotated (by logrotate), `postrotate` must be executed:
+After the log file was rotated (by logrotate), ``postrotate`` must be executed:
 
 .. code-block:: none
 

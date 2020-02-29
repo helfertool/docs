@@ -10,9 +10,21 @@ The following documentation describes the settings for a deployment with Docker,
 Language
 --------
 
+The language of the Helfertool is usually chosen based on the browser request.
+If no language is specified, the default language is used (for example for Facebook link previews).
+
+Available languages:
+
+ * English: ``en``
+ * German: ``de``
+
+The default language of the badges can be chosen independently of the overall default language.
+The language of the badges can also be changed per event.
+
+The timezone currently can only be set for the whole Helfertool, not per event.
+
 .. code-block:: none
 
-   # Language settings
    # Possible values: de, en
    language:
        # Default language if not specified by the browser
@@ -62,12 +74,12 @@ SQLite
        backend: "sqlite3"
        name: "/data/db.sqlite3"
 
-For Docker deployments, the file needs to be placed in `/data`. Otherwise, it is not stored persistently.
+For Docker deployments, the SQLite file needs to be placed in ``/data``. Otherwise, it is not stored persistently.
 
 Additional database settings
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Addtional options like `init_command` can also be added:
+Django allows to specify additional options like ``init_command``, they can also be added in the Helfertool configuration file:
 
 .. code-block:: none
 
@@ -133,8 +145,24 @@ Mail server
        batch_size: 200
        batch_gap: 5
 
+Authentication
+--------------
+
+The Helfertool supports different authentication backends:
+
+ * Local accounts
+ * LDAP
+ * OpenID Connect
+
+While it is possible to use local accounts together with LDAP or OpenID Connect, it is not recommended to enable LDAP and OpenID Connect at the same time.
+
 LDAP
-----
+^^^^
+
+The login to the Helfertool can be restricted to members of a LDAP group.
+When ``null`` is specified for the ``login`` option, every user is allowed to login.
+If can also be determined based on LDAP group memberships whether an user is administrator or not.
+Here, ``null`` means that the admin privilege is not managed by LDAP.
 
 .. code-block:: none
 
@@ -166,11 +194,94 @@ LDAP
                login: null
                admin: "cn=admins,ou=Group,dc=helfertool,dc=org"
 
+OpenID Connect
+^^^^^^^^^^^^^^
+
+.. note::
+
+   OpenID Connect currently is only available in the `dev` branch and container.
+
+The following claims are required at minimum (the scopes ``openid``, ``email`` and ``profile`` are requested):
+
+ * ``email`` (needs to be unique as it is used as username internally)
+ * ``given_name``
+ * ``family_name``
+
+It can be decided based on claims if an user is allowed to login and if an user is administator.
+A claim can be directly compared, for example ``helfertool-login`` has to be ``true`` to allow an user to login.
+Alternatively, the claim can be a list and a specific item needs to be in the list.
+This can be used when group memberships or roles are written to a claim.
+
+If no ``login`` claims restriction is, every user is allowed to login.
+If the ``admin`` configuration is not present, the admin privilege is touched during the login and can be assigned manually.
+
+.. warning::
+
+   The logout only ends the session in the Helfertool, not the session at the identity provider.
+   A click on login usually logs the user in again without asking for a password.
+
+.. code-block:: none
+
+   authentication:
+       # Get users over OpenID Connect
+       oidc:
+           # Name of the provider (only for login view)
+           provider_name: "OpenID Connect"
+
+           # Provider details
+           provider:
+               # Endpoint URLs
+               authorization_endpoint: "http://localhost:8080/auth/realms/test/protocol/openid-connect/auth"
+               token_endpoint: "http://localhost:8080/auth/realms/test/protocol/openid-connect/token"
+               user_endpoint: "http://localhost:8080/auth/realms/test/protocol/openid-connect/userinfo"
+
+               # URI to get JWKS
+               jwks_uri: "http://localhost:8080/auth/realms/test/protocol/openid-connect/certs"
+
+               # Client ID and secret
+               client_id: "helfertool"
+               client_secret: "<SECRET>"
+
+           # Permissions based on claims
+           claims:
+               # There are two types to handle claims
+               # 1) direct: the claim is directly compared
+               # 2) member: the claim is a list and it is checked if the specified value is included (useful for groups/roles)
+               login:
+                   #compare: "direct"
+                   #name: "helfertool_login"
+                   #value: true
+                   compare: "member"
+                   name: "roles"
+                   value: "helfertool_login"
+
+               admin:
+                   #compare: "direct"
+                   #name: "helfertool_admin"
+                   #value: true
+                   compare: "member"
+                   name: "roles"
+                   value: "helfertool_admin"
+
+Local users
+^^^^^^^^^^^
+
+When using local users together with LDAP and OpenID Connect, conflicting usernames need to be prevented.
+This can be done by prepending a special character in front of local usernames (here: ``@``).
+
+.. code-block:: none
+
+   authentication:
        # Prepend character to all locally created users
        # This is useful if you have for example users from LDAP but also local
        # users. The additional character like '@' is used to prevent identical
        # user names for different users
        local_user_char: '@'
+
+.. note::
+
+   This setting is ignored by the ``createupseruser`` CLI command. The CLI should only be used to create the initial administrator.
+   Further administrators should be added in the web interface.
 
 Logging
 -------
@@ -179,7 +290,7 @@ Error reporting
 ^^^^^^^^^^^^^^^
 
 If an exception occurs, Django can send out a mail to notify the administrators.
-Usually, this means that there is a bug in the Helfertool.
+Usually, this means that there is a bug in the Helfertool, a configuration error or some infrastructure issue.
 
 .. code-block:: none
 
@@ -190,6 +301,13 @@ Usually, this means that there is a bug in the Helfertool.
 
 Syslog
 ^^^^^^
+
+The application log can be sent out via syslog (see :ref:`logging` for available events).
+
+When using the Docker container and `helfertoolctl`, the application log is written to the log directory ``/var/log/helfertool``.
+The syslog forwarding can be used additionally.
+
+
 .. code-block:: none
 
    logging:
@@ -206,6 +324,10 @@ Syslog
 
 Security settings
 -----------------
+
+.. warning::
+
+   Never set ``debug`` to ``true`` in production!
 
 .. code-block:: none
 
