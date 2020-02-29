@@ -207,6 +207,8 @@ The following claims are required at minimum (the scopes ``openid``, ``email`` a
  * ``given_name``
  * ``family_name``
 
+The redirect URL for a deployment under ``app.helfertool.org`` whould be : ``https://app.helfertool.org/oidc/callback/`` (so ``/`` at the end is important).
+
 It can be decided based on claims if an user is allowed to login and if an user is administator.
 A claim can be directly compared, for example ``helfertool-login`` has to be ``true`` to allow an user to login.
 Alternatively, the claim can be a list and a specific item needs to be in the list.
