@@ -10,6 +10,13 @@
 }
 
 /*
+ * Top bar on small screens
+ */
+.wy-nav-top {
+    background-color: #1ea082;
+}
+
+/*
  * Menu clicked
  */
 .wy-menu-vertical a:hover {
