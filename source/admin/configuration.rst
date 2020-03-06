@@ -7,6 +7,16 @@ Configuration options
 The configuration file is in YAML format.
 The following documentation describes the settings for a deployment with Docker, but there are also some additional configuration options if Docker is not used.
 
+Announcement
+------------
+
+A text line can be displayed on every page of the Helfertool, this is useful to announce downtimes for maintenance.
+
+.. code-block:: none
+
+   announcement: "Maintenance on May 4th from 8 pm to 10 pm."
+
+
 Language
 --------
 
@@ -196,10 +206,6 @@ Here, ``null`` means that the admin privilege is not managed by LDAP.
 
 OpenID Connect
 ^^^^^^^^^^^^^^
-
-.. note::
-
-   OpenID Connect currently is only available in the `dev` branch and container.
 
 The following claims are required at minimum (the scopes ``openid``, ``email`` and ``profile`` are requested):
 
