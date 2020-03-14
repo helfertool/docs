@@ -8,3 +8,4 @@ Development guide
    environment
    git
    codestyle
+   translations
