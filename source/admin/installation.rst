@@ -15,7 +15,7 @@ The `helfertoolctl` package can be installed from the Debian repository https://
 
 .. code-block:: none
 
-   sudo apt install apt-transport-https dirmngr
+   sudo apt install dirmngr
 
    echo "deb https://repo.helfertool.org/debian/ buster main" | sudo tee /etc/apt/sources.list.d/helfertool.list
 

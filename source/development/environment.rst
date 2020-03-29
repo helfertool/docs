@@ -86,7 +86,7 @@ If you want to stop the container again, run:
 
 .. code-block:: none
 
-   docker stop helfertoolctl-rabbitmq
+   docker stop helfertool-rabbitmq
 
 And to update the container image, run:
 
@@ -120,7 +120,7 @@ Optional: Editor
 ^^^^^^^^^^^^^^^^
 
 In case you do not have a preferred editor or IDE for Python, give `Visual Studio Code <https://code.visualstudio.com/>`_ a try.
-It detects the virtual environment and automatically activates it when a new terminal is opened.
+It detects the virtual environment automatically and activates it when a new terminal is opened.
 
 Just open the main ``helfertool`` directory as folder and it should work out of the box.
 

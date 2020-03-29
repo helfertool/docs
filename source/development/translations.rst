@@ -19,4 +19,4 @@ Afer that, the new ``.mo`` files need to be built:
 
 .. code-block:: none
 
-   python3 manage.py compilemessages
+   python manage.py compilemessages
