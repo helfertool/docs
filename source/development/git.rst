@@ -1,7 +1,7 @@
 .. _git:
 
 ============
-Git workflow
+Git branches
 ============
 
 Currently, there are the following branches:
