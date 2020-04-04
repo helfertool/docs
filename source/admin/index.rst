@@ -29,6 +29,7 @@ Please feel free to submit corrections and additions.
 .. toctree::
    :maxdepth: 1
 
+   versions
    installation
    configuration
    updates

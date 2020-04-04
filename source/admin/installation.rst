@@ -108,8 +108,18 @@ default user ``guest`` should be deleted for security reasons.
    sudo rabbitmqctl set_permissions -p helfertool helfertool '.*' '.*' '.*'
    sudo rabbitmqctl delete_user guest
 
-Container download
-------------------
+Choose version and container download
+-------------------------------------
+
+By default, the ``latest`` tag is used (see :ref:`versions and tags <versions_tags>`).
+The used Docker tag can be changed in ``/etc/default/helfertool``, for example for the LTS version ``1.0.x``:
+
+.. code-block:: none
+   :caption: /etc/default/helfertool
+
+   HELFERTOOL_DOCKER_IMAGE="helfertool/helfertool:1.0.x"
+
+Then download the Helfertool container:
 
 .. code-block:: none
 

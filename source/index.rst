@@ -16,6 +16,7 @@ or pull request on `Github <https://github.com/helfertool/docs>`_.
    admin/index
    user/index
    development/index
+   releases/index
 
 
 .. Indices and tables
