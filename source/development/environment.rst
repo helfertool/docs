@@ -4,6 +4,10 @@
 Development environment
 =======================
 
+The following documentation explains how to setup the development environment on Linux.
+When the Windows Subsystem for Linux is used, it needs to be updated first to a recent Ubuntu version.
+Alternatively, you can just use a virtual machine with Linux.
+
 Initial setup
 -------------
 

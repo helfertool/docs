@@ -10,3 +10,4 @@ Development guide
    translations
    git
    releases
+   further/index

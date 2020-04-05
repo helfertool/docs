@@ -3,7 +3,7 @@ User guide
 ==========
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
 
    new-event
    jobs-and-shifts
@@ -12,4 +12,4 @@ User guide
    badges/index
    gifts
    inventory
-   faq/index
+   prerequisites

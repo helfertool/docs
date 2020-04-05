@@ -4,6 +4,9 @@
 Translations
 ============
 
+Django requires the `GNU gettext` toolset to be installed.
+On Debian for example, it can be isntalled with the ``gettext`` package.
+
 To update the translations, first run:
 
 .. code-block:: none

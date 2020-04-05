@@ -4,6 +4,12 @@
 Code style
 ==========
 
+.. note::
+
+   Currently, all of the following tools have some findings for the source code.
+   We will clean this up after the upcoming features are implemented.
+   However, the current code quality is not bad, although there are some findings :-)
+
 PEP8 and pylint
 ---------------
 
