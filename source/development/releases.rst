@@ -4,6 +4,13 @@
 Making releases
 ===============
 
+Preparation
+-----------
+
+* Check that all migrations are created (``makemigrations``).
+* Check that all translations are done.
+* Check for changes in ``helfertool.yaml``: update docs and ``helfertoolctl``
+
 Git
 ---
 
