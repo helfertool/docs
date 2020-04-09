@@ -120,6 +120,36 @@ Additionally, set the SMTP port to 1025 in ``helfertool.yaml``:
 
 The advantage of this method compared to the console e-mail backend from Django is, that you also see the mails sent in Celery tasks in the same window.
 
+Optional: PostgreSQL
+^^^^^^^^^^^^^^^^^^^^
+
+There is one feature that does not work with SQLite: the similarity based helper search.
+If you want to work on exactly this feature, you could get a PostgreSQL server via Docker:
+
+.. code-block:: none
+
+   docker run -d --rm --name helfertool-postgres -e POSTGRES_USER=helfertool -e POSTGRES_DB=helfertool -e POSTGRES_PASSWORD=password -p 127.0.0.1:5432:5432 postgres
+
+The ``pg_trgm`` extension needs to be enabled afterwards:
+
+.. code-block:: none
+
+   psql -h 127.0.0.1 -U helfertool helfertool
+
+   CREATE EXTENSION pg_trgm;
+
+And the database settings need to be changed in ``helfertool.yaml``:
+
+.. code-block:: none
+
+   database:
+       backend: "postgresql"
+       name: "helfertool"
+       user: "helfertool"
+       password: "password"
+       host: 127.0.0.1
+       port: 5432
+
 Optional: Editor
 ^^^^^^^^^^^^^^^^
 
