@@ -229,8 +229,8 @@ review and adapt the settings carefully.
 
            add_header Strict-Transport-Security "max-age=15552000";
 
-           #ssl_stapling on;
-           #ssl_stapling_verify on;
+           ssl_stapling on;
+           ssl_stapling_verify on;
 
            # redirect to "app.helfertool.org" if necessary (without www)
            if ($host != 'app.helfertool.org') {
@@ -256,6 +256,9 @@ review and adapt the settings carefully.
                    root /usr/share/helfertool/;
                    internal;
            }
+
+           # post size
+           client_max_body_size 50M;
 
            # logging
            access_log /var/log/nginx/helfertool.log;
