@@ -9,6 +9,13 @@ Changelog
 1.1.0 (unreleased)
 ------------------
 
+.. _changelog-1-0-1:
+
+1.0.1 (2020-05-31)
+------------------
+
+* OpenID Connect: Allow usage of id_token for claim validation (`#67 <https://github.com/helfertool/helfertool/pull/67>`_)
+
 .. _changelog-1-0-0:
 
 1.0.0 (2020-04-04)
