@@ -220,7 +220,9 @@ A claim can be directly compared, for example ``helfertool-login`` has to be ``t
 Alternatively, the claim can be a list and a specific item needs to be in the list.
 This can be used when group memberships or roles are written to a claim.
 
-If no ``login`` claims restriction is, every user is allowed to login.
+The claim names can be specified with `JMESPath <https://jmespath.org/>`_, so it is possible to configure plain claim names or have a more complex configuration.
+
+If no ``login`` claims restriction is configured, every user is allowed to login.
 If the ``admin`` configuration is not present, the admin privilege is not touched during the login and can be assigned manually.
 
 .. warning::
@@ -255,21 +257,27 @@ If the ``admin`` configuration is not present, the admin privilege is not touche
                # There are two types to handle claims
                # 1) direct: the claim is directly compared
                # 2) member: the claim is a list and it is checked if the specified value is included (useful for groups/roles)
+               # The path is a JMESPath. Plain claim names like "roles" are also a valid JMESPath.
                login:
                    #compare: "direct"
-                   #name: "helfertool_login"
+                   #path: "helfertool_login"
                    #value: true
                    compare: "member"
-                   name: "roles"
+                   path: "roles"
                    value: "helfertool_login"
 
                admin:
                    #compare: "direct"
-                   #name: "helfertool_admin"
+                   #path: "helfertool_admin"
                    #value: true
                    compare: "member"
-                   name: "roles"
+                   path: "roles"
                    value: "helfertool_admin"
+
+.. note::
+
+   JMESPath support was added in version 1.1. For version 1.0, the parameter ``path`` is called ``name`` and directly looked up in the claim.
+
 
 Local users
 ^^^^^^^^^^^
@@ -368,6 +376,23 @@ Customization
 .. code-block:: none
 
    customization:
+       # Modify certain properties for the general helfertool to display
+       display:
+           # Maximum years of events to be displayed by default on the main page
+           events_last_years: 2
+
+       # Fuzzy search for helper names
+       # Only available on PostgrSQL with pg_trgm extension, disabled automatically otherwise
+       search:
+           # Values between 0.2 (show more results) and 0.5 (show less results) seem to be reasonable.
+           # The similarity threshold of 0.3 was selected based on a name database of ~4000 western
+           # european names and the gut feel when a good match was actually found.
+           similarity: 0.3
+
+           # If PostgreSQL is used and pg_trgm is installed, the similarity search is automatically used.
+           # If you do not want to have this, disable it here.
+           disable_similarity: false
+
        # There are some external links that should/can be changed
        urls:
            # Imprint with contact details

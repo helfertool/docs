@@ -40,6 +40,8 @@ If you do not want to update the Helfertool itself that often, there is a `long 
 For those Helfertool versions, the Docker container is still rebuilt for a longer time.
 In case a critical bug or security vulnerability is found in the Helfertool, it will also be fixed.
 Nevertheless, you should always use the latest release of this release series.
+Please note that `helfertoolctl` ships the configuration for the latest release which may be incompatibel
+with the LTS version.
 
 Supported releases
 ------------------
