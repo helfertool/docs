@@ -12,7 +12,7 @@ Admins
 
 .. note::
 
-   The different admin roles on event level are currently only available on the ``dev`` branch.
+   The different admin roles on event level are introduced in version 1.1.
 
 There are different admin roles for an event:
 

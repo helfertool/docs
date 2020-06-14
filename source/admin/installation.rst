@@ -44,7 +44,7 @@ Then create an user and database:
    sudo -u postgres createuser -P helfertool
    sudo -u postgres createdb -O helfertool helfertool
 
-Starting with version 1.1.0, the Helfertool will support similarity based search, which requires the
+Starting with version 1.1, the Helfertool will support similarity based search, which requires the
 extension ``pg_trgm``.
 You can enable the extension already, but it is not required:
 
