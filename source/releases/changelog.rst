@@ -20,9 +20,11 @@ Changelog
 * Hide old events on main page after some years (can be changed in configuration)
 * Similarity based search for names (PostgreSQL only, see :ref:`installation <installation>`)
 * OpenID Connect claims can be matched using JMESPath
+* Add management command `exampledata` to add a test event during development
 * Bug fix: wrong day set when duplicating shifts starting at 0:00
 * Bug fix: inventory settings were not copied when duplicating an event
 * Bug fix: handle OpenID Connect like LDAP on user account pages
+* Bug fix: management command for statistics crashed if no archived helpers exist
 
 .. _changelog-1-0-2:
 

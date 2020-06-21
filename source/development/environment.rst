@@ -59,6 +59,13 @@ Then, the development web server can be started:
 
 Now open http://localhost:8000 in your browser.
 
+Example data
+^^^^^^^^^^^^
+
+If you want to load some example data, run:
+
+   python manage.py exampledata
+
 Optional: Celery and RabbitMQ
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
