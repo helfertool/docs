@@ -64,6 +64,8 @@ Example data
 
 If you want to load some example data, run:
 
+.. code-block:: none
+
    python manage.py exampledata
 
 Optional: Celery and RabbitMQ
