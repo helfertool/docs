@@ -34,7 +34,8 @@ Can manage helpers and all related features, but not change the event settings. 
 Front desk
 """"""""""
 
-Can read all helper data, resend the confirmation mail, set the presence of the helpers and delivered gifts.
+Can read all helper data, resend the confirmation mail, edit the internal comment and change the delivered
+gifts of the helpers. The user cannot change the presence or any other data.
 
 Inventory
 """""""""
