@@ -4,9 +4,16 @@
 Changelog
 =========
 
+.. _changelog-1-2-0:
+
+1.2.0 (unrelased)
+------------------
+
+* ...
+
 .. _changelog-1-1-0:
 
-1.1.0 (unreleased)
+1.1.0 (2020-08-15)
 ------------------
 
 * Overlapping shifts are greyed out and disabled on registration page
