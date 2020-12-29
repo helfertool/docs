@@ -30,6 +30,7 @@ Can manage helpers and all related features, but not change the event settings. 
 * Create or change links
 * Change jobs or shifts
 * Change inventory, badges, gifts or prerequisite settings
+* View the audit log
 
 Front desk
 """"""""""
