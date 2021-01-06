@@ -68,11 +68,48 @@ If you want to load some example data, run:
 
    python manage.py exampledata
 
-Optional: Celery and RabbitMQ
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Optional: Editor
+^^^^^^^^^^^^^^^^
 
-Depending on the feature you want to work at, RabbitMQ is required and celery needs to be started.
-The following features currently make use of Celery:
+In case you do not have a preferred editor or IDE for Python, give `Visual Studio Code <https://code.visualstudio.com/>`_ a try.
+It detects the virtual environment automatically and activates it when a new terminal is opened.
+
+Just open the main ``helfertool`` directory as folder and it should work out of the box.
+
+Further dependencies
+--------------------
+
+Depending on the feature/module you want to work on, several other services may be required.
+The following sections explain how to run these services for development purposes or how to debug certain things (like mails).
+
+E-mails
+^^^^^^^
+
+The Helfertool tries to send mails to localhost:25 with the default configuration.
+
+If you work on a feature that sends e-mails, you can start a SMTP debug server with this command:
+
+.. code-block:: none
+
+   python3 -m smtpd -n -c DebuggingServer localhost:1025
+
+Alternatively, `MailHog <https://github.com/mailhog/MailHog>`_ is highly recommended, which allows to view the received mails in a web interface.
+
+Additionally, set the SMTP port to 1025 in ``helfertool.yaml``:
+
+.. code-block:: none
+
+   mail:
+       send:
+           host: "localhost"
+           port: 1025
+
+The advantage of this method compared to the console e-mail backend from Django is, that you also see the mails sent in Celery tasks in the same window.
+
+Celery and RabbitMQ
+^^^^^^^^^^^^^^^^^^^
+
+The following features currently make use of Celery and RabbitMQ:
 
 * Generating badges
 * Sending the newsletter
@@ -107,30 +144,8 @@ And to update the container image, run:
 
    docker pull rabbitmq
 
-Optional: E-mails
-^^^^^^^^^^^^^^^^^
-
-The Helfertool tries to send mails to localhost:25 with the default configuration.
-
-If you work on a feature that sends e-mails, you can start a SMTP debug server with this command:
-
-.. code-block:: none
-
-   python3 -m smtpd -n -c DebuggingServer localhost:1025
-
-Additionally, set the SMTP port to 1025 in ``helfertool.yaml``:
-
-.. code-block:: none
-
-   mail:
-       send:
-           host: "localhost"
-           port: 1025
-
-The advantage of this method compared to the console e-mail backend from Django is, that you also see the mails sent in Celery tasks in the same window.
-
-Optional: PostgreSQL
-^^^^^^^^^^^^^^^^^^^^
+PostgreSQL
+^^^^^^^^^^
 
 There is one feature that does not work with SQLite: the similarity based helper search.
 If you want to work on exactly this feature, you could get a PostgreSQL server via Docker:
@@ -159,13 +174,23 @@ And the database settings need to be changed in ``helfertool.yaml``:
        host: 127.0.0.1
        port: 5432
 
-Optional: Editor
-^^^^^^^^^^^^^^^^
+Syslog
+^^^^^^
 
-In case you do not have a preferred editor or IDE for Python, give `Visual Studio Code <https://code.visualstudio.com/>`_ a try.
-It detects the virtual environment automatically and activates it when a new terminal is opened.
+If the syslog output needs to be tested, you can run a simple "syslog receiver" with `ncat`:
 
-Just open the main ``helfertool`` directory as folder and it should work out of the box.
+.. code-block:: none
+
+   ncat -ul 5140
+
+Additionally, the syslog output needs to be enabled in ``helfertool.yaml``:
+
+.. code-block:: none
+
+   syslog:
+       server: 'localhost'
+       port: 5140
+       protocol: 'udp'
 
 Updating
 --------

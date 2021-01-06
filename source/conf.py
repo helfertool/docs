@@ -49,7 +49,7 @@ master_doc = 'index'
 project = u'Helfertool'
 
 import datetime
-copyright = str(datetime.datetime.now().year)
+copyright = "2015 - {},  Sven Hertle and contributors".format(datetime.datetime.now().year)
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
