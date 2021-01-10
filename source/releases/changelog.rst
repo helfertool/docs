@@ -6,7 +6,7 @@ Changelog
 
 .. _changelog-1-2-0:
 
-1.2.0 (unrelased)
+1.2.0 (2021-01-10)
 ------------------
 
 * Helfertool features like badges can be disabled globally (see :ref:`here <configuration-features>`)
