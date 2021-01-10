@@ -6,5 +6,8 @@ Session.vim
 .netrwhist
 *~
 
+# other editors
+/.vscode
+
 # sphinx
 /build/

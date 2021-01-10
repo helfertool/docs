@@ -331,12 +331,38 @@ The syslog forwarding can be used additionally.
            # Log level that will be sent to syslog: INFO, WARNING, ERROR
            level: 'INFO'
 
-           # Server and port
+           # Server, port and protocol
+           # UDP is recommended. With TCP, the syslog server needs to run and accept connections when the Helfertool is started.
            server: 'localhost'
            port: 514
+           protocol: 'udp'
 
            # Syslog facility to use
            facility: 'local7'
+
+.. _configuration-logging-database:
+
+Database
+^^^^^^^^
+
+.. note::
+
+   This feature is available since version 1.2.
+
+
+The log entries, which belong to an event, are additionally stored in the database and can be viewed by event admins.
+Other log entries like logins or password changes, which do not belong to a particular event,
+are not stored in the database (see previous section for syslog and log files).
+
+The stored log entries are deleted when an event is archived.
+
+The database logging can be disabled:
+
+.. code-block:: none
+
+   # Store all event-related events in the database.
+   # The log entries are only stored as long as the event exists and are deleted with the event.
+   #database: true
 
 Security settings
 -----------------
@@ -369,6 +395,34 @@ Security settings
 
        # Minimal password length (for local accounts)
        password_length: 12
+
+.. _configuration-features:
+
+Features
+--------
+
+.. note::
+
+   These configuration options are available since version 1.2.
+
+Helfertool features can be disabled globally which means that the feature cannot be enabled at all.
+
+If a flag is changed to disabled, all events are modified automatically after a reload (note for custom installations: this requires Celery).
+Enabling a feature does not change event settings.
+
+.. code-block:: none
+
+   features:
+       # Collect mail addresses for newsletter.
+       # This also disables the unsubscribe link. If the feature was used previously and is now disabled,
+       # you should take care of the stored data (greetings from GDPR)
+       newsletter: true
+   
+       # Further features
+       badges: true
+       gifts: true
+       prerequisites: true
+       inventory: true
 
 Customization
 -------------
@@ -419,6 +473,9 @@ Badge settings
 
        # Maximum photo size in kb
        photo_max_size: 1000
+
+       # Maximum number of copies for special badges
+       special_badges_max: 50
 
        # Time until PDF file is deleted after it was created in minutes
        pdf_timeout: 30

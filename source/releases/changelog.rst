@@ -9,7 +9,17 @@ Changelog
 1.2.0 (unrelased)
 ------------------
 
-* ...
+* Helfertool features like badges can be disabled globally (see :ref:`here <configuration-features>`)
+* Introduce special badges which are not associated with helpers and numbered serially, for example: Police 1, Police 2, etc.
+* Badge barcode numbers start at 1000 (for existing events, there will be a gap of 1000 in the numbers)
+* Shifts can be printed on badges (a list of all shifts is generated, there are different format options)
+* When merging duplicated helpers, selected helpers can be ignored and kept as duplicates
+* T-Shirt statistics are kept when event if archived (only total numbers, not per job)
+* Admin view for past events which are not archived added
+* Audit log for events is stored in database and can be viewed in web interface (can be disabled, see :ref:`here <configuration-logging-database>`)
+* Removed ``X-Real-IP`` header from "Check installation" page as it is not used and added remote IP instead.
+* Set ``HttpOnly`` and ``Secure`` flags for language cookie (was already set for session and CSRF cookies)
+* Updated `example nginx config <https://github.com/helfertool/helfertool/blob/v1.2.0/deployment/proxy/nginx.conf>`_ (enabled TLS1.3, updated X- headers)
 
 .. _changelog-1-1-0:
 
