@@ -4,6 +4,13 @@
 Changelog
 =========
 
+.. _changelog-1-2-1:
+
+1.2.1 (2021-01-12)
+------------------
+
+* Fixed bug in event permission system (crash due to typo)
+
 .. _changelog-1-2-0:
 
 1.2.0 (2021-01-10)
