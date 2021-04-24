@@ -114,6 +114,9 @@ The following features currently make use of Celery and RabbitMQ:
 * Generating badges
 * Sending the newsletter
 * Receiving and handling incoming mails
+* Some tasks like scaling an image
+
+If you notice strange freezes of the Helfertool during development, it may try to put a message (i.e. a Celery task) into the queue.
 
 An easy way to run RabbitMQ is using Docker:
 
