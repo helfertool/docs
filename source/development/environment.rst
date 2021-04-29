@@ -31,6 +31,15 @@ Then, create a Python virtual environment and install all dependencies:
 
    pip install -r src/requirements.txt -r src/requirements_dev.txt
 
+Additional dependencies
+^^^^^^^^^^^^^^^^^^^^^^^
+
+Additionally, the SASS processor `sassc` is required. On Debian/Ubuntu, install it with:
+
+.. code-block:: none
+
+   sudo apt install sassc
+
 First run
 ^^^^^^^^^
 
