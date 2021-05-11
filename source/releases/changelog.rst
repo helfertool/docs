@@ -4,6 +4,13 @@
 Changelog
 =========
 
+.. _changelog-1-2-2:
+
+1.2.2 (2021-05-11)
+------------------
+
+* Update chart.js due to CVE-2020-7746 (but no risk for Helfertool)
+
 .. _changelog-1-2-1:
 
 1.2.1 (2021-01-12)
