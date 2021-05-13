@@ -17,11 +17,11 @@ Git
 ---
 
 The following describes the steps for a new release series (like ``1.1.x``).
-For patch releases of LTS versions, replace the ``dev`` branch with another temporary branch and ``master`` with ``lts/...``.
+For patch releases of LTS versions, replace the ``dev`` branch with another temporary branch and ``main`` with ``lts/...``.
 
-Rebase the ``dev`` branch to the ``master`` first.
+Rebase the ``dev`` branch to the ``main`` first.
 Then, check that the version is correctly set in the following files.
-It needs to be the latest version of the ``master`` branch (like ``1.0.2``).
+It needs to be the latest version of the ``main`` branch (like ``1.0.2``).
 
 * ``.bumpversion.cfg``
 * ``src/version.txt``
@@ -51,7 +51,7 @@ If this is ok, merge the branch and also push the tags:
 
 .. code-block:: none
 
-   git checkout master
+   git checkout main
    git merge dev
    git push
    git push --tags

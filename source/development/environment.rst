@@ -15,7 +15,7 @@ Get source code
 ^^^^^^^^^^^^^^^
 
 First, get the source code of the Helfertool.
-Please always start your changed from the ``dev`` branch, not from ``master`` (rebasing becomes easier then).
+Please always start your changed from the ``dev`` branch, not from ``main`` (rebasing becomes easier then).
 
 .. code-block:: none
 

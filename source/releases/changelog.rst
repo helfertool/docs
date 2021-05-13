@@ -4,6 +4,13 @@
 Changelog
 =========
 
+.. _changelog-1-2-3:
+
+1.2.3 (2021-05-13)
+------------------
+
+* Fix bug in event handler for failed logins (event was not created successfully)
+
 .. _changelog-1-2-2:
 
 1.2.2 (2021-05-11)

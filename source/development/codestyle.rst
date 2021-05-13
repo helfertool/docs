@@ -28,4 +28,4 @@ SonarQube
 ---------
 
 We use `SonarQube <https://sonarcloud.io/dashboard?id=helfertool_helfertool>`_ for static code analysis,
-the master branch and all pull requests are analyzed automatically.
+the main branch and all pull requests are analyzed automatically.
