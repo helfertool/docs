@@ -25,13 +25,13 @@ Only the ``public`` directory is served directly without access control.
 
 The migration is implemented as management command. If you use `helfertoolctl`, run:
 
-.. code::
+.. code-block::
 
     helfertoolctl manage migrate_files
 
 For manual deployments, run:
 
-.. code::
+.. code-block::
 
     python manage.py migrate_files
 
@@ -62,7 +62,7 @@ If you access the same instance on ``www.app.helfertool.org`` instead, the link 
 It may be desirable that the same URL is used always. This can be achived with a redirect in the reverse proxy.
 For nginx, the example config contains:
 
-.. code::
+.. code-block::
 
     # redirect to "app.helfertool.org" if necessary (without www)
     if ($host != 'app.helfertool.org') {

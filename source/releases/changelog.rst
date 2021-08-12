@@ -26,7 +26,7 @@ Have a look at the :ref:`migration guide <migration-2-0-0>` before the update.
 * New fully responsive web design and inclusive language (German)
 * More detailed nutrition options and views (no preference, vegetarian, vegan, other)
 * Add configuration option to set `SameSite` attribute to `Lax`, which is necessary if OpenID Connect provider
-  is hosted on other domain (`oidc` > `provider` > `is_foreign_tld`)
+  is hosted on other domain (`oidc` > `provider` > `thirdparty_domain`)
 * Add form to delete users
 * Default account lockout limit is increased to 5
 * Bug fix: mail receiving now handles missing `To` and `From` headers

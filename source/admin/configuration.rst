@@ -252,6 +252,11 @@ If the ``admin`` configuration is not present, the admin privilege is not touche
                client_id: "helfertool"
                client_secret: "<SECRET>"
 
+               # Controls the session cookie SameSite attribute, forcing it to "Lax". This is necessary if your OIDC provider
+               # resides on a different top level domain name than the Helfertool (error message: "You are not allowed to login")
+               # Set it to true in this case.
+               thirdparty_domain: false
+
            # Permissions based on claims
            claims:
                # There are two types to handle claims
@@ -388,7 +393,7 @@ Security settings
        # Account lockout
        lockout:
            # Number of failed login attempts until lockout
-           limit: 3
+           limit: 5
 
            # Lockout duration in minutes
            time: 10
@@ -483,6 +488,16 @@ Badge settings
        # Time until files are really deleted after cleanup was triggered
        # in minutes
        rm_delay: 2
+
+Newsletter settings
+-------------------
+
+.. code-block:: none
+
+   newsletter:
+       # Newsletter subscriptions need to be confirmed with by clicking on a link.
+       # This setting specifies how long the link is valid (days). Afterwards, the mail address is deleted.
+       subscribe_deadline: 3
 
 Additional settings without Docker
 ----------------------------------
