@@ -4,6 +4,36 @@
 Changelog
 =========
 
+.. _changelog-2-0-0:
+
+2.0.0 (unreleased)
+------------------
+
+* Breaking change: e-mail validation after registration cannot be disabled anymore (see next item)
+* Breaking change: Double opt-in for newsletter subscription
+
+  * Subscription without event registration: separate e-mail
+  * Subscription during event registration: link in confirmation mail (therefore, it cannot be disabled anymore)
+  * New setting for text, that is displayed on subscribe page
+
+* Breaking change: Improved access control for media files
+
+  * Uploaded files are now separated into `public` and `private` files
+  * One-time migration after update via managemet command necessary
+
+* New fully responsive web design and inclusive language (German)
+* More detailed nutrition options and views (no preference, vegetarian, vegan, other)
+* Add configuration option to set `SameSite` attribute to `Lax`, which is necessary if OpenID Connect provider
+  is hosted on other domain (`oidc` > `provider` > `is_foreign_tld`)
+* Add form to delete users
+* Default account lockout limit is increased to 5
+* Bug fix: mail receiving now handles missing `To` and `From` headers
+* Bug fix: status of IMAP connection now displayed on status page
+* Bug fix: certain shifts were displayed on wrong day due to timezone bug
+* Bug fix: administrators, which were configured via the admin interface, can access the Django admin interface now
+* Bug fix: block certain event URL names that collide with other URLs (like `subscribe`)
+* Updated HTTP security and caching headers (Only relevant if you do not use the Docker container. In this case, check the diffs in the nginx config)
+
 .. _changelog-1-2-3:
 
 1.2.3 (2021-05-13)
