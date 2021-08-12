@@ -9,6 +9,8 @@ Changelog
 2.0.0 (unreleased)
 ------------------
 
+Have a look at the :ref:`migration guide <migration-2-0-0>` before the update.
+
 * Breaking change: e-mail validation after registration cannot be disabled anymore (see next item)
 * Breaking change: Double opt-in for newsletter subscription
 

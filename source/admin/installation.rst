@@ -180,6 +180,13 @@ The following section describes the setup with Apache and Nginx, but you
 could also use tools like HAProxy or Varnish.
 Nginx is the recommended choice as reverse proxy.
 
+.. note::
+   Helfertool uses the domain, which is used to access the page, to generate URLs for e-mails.
+   If your instance is reachable with different domain names, this may be confusing.
+
+   It may be desirable that the same URL is used always. This can be achived with a redirect in the reverse proxy.
+   The nginx configuration below contains this redirect.
+
 Nginx
 ^^^^^
 
