@@ -6,7 +6,7 @@ Changelog
 
 .. _changelog-2-0-0:
 
-2.0.0 (unreleased)
+2.0.0 (2021-08-14)
 ------------------
 
 Have a look at the :ref:`migration guide <migration-2-0-0>` before the update.
