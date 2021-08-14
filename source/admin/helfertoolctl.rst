@@ -122,6 +122,15 @@ To create a new administrator account using the command line, run:
 
    sudo helfertoolctl createadmin
 
+Add example event
+^^^^^^^^^^^^^^^^^
+
+In case you want to have a test event with most features enables, you can run:
+
+.. code-block:: none
+
+   sudo helfertoolctl exampledata
+
 Show some statistics
 ^^^^^^^^^^^^^^^^^^^^
 
