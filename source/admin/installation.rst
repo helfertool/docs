@@ -4,7 +4,7 @@
 Installation
 ============
 
-This installation guide is written for Debian Buster.
+This installation guide is written for Debian Bullseye.
 
 Docker and helfertoolctl
 ------------------------
@@ -15,9 +15,9 @@ The `helfertoolctl` package can be installed from the Debian repository https://
 
 .. code-block:: none
 
-   sudo apt install dirmngr
+   sudo apt install gnupg
 
-   echo "deb https://repo.helfertool.org/debian/ buster main" | sudo tee /etc/apt/sources.list.d/helfertool.list
+   echo "deb https://repo.helfertool.org/debian/ bullseye main" | sudo tee /etc/apt/sources.list.d/helfertool.list
 
    sudo apt-key adv --recv-keys FA1023F9F6AC494F
 
@@ -44,8 +44,7 @@ Then create an user and database:
    sudo -u postgres createuser -P helfertool
    sudo -u postgres createdb -O helfertool helfertool
 
-Starting with version 1.1, the Helfertool will support similarity based search, which requires the
-extension ``pg_trgm``.
+The Helfertool supports similarity based search, which requires the extension ``pg_trgm``.
 You can enable the extension already, but it is not required:
 
 .. code-block:: none
@@ -58,12 +57,12 @@ By default, PostgreSQL only listens to localhost. To allow access from the Docke
 the following configuration files need to be modified:
 
 .. code-block:: none
-   :caption: /etc/postgresql/11/main/postgresql.conf
+   :caption: /etc/postgresql/13/main/postgresql.conf
 
    listen_addresses = '*'
 
 .. code-block:: none
-   :caption: /etc/postgresql/11/main/pg_hba.conf
+   :caption: /etc/postgresql/13/main/pg_hba.conf
 
    # connection from docker container
    host    all             all             172.17.0.0/16           md5
@@ -122,12 +121,13 @@ Choose version and container download
 -------------------------------------
 
 By default, the ``latest`` tag is used (see :ref:`versions and tags <versions_tags>`).
-The used Docker tag can be changed in ``/etc/default/helfertool``, for example for the LTS version ``1.0.x``:
+
+If you want to, the used Docker tag can be changed in ``/etc/default/helfertool``, for example:
 
 .. code-block:: none
    :caption: /etc/default/helfertool
 
-   HELFERTOOL_DOCKER_IMAGE="helfertool/helfertool:1.0.x"
+   HELFERTOOL_DOCKER_IMAGE="helfertool/helfertool:2.0.x"
 
 Then download the Helfertool container:
 
