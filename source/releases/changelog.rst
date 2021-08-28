@@ -4,6 +4,13 @@
 Changelog
 =========
 
+.. _changelog-2-0-1:
+
+2.0.1 (2021-08-28)
+------------------
+
+* Fixed crash in edit/create event view
+
 .. _changelog-2-0-0:
 
 2.0.0 (2021-08-14)
