@@ -4,6 +4,13 @@
 Changelog
 =========
 
+.. _changelog-2-1-0:
+
+2.1.0 (2021-10-02)
+------------------
+
+* Add feature to collect addresses for COVID-19 contact tracing
+
 .. _changelog-2-0-1:
 
 2.0.1 (2021-08-28)

@@ -46,6 +46,9 @@ The timezone currently can only be set for the whole Helfertool, not per event.
        # Timezone
        timezone: "Europe/Berlin"
 
+       # Default country for Corona contact tracing (ISO-3166-1)
+       country: "DE"
+
 Database
 --------
 
@@ -428,6 +431,7 @@ Enabling a feature does not change event settings.
        gifts: true
        prerequisites: true
        inventory: true
+       corona: true
 
 Customization
 -------------
