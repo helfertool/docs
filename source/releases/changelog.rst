@@ -4,6 +4,13 @@
 Changelog
 =========
 
+.. _changelog-2-1-1:
+
+2.1.1 (2021-10-06)
+------------------
+
+* Fix crash in event duplication if some features are disabled
+
 .. _changelog-2-1-0:
 
 2.1.0 (2021-10-02)
