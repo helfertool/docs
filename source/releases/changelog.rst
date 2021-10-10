@@ -4,6 +4,15 @@
 Changelog
 =========
 
+.. _changelog-2-1-2:
+
+2.1.2 (2021-10-10)
+------------------
+
+* Add "3G plus" COVID-19 regulation
+
+.. _changelog-2-1-0:
+
 .. _changelog-2-1-1:
 
 2.1.1 (2021-10-06)
