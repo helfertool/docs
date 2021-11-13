@@ -4,14 +4,25 @@
 Changelog
 =========
 
+.. _changelog-2-1-3:
+
+2.1.3 (2021-11-13)
+------------------
+
+* Add "2G plus" COVID-19 regulation
+* COVID-19 contact tracing information can be changed after registration (if enabled)
+* Duplication detection is not based on case-insensitive mail address comparison
+* Fix bug: Mixed columns in table of helpers
+* Fix bug: Restrict image upload to supported file types (JPG and PNG)
+* Fix bug: Event duplication also copies data of disabled features
+* Fix bug: Crop error message from undelivered mails if too long
+
 .. _changelog-2-1-2:
 
 2.1.2 (2021-10-10)
 ------------------
 
 * Add "3G plus" COVID-19 regulation
-
-.. _changelog-2-1-0:
 
 .. _changelog-2-1-1:
 

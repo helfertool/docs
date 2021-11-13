@@ -10,8 +10,6 @@ Preparation
 * Check that all migrations are created (``makemigrations``).
 * Check that all translations are done.
 * Check for changes in ``helfertool.yaml``: update docs and ``helfertoolctl``
-* Write changelog and update tables with releases (:ref:`here <versions>` and :ref:`here <version_history>`)
-* Publish news with tag ``update`` on website
 
 Git
 ---
@@ -78,6 +76,12 @@ If that worked, push the new container:
 .. code-block:: none
 
    ./script/docker.sh push
+
+Website and documentation
+-------------------------
+
+* Write changelog and update tables with releases (:ref:`here <versions>` and :ref:`here <version_history>`)
+* Publish news with tag ``update`` on website
 
 Git cleanup
 -----------
