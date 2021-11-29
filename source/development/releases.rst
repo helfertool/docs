@@ -75,7 +75,7 @@ If that worked, push the new container:
 
 .. code-block:: none
 
-   ./script/docker.sh push
+   ./scripts/docker.sh push
 
 Website and documentation
 -------------------------

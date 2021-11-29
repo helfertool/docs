@@ -4,6 +4,15 @@
 Changelog
 =========
 
+.. _changelog-2-2-0:
+
+2.2.0 (2021-11-29)
+------------------
+
+* Implement logout at OpenID Connect provider
+* Add configuration option for periodical OpenID Connect token validation
+* Fix bug: Crop error message from undelivered mails if too long
+
 .. _changelog-2-1-3:
 
 2.1.3 (2021-11-13)
