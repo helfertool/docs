@@ -4,6 +4,20 @@
 Changelog
 =========
 
+.. _changelog-2-2-1:
+
+2.2.1 (2022-01-06)
+------------------
+
+* Fix for breaking change in `Django security update <https://www.djangoproject.com/weblog/2022/jan/04/security-releases/>`_
+
+.. _changelog-1-2-4:
+
+1.2.4 (2022-01-06)
+------------------
+
+* Django update and fix for breaking change in `Django security update <https://www.djangoproject.com/weblog/2022/jan/04/security-releases/>`_
+
 .. _changelog-2-2-0:
 
 2.2.0 (2021-11-29)
