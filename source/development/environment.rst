@@ -35,6 +35,18 @@ Then, create a Python virtual environment and install all dependencies:
 
    pip install -r src/requirements.txt -r src/requirements_dev.txt
 
+pre-commit
+^^^^^^^^^^
+
+We use `pre-commit <https://pre-commit.com/>`_ to apply the code style via `black <https://black.readthedocs.io/en/stable/>`_
+and run `pylint <https://pypi.org/project/pylint//>`_.
+
+Install the pre-commit git hook:
+
+.. code-block:: none
+
+   pre-commit install
+
 First run
 ^^^^^^^^^
 

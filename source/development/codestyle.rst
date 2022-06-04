@@ -4,25 +4,23 @@
 Code style
 ==========
 
-PEP8 and pylint
----------------
+black and pre-commit
+--------------------
 
-`pylint` and `PEP8` checks are automatically done for all pull requests.
-You can also run these checks on your machine:
+We use `pre-commit <https://pre-commit.com/>`_ to apply the code style via `black <https://black.readthedocs.io/en/stable/>`_
+and run `pylint <https://pypi.org/project/pylint//>`_.
 
-.. code-block:: none
-
-   ./scripts/check-codestyle.py
-
-The Python libraries from ``src/requirements_dev.txt`` need to be installed for that.
-
-it is also possible to check a single app only to save some time:
+Install the pre-commit git hook:
 
 .. code-block:: none
 
-   ./scripts/check-codestyle.py --module registration
+   pre-commit install
 
-The maximum line length is 120 characters, not 80.
+Run manually for all files:
+
+.. code-block:: none
+
+   pre-commit run --all-files
 
 SonarQube
 ---------
