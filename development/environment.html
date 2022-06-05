@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Development environment &mdash; Documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/icon.png"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Code style" href="codestyle.html" />
+    <link rel="prev" title="Development guide" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> Helfertool
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../admin/index.html">Admin guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user/index.html">User guide</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Development guide</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Development environment</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#initial-setup">Initial setup</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#get-source-code">Get source code</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#python">Python</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pre-commit">pre-commit</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#first-run">First run</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#example-data">Example data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#optional-editor">Optional: Editor</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#further-dependencies">Further dependencies</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#e-mails">E-mails</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#celery-and-rabbitmq">Celery and RabbitMQ</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#postgresql">PostgreSQL</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#syslog">Syslog</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#updating">Updating</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="codestyle.html">Code style</a></li>
+<li class="toctree-l2"><a class="reference internal" href="translations.html">Translations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="git.html">Git branches</a></li>
+<li class="toctree-l2"><a class="reference internal" href="releases.html">Making releases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="further/index.html">Further topics</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../releases/index.html">Releases</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Helfertool</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="index.html">Development guide</a> &raquo;</li>
+      <li>Development environment</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="development-environment">
+<span id="dev-environment"></span><h1>Development environment<a class="headerlink" href="#development-environment" title="Permalink to this heading"></a></h1>
+<p>The following documentation explains how to setup the development environment on Linux.
+When the Windows Subsystem for Linux is used, it needs to be updated first to a recent Ubuntu version.
+Alternatively, you can just use a virtual machine with Linux.</p>
+<section id="initial-setup">
+<h2>Initial setup<a class="headerlink" href="#initial-setup" title="Permalink to this heading"></a></h2>
+<section id="get-source-code">
+<h3>Get source code<a class="headerlink" href="#get-source-code" title="Permalink to this heading"></a></h3>
+<p>First, get the source code of the Helfertool.
+Please always start your changed from the <code class="docutils literal notranslate"><span class="pre">dev</span></code> branch, not from <code class="docutils literal notranslate"><span class="pre">main</span></code> (rebasing becomes easier then).</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>git clone https://github.com/helfertool/helfertool.git
+cd helfertool
+git checkout dev
+</pre></div>
+</div>
+</section>
+<section id="python">
+<h3>Python<a class="headerlink" href="#python" title="Permalink to this heading"></a></h3>
+<p>Then, create a Python virtual environment and install all dependencies:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>python3 -m venv venv
+. ./venv/bin/activate
+
+pip install -r src/requirements.txt -r src/requirements_dev.txt
+</pre></div>
+</div>
+</section>
+<section id="pre-commit">
+<h3>pre-commit<a class="headerlink" href="#pre-commit" title="Permalink to this heading"></a></h3>
+<p>We use <a class="reference external" href="https://pre-commit.com/">pre-commit</a> to apply the code style via <a class="reference external" href="https://black.readthedocs.io/en/stable/">black</a>
+and run <a class="reference external" href="https://pypi.org/project/pylint//">pylint</a>.</p>
+<p>Install the pre-commit git hook:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>pre-commit install
+</pre></div>
+</div>
+</section>
+<section id="first-run">
+<h3>First run<a class="headerlink" href="#first-run" title="Permalink to this heading"></a></h3>
+<p>Before the first run, the database needs to be created. For development, SQLite is used.
+After that, the first user should be created.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>cd src
+
+python manage.py migrate
+python manage.py createcachetable
+python manage.py loaddata toolsettings
+
+python manage.py createsuperuser
+</pre></div>
+</div>
+<p>Then, the development web server can be started:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>python manage.py runserver
+</pre></div>
+</div>
+<p>Now open <a class="reference external" href="http://localhost:8000">http://localhost:8000</a> in your browser.</p>
+</section>
+<section id="example-data">
+<h3>Example data<a class="headerlink" href="#example-data" title="Permalink to this heading"></a></h3>
+<p>If you want to load some example data, run:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>python manage.py exampledata
+</pre></div>
+</div>
+</section>
+<section id="optional-editor">
+<h3>Optional: Editor<a class="headerlink" href="#optional-editor" title="Permalink to this heading"></a></h3>
+<p>In case you do not have a preferred editor or IDE for Python, give <a class="reference external" href="https://code.visualstudio.com/">Visual Studio Code</a> a try.
+It detects the virtual environment automatically and activates it when a new terminal is opened.</p>
+<p>Just open the main <code class="docutils literal notranslate"><span class="pre">helfertool</span></code> directory as folder and it should work out of the box.</p>
+</section>
+</section>
+<section id="further-dependencies">
+<h2>Further dependencies<a class="headerlink" href="#further-dependencies" title="Permalink to this heading"></a></h2>
+<p>Depending on the feature/module you want to work on, several other services may be required.
+The following sections explain how to run these services for development purposes or how to debug certain things (like mails).</p>
+<section id="e-mails">
+<h3>E-mails<a class="headerlink" href="#e-mails" title="Permalink to this heading"></a></h3>
+<p>The Helfertool tries to send mails to localhost:25 with the default configuration.</p>
+<p>If you work on a feature that sends e-mails, you can start a SMTP debug server with this command:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>python3 -m smtpd -n -c DebuggingServer localhost:1025
+</pre></div>
+</div>
+<p>Alternatively, <a class="reference external" href="https://github.com/mailhog/MailHog">MailHog</a> is highly recommended, which allows to view the received mails in a web interface.</p>
+<p>Additionally, set the SMTP port to 1025 in <code class="docutils literal notranslate"><span class="pre">helfertool.yaml</span></code>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>mail:
+    send:
+        host: &quot;localhost&quot;
+        port: 1025
+</pre></div>
+</div>
+<p>The advantage of this method compared to the console e-mail backend from Django is, that you also see the mails sent in Celery tasks in the same window.</p>
+</section>
+<section id="celery-and-rabbitmq">
+<h3>Celery and RabbitMQ<a class="headerlink" href="#celery-and-rabbitmq" title="Permalink to this heading"></a></h3>
+<p>The following features currently make use of Celery and RabbitMQ:</p>
+<ul class="simple">
+<li><p>Generating badges</p></li>
+<li><p>Sending the newsletter</p></li>
+<li><p>Receiving and handling incoming mails</p></li>
+<li><p>Some tasks like scaling an image</p></li>
+</ul>
+<p>If you notice strange freezes of the Helfertool during development, it may try to put a message (i.e. a Celery task) into the queue.</p>
+<p>An easy way to run RabbitMQ is using Docker:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>docker run -d --rm --hostname helfertool-rabbitmq --name helfertool-rabbitmq -p 127.0.0.1:5672:5672 rabbitmq
+</pre></div>
+</div>
+<p>Now start Celery:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>cd src  # we need to be in the directory with the manage.py file
+celery -A helfertool worker --loglevel=info -B
+</pre></div>
+</div>
+<p>The default settings in helfertool.yaml do not need to be changed for this setup.
+The celery worker here has the celery beat service included (<code class="docutils literal notranslate"><span class="pre">-B</span></code>).
+This is not recommended for production (see <a class="reference external" href="https://docs.celeryproject.org/en/latest/userguide/periodic-tasks.html#starting-the-scheduler">celery documentation</a>)!</p>
+<p>If you want to stop the container again, run:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>docker stop helfertool-rabbitmq
+</pre></div>
+</div>
+<p>And to update the container image, run:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>docker pull rabbitmq
+</pre></div>
+</div>
+</section>
+<section id="postgresql">
+<h3>PostgreSQL<a class="headerlink" href="#postgresql" title="Permalink to this heading"></a></h3>
+<p>There is one feature that does not work with SQLite: the similarity based helper search.
+If you want to work on exactly this feature, you could get a PostgreSQL server via Docker:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>docker run -d --rm --name helfertool-postgres -e POSTGRES_USER=helfertool -e POSTGRES_DB=helfertool -e POSTGRES_PASSWORD=password -p 127.0.0.1:5432:5432 postgres
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">pg_trgm</span></code> extension needs to be enabled afterwards:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>psql -h 127.0.0.1 -U helfertool helfertool
+
+CREATE EXTENSION pg_trgm;
+</pre></div>
+</div>
+<p>And the database settings need to be changed in <code class="docutils literal notranslate"><span class="pre">helfertool.yaml</span></code>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>database:
+    backend: &quot;postgresql&quot;
+    name: &quot;helfertool&quot;
+    user: &quot;helfertool&quot;
+    password: &quot;password&quot;
+    host: 127.0.0.1
+    port: 5432
+</pre></div>
+</div>
+</section>
+<section id="syslog">
+<h3>Syslog<a class="headerlink" href="#syslog" title="Permalink to this heading"></a></h3>
+<p>If the syslog output needs to be tested, you can run a simple “syslog receiver” with <cite>ncat</cite>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ncat -ul 5140
+</pre></div>
+</div>
+<p>Additionally, the syslog output needs to be enabled in <code class="docutils literal notranslate"><span class="pre">helfertool.yaml</span></code>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>syslog:
+    server: &#39;localhost&#39;
+    port: 5140
+    protocol: &#39;udp&#39;
+</pre></div>
+</div>
+</section>
+</section>
+<section id="updating">
+<h2>Updating<a class="headerlink" href="#updating" title="Permalink to this heading"></a></h2>
+<p>To update all Python dependencies, run:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>. ./venv/bin/activate
+pip install -U -r src/requirements.txt -r src/requirements_dev.txt
+</pre></div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="Development guide" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="codestyle.html" class="btn btn-neutral float-right" title="Code style" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2015 - 2022,  Sven Hertle and contributors.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  
+<br /><br />
+<a href="https://www.helfertool.org/impressum">Impressum</a> | <a href="https://www.helfertool.org/datenschutz">Datenschutz</a>
+
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

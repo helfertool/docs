@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Installation &mdash; Documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/icon.png"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Configuration options" href="configuration.html" />
+    <link rel="prev" title="Versions" href="versions.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> Helfertool
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Admin guide</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="versions.html">Versions</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Installation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#docker-and-helfertoolctl">Docker and helfertoolctl</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#database">Database</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#postgresql">PostgreSQL</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mariadb">MariaDB</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#rabbitmq">RabbitMQ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#choose-version-and-container-download">Choose version and container download</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#basic-configuration">Basic configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#first-start">First start</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#reverse-proxy">Reverse proxy</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#nginx">Nginx</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#apache">Apache</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#first-steps">First steps</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="configuration.html">Configuration options</a></li>
+<li class="toctree-l2"><a class="reference internal" href="updates.html">Updates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="helfertoolctl.html">helfertoolctl</a></li>
+<li class="toctree-l2"><a class="reference internal" href="further/index.html">Further topics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="migration/index.html">Migration guides</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../user/index.html">User guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../development/index.html">Development guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../releases/index.html">Releases</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Helfertool</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="index.html">Admin guide</a> &raquo;</li>
+      <li>Installation</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="installation">
+<span id="id1"></span><h1>Installation<a class="headerlink" href="#installation" title="Permalink to this heading"></a></h1>
+<p>This installation guide is written for Debian Bullseye.</p>
+<section id="docker-and-helfertoolctl">
+<h2>Docker and helfertoolctl<a class="headerlink" href="#docker-and-helfertoolctl" title="Permalink to this heading"></a></h2>
+<p>First, install Docker according to the <a class="reference external" href="https://docs.docker.com/install/linux/docker-ce/debian/">Docker documentation</a>.</p>
+<p>The <cite>helfertoolctl</cite> package can be installed from the Debian repository <a class="reference external" href="https://repo.helfertool.org/debian/">https://repo.helfertool.org/debian/</a>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>sudo apt install gnupg
+
+echo &quot;deb https://repo.helfertool.org/debian/ bullseye main&quot; | sudo tee /etc/apt/sources.list.d/helfertool.list
+
+sudo apt-key adv --recv-keys FA1023F9F6AC494F
+
+sudo apt update
+sudo apt install helfertoolctl
+</pre></div>
+</div>
+<p>The available Debian and CentOS repositories are listed in the section about <a class="reference internal" href="helfertoolctl.html#helfertoolctl"><span class="std std-ref">helfertoolctl</span></a>.</p>
+</section>
+<section id="database">
+<h2>Database<a class="headerlink" href="#database" title="Permalink to this heading"></a></h2>
+<p>PostgreSQL is the recommended database for Helfertool deployments.</p>
+<section id="postgresql">
+<h3>PostgreSQL<a class="headerlink" href="#postgresql" title="Permalink to this heading"></a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>sudo apt install postgresql
+</pre></div>
+</div>
+<p>Then create an user and database:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>sudo -u postgres createuser -P helfertool
+sudo -u postgres createdb -O helfertool helfertool
+</pre></div>
+</div>
+<p>The Helfertool supports similarity based search, which requires the extension <code class="docutils literal notranslate"><span class="pre">pg_trgm</span></code>.
+You can enable the extension already, but it is not required:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>sudo -u postgres psql helfertool
+
+CREATE EXTENSION pg_trgm;
+</pre></div>
+</div>
+<p>By default, PostgreSQL only listens to localhost. To allow access from the Docker container,
+the following configuration files need to be modified:</p>
+<div class="literal-block-wrapper docutils container" id="id2">
+<div class="code-block-caption"><span class="caption-text">/etc/postgresql/13/main/postgresql.conf</span><a class="headerlink" href="#id2" title="Permalink to this code"></a></div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>listen_addresses = &#39;*&#39;
+</pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id3">
+<div class="code-block-caption"><span class="caption-text">/etc/postgresql/13/main/pg_hba.conf</span><a class="headerlink" href="#id3" title="Permalink to this code"></a></div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span># connection from docker container
+host    all             all             172.17.0.0/16           md5
+</pre></div>
+</div>
+</div>
+<p>Then restart PostgreSQL:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>sudo systemctl restart postgresql
+</pre></div>
+</div>
+</section>
+<section id="mariadb">
+<h3>MariaDB<a class="headerlink" href="#mariadb" title="Permalink to this heading"></a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>sudo apt install mariadb-server
+</pre></div>
+</div>
+<p>Then create an user and database:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>sudo mysql
+MariaDB [(none)]&gt; CREATE DATABASE helfertool;
+MariaDB [(none)]&gt; CREATE USER helfertool IDENTIFIED BY &#39;&lt;PASSWORD&gt;&#39;;
+MariaDB [(none)]&gt; GRANT ALL PRIVILEGES ON helfertool.* TO helfertool;
+MariaDB [(none)]&gt; ALTER DATABASE helfertool CHARACTER SET utf8;
+</pre></div>
+</div>
+<p>You probably have to load the time zone tables into the database, otherwise
+you will see some strange Django errors:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>mysql_tzinfo_to_sql /usr/share/zoneinfo | sudo mysql -u root mysql
+sudo systemctl restart mysql
+</pre></div>
+</div>
+</section>
+</section>
+<section id="rabbitmq">
+<h2>RabbitMQ<a class="headerlink" href="#rabbitmq" title="Permalink to this heading"></a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>sudo apt install rabbitmq-server
+</pre></div>
+</div>
+<p>A new user and virtualhost should be created in RabbitMQ, additionally the
+default user <code class="docutils literal notranslate"><span class="pre">guest</span></code> should be deleted for security reasons.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>sudo rabbitmqctl add_user helfertool &lt;PASSWORD&gt;
+sudo rabbitmqctl add_vhost helfertool
+sudo rabbitmqctl set_permissions -p helfertool helfertool &#39;.*&#39; &#39;.*&#39; &#39;.*&#39;
+sudo rabbitmqctl delete_user guest
+</pre></div>
+</div>
+</section>
+<section id="choose-version-and-container-download">
+<h2>Choose version and container download<a class="headerlink" href="#choose-version-and-container-download" title="Permalink to this heading"></a></h2>
+<p>By default, the <code class="docutils literal notranslate"><span class="pre">latest</span></code> tag is used (see <a class="reference internal" href="versions.html#versions-tags"><span class="std std-ref">versions and tags</span></a>).</p>
+<p>If you want to, the used Docker tag can be changed in <code class="docutils literal notranslate"><span class="pre">/etc/default/helfertool</span></code>, for example:</p>
+<div class="literal-block-wrapper docutils container" id="id4">
+<div class="code-block-caption"><span class="caption-text">/etc/default/helfertool</span><a class="headerlink" href="#id4" title="Permalink to this code"></a></div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>HELFERTOOL_DOCKER_IMAGE=&quot;helfertool/helfertool:2.0.x&quot;
+</pre></div>
+</div>
+</div>
+<p>Then download the Helfertool container:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>sudo helfertoolctl download
+</pre></div>
+</div>
+</section>
+<section id="basic-configuration">
+<h2>Basic configuration<a class="headerlink" href="#basic-configuration" title="Permalink to this heading"></a></h2>
+<p>Now edit the configuration file <code class="docutils literal notranslate"><span class="pre">/etc/helfertool/helfertool.yaml</span></code> and
+configure at least the following settings:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Database</p></li>
+<li><p>RabbitMQ</p></li>
+<li><p>Mail server</p></li>
+<li><p>Secret key (<code class="docutils literal notranslate"><span class="pre">security</span></code> &gt; <code class="docutils literal notranslate"><span class="pre">secret</span></code>)</p></li>
+<li><p>Allowed hosts (<code class="docutils literal notranslate"><span class="pre">security</span></code> &gt; <code class="docutils literal notranslate"><span class="pre">allowed_hosts</span></code>)</p></li>
+</ul>
+</div></blockquote>
+<p>Details about the configuration file can be found <a class="reference internal" href="configuration.html#configuration"><span class="std std-ref">here</span></a>.</p>
+</section>
+<section id="first-start">
+<h2>First start<a class="headerlink" href="#first-start" title="Permalink to this heading"></a></h2>
+<p>Now is is time for the first start of the Helfertool, we should also enable the autostart here:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>sudo systemctl enable --now helfertool
+</pre></div>
+</div>
+<p>To check the progress, you can use <code class="docutils literal notranslate"><span class="pre">journalctl</span></code>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>sudo journalctl -f -u helfertool
+</pre></div>
+</div>
+<p>On the first start, the database migration are applied and after that the container is running and
+listens on port 8000 (on localhost only by default).
+Due to the set headers, the Helfertool is not usable without TLS, so the reverse proxy needs
+to be configured.</p>
+</section>
+<section id="reverse-proxy">
+<h2>Reverse proxy<a class="headerlink" href="#reverse-proxy" title="Permalink to this heading"></a></h2>
+<p>The webserver works as reverse proxy in front of the Docker container and
+terminates the TLS connection.
+The following section describes the setup with Apache and Nginx, but you
+could also use tools like HAProxy or Varnish.
+Nginx is the recommended choice as reverse proxy.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Helfertool uses the domain, which is used to access the page, to generate URLs for e-mails.
+If your instance is reachable with different domain names, this may be confusing.</p>
+<p>It may be desirable that the same URL is used always. This can be achived with a redirect in the reverse proxy.
+The nginx configuration below contains this redirect.</p>
+</div>
+<section id="nginx">
+<h3>Nginx<a class="headerlink" href="#nginx" title="Permalink to this heading"></a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>sudo apt install nginx
+</pre></div>
+</div>
+<p>Place the configuration in <code class="docutils literal notranslate"><span class="pre">/etc/nginx/sites-available/helfertool.conf</span></code>,
+review and adapt the settings carefully.</p>
+<div class="literal-block-wrapper docutils container" id="id5">
+<div class="code-block-caption"><span class="caption-text">/etc/nginx/sites-available/helfertool.conf</span><a class="headerlink" href="#id5" title="Permalink to this code"></a></div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>upstream helfertool {
+        server 127.0.0.1:8000;
+}
+
+server {
+        # server info
+        listen 80 default_server;
+        listen [::]:80 default_server;
+
+        server_name app.helfertool.org www.app.helfertool.org;
+        server_tokens off;
+
+        # redirect to https
+        return 301 https://$server_name$request_uri;
+
+        # logging
+        access_log /var/log/nginx/helfertool.log;
+        error_log /var/log/nginx/helfertool_error.log error;
+}
+
+server {
+        # server info
+        listen 443 ssl http2 default_server;
+        listen [::]:443 ssl http2 default_server;
+
+
+        # tls config
+        ssl_certificate /etc/letsencrypt/live/app.helfertool.org/chain.pem;
+        ssl_certificate_key /etc/letsencrypt/live/app.helfertool.org/privkey.pem;
+
+        ssl_protocols TLSv1.2 TLSv1.3;
+        ssl_ciphers ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-CHACHA20-POLY1305:ECDHE-RSA-CHACHA20-POLY1305:DHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384;
+        ssl_prefer_server_ciphers off;
+
+        add_header Strict-Transport-Security &quot;max-age=15552000&quot;;
+
+        ssl_stapling on;
+        ssl_stapling_verify on;
+
+        # redirect to &quot;app.helfertool.org&quot; if necessary (without www)
+        if ($host != &#39;app.helfertool.org&#39;) {
+                return 301 https://app.helfertool.org$request_uri;
+        }
+
+        # proxy
+        location / {
+                proxy_pass http://helfertool;
+
+                proxy_redirect     off;
+
+                proxy_set_header Host $host;
+                proxy_set_header X-Forwarded-For $remote_addr;
+                proxy_set_header X-Forwarded-Proto $scheme;
+        }
+
+        # proxy error page
+        error_page 502 /unavailable.html;
+
+        location = /unavailable.html {
+                root /usr/share/helfertool/;
+                internal;
+        }
+
+        # post size
+        client_max_body_size 50M;
+
+        # logging
+        access_log /var/log/nginx/helfertool.log;
+        error_log /var/log/nginx/helfertool_error.log error;
+}
+</pre></div>
+</div>
+</div>
+<p>Then activate the new vHost and if necessary disable the default vHost.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>sudo ln -s /etc/nginx/sites-available/helfertool.conf /etc/nginx/sites-enabled/helfertool.conf
+sudo rm /etc/nginx/sites-enabled/default
+sudo systemctl restart nginx
+</pre></div>
+</div>
+</section>
+<section id="apache">
+<h3>Apache<a class="headerlink" href="#apache" title="Permalink to this heading"></a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>sudo apt install apache2
+</pre></div>
+</div>
+<p>Place the configuration in <code class="docutils literal notranslate"><span class="pre">/etc/apache2/sites-available/helfertool.conf</span></code>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This configuration example is missing, sorry!</p>
+</div>
+<p>The Apache module remoteip needs to be enabled.
+Then activate the new vHost and if necessary disable the default vHost.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>sudo a2enmod remoteip
+
+sudo a2ensite helfertool.conf
+sudo a2dissite 000-default.conf  # for a new apache installation
+sudo a2enmod rewrite ssl headers
+sudo systemctl restart apache2
+</pre></div>
+</div>
+</section>
+</section>
+<section id="first-steps">
+<h2>First steps<a class="headerlink" href="#first-steps" title="Permalink to this heading"></a></h2>
+<p>Try to access the website, it should work now!</p>
+<p>To finalize the installation and create an admin account, run:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>sudo helfertoolctl init
+sudo helfertoolctl createadmin
+</pre></div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="versions.html" class="btn btn-neutral float-left" title="Versions" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="configuration.html" class="btn btn-neutral float-right" title="Configuration options" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2015 - 2022,  Sven Hertle and contributors.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  
+<br /><br />
+<a href="https://www.helfertool.org/impressum">Impressum</a> | <a href="https://www.helfertool.org/datenschutz">Datenschutz</a>
+
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

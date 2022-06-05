@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Making releases &mdash; Documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/icon.png"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Further topics" href="further/index.html" />
+    <link rel="prev" title="Git branches" href="git.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> Helfertool
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../admin/index.html">Admin guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user/index.html">User guide</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Development guide</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="environment.html">Development environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="codestyle.html">Code style</a></li>
+<li class="toctree-l2"><a class="reference internal" href="translations.html">Translations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="git.html">Git branches</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Making releases</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#preparation">Preparation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#git">Git</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#docker">Docker</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#website-and-documentation">Website and documentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#git-cleanup">Git cleanup</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="further/index.html">Further topics</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../releases/index.html">Releases</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Helfertool</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="index.html">Development guide</a> &raquo;</li>
+      <li>Making releases</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="making-releases">
+<span id="releases"></span><h1>Making releases<a class="headerlink" href="#making-releases" title="Permalink to this heading"></a></h1>
+<section id="preparation">
+<h2>Preparation<a class="headerlink" href="#preparation" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>Check that all migrations are created (<code class="docutils literal notranslate"><span class="pre">makemigrations</span></code>).</p></li>
+<li><p>Check that all translations are done.</p></li>
+<li><p>Check for changes in <code class="docutils literal notranslate"><span class="pre">helfertool.yaml</span></code>: update docs and <code class="docutils literal notranslate"><span class="pre">helfertoolctl</span></code></p></li>
+</ul>
+</section>
+<section id="git">
+<h2>Git<a class="headerlink" href="#git" title="Permalink to this heading"></a></h2>
+<p>The following describes the steps for a new release series (like <code class="docutils literal notranslate"><span class="pre">1.1.x</span></code>).
+For patch releases of LTS versions, replace the <code class="docutils literal notranslate"><span class="pre">dev</span></code> branch with another temporary branch and <code class="docutils literal notranslate"><span class="pre">main</span></code> with <code class="docutils literal notranslate"><span class="pre">lts/...</span></code>.</p>
+<p>Rebase the <code class="docutils literal notranslate"><span class="pre">dev</span></code> branch to the <code class="docutils literal notranslate"><span class="pre">main</span></code> first.
+Then, check that the version is correctly set in the following files.
+It needs to be the latest version of the <code class="docutils literal notranslate"><span class="pre">main</span></code> branch (like <code class="docutils literal notranslate"><span class="pre">1.0.2</span></code>).</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">.bumpversion.cfg</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">src/version.txt</span></code></p></li>
+</ul>
+<p>A commit of the changes is not necessary.</p>
+<p>Then create the new version:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>bump2version --allow-dirty major|minor|patch
+</pre></div>
+</div>
+<p>Check the git log:</p>
+<ul class="simple">
+<li><p>There should be a new commit and tag.</p></li>
+<li><p>The commit should only change the version in the two files listed above, nothing else.</p></li>
+</ul>
+<p>Push the branch, but not the tag:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>git push
+</pre></div>
+</div>
+<p>Create a pull request on Github, so that the final code quality checks are started.</p>
+<p>If this is ok, merge the branch and also push the tags:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>git checkout main
+git merge dev
+git push
+git push --tags
+</pre></div>
+</div>
+</section>
+<section id="docker">
+<h2>Docker<a class="headerlink" href="#docker" title="Permalink to this heading"></a></h2>
+<p>The, the Docker container need to be build, tested and pushed:</p>
+<p>First, build the container from scratch:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>./scripts/docker.sh build
+</pre></div>
+</div>
+<p>Then run it to see if every services starts, check <a class="reference external" href="http://localhost:8000">http://localhost:8000</a> in your browser:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>./scripts/docker.sh test
+</pre></div>
+</div>
+<p>If that worked, push the new container:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>./scripts/docker.sh push
+</pre></div>
+</div>
+</section>
+<section id="website-and-documentation">
+<h2>Website and documentation<a class="headerlink" href="#website-and-documentation" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>Write changelog and update tables with releases (<a class="reference internal" href="../admin/versions.html#versions"><span class="std std-ref">here</span></a> and <a class="reference internal" href="../releases/history.html#version-history"><span class="std std-ref">here</span></a>)</p></li>
+<li><p>Publish news with tag <code class="docutils literal notranslate"><span class="pre">update</span></code> on website</p></li>
+</ul>
+</section>
+<section id="git-cleanup">
+<h2>Git cleanup<a class="headerlink" href="#git-cleanup" title="Permalink to this heading"></a></h2>
+<p>In the <code class="docutils literal notranslate"><span class="pre">dev</span></code> branch, the version in <code class="docutils literal notranslate"><span class="pre">src/vesion.txt</span></code> needs to be set to <code class="docutils literal notranslate"><span class="pre">dev</span></code> again.
+Commit this change to the <code class="docutils literal notranslate"><span class="pre">dev</span></code> branch.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="git.html" class="btn btn-neutral float-left" title="Git branches" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="further/index.html" class="btn btn-neutral float-right" title="Further topics" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2015 - 2022,  Sven Hertle and contributors.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  
+<br /><br />
+<a href="https://www.helfertool.org/impressum">Impressum</a> | <a href="https://www.helfertool.org/datenschutz">Datenschutz</a>
+
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

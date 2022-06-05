@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Permissions and access control &mdash; Documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/icon.png"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Links" href="links.html" />
+    <link rel="prev" title="Manage jobs and shifts" href="jobs-and-shifts.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> Helfertool
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../admin/index.html">Admin guide</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">User guide</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="new-event.html">Create a new event</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jobs-and-shifts.html">Manage jobs and shifts</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Permissions and access control</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#event">Event</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#admins">Admins</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#job-admins">Job admins</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#global-permissions">Global permissions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id1">Inventory</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="links.html">Links</a></li>
+<li class="toctree-l2"><a class="reference internal" href="badges/index.html">Badges</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gifts.html">Gifts and attendance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="inventory.html">Inventory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="prerequisites.html">Prerequisites</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../development/index.html">Development guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../releases/index.html">Releases</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Helfertool</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="index.html">User guide</a> &raquo;</li>
+      <li>Permissions and access control</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="permissions-and-access-control">
+<span id="access-control"></span><h1>Permissions and access control<a class="headerlink" href="#permissions-and-access-control" title="Permalink to this heading"></a></h1>
+<section id="event">
+<h2>Event<a class="headerlink" href="#event" title="Permalink to this heading"></a></h2>
+<section id="admins">
+<h3>Admins<a class="headerlink" href="#admins" title="Permalink to this heading"></a></h3>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The different admin roles on event level are introduced in version 1.1.</p>
+</div>
+<p>There are different admin roles for an event:</p>
+<section id="administrator">
+<h4>Administrator<a class="headerlink" href="#administrator" title="Permalink to this heading"></a></h4>
+<p>Can do everything with the event, including deletion and permissions changes.</p>
+</section>
+<section id="restricted-administrator">
+<h4>Restricted administrator<a class="headerlink" href="#restricted-administrator" title="Permalink to this heading"></a></h4>
+<p>Can manage helpers and all related features, but not change the event settings. The user can not:</p>
+<ul class="simple">
+<li><p>Edit or delete the event itself</p></li>
+<li><p>Create or change links</p></li>
+<li><p>Change jobs or shifts</p></li>
+<li><p>Change inventory, badges, gifts or prerequisite settings</p></li>
+<li><p>Access data for COVID-19 contact tracing</p></li>
+<li><p>View the audit log</p></li>
+</ul>
+</section>
+<section id="front-desk">
+<h4>Front desk<a class="headerlink" href="#front-desk" title="Permalink to this heading"></a></h4>
+<p>Can read all helper data, resend the confirmation mail, edit the internal comment and change the delivered
+gifts of the helpers. The user cannot change the presence or any other data.</p>
+</section>
+<section id="inventory">
+<h4>Inventory<a class="headerlink" href="#inventory" title="Permalink to this heading"></a></h4>
+<p>Can read all helper data and register or take back inventory items.</p>
+</section>
+<section id="badges">
+<h4>Badges<a class="headerlink" href="#badges" title="Permalink to this heading"></a></h4>
+<p>Can print and register badges.</p>
+</section>
+</section>
+<section id="job-admins">
+<h3>Job admins<a class="headerlink" href="#job-admins" title="Permalink to this heading"></a></h3>
+<p>When editing an job you can add the so called <em>job admins</em>. These users can
+see and edit the helpers for a specific job. Here is a list of things they
+can or cannot do:</p>
+<section id="can-do">
+<h4>Can do<a class="headerlink" href="#can-do" title="Permalink to this heading"></a></h4>
+<ul class="simple">
+<li><p>View the number of helpers for all jobs and shifts</p></li>
+<li><p>Add helpers to their job, also before the registration is open</p></li>
+<li><p>Edit or delete helpers of their job</p></li>
+<li><p>Search helpers (will list also helpers of other jobs, only the name is
+visible)</p></li>
+<li><p>View the names, phone numbers and mail addresses of all coordinators of the
+event</p></li>
+<li><p>Send mails to the helpers and coordinators of their job</p></li>
+<li><p>View the T-shirt statistic of their job</p></li>
+</ul>
+</section>
+<section id="cannot-do">
+<h4>Cannot do<a class="headerlink" href="#cannot-do" title="Permalink to this heading"></a></h4>
+<ul class="simple">
+<li><p>Edit the event</p></li>
+<li><p>Edit the job and shifts (e.g. change the number of helpers)</p></li>
+<li><p>Create links</p></li>
+<li><p>View the helpers of other jobs</p></li>
+<li><p>Send mails to all helpers of the event</p></li>
+<li><p>View the total number of helpers</p></li>
+<li><p>Anything with badges</p></li>
+</ul>
+</section>
+</section>
+</section>
+<section id="global-permissions">
+<h2>Global permissions<a class="headerlink" href="#global-permissions" title="Permalink to this heading"></a></h2>
+<p>An user can have the permission to create new events, add new users or sent a newsletter.
+User can see whether they have some of these permissions or not.</p>
+</section>
+<section id="id1">
+<h2>Inventory<a class="headerlink" href="#id1" title="Permalink to this heading"></a></h2>
+<p>Inventories can only be created by Helfertool administrators, but every inventory can have its own administrators.
+These can edit the items of an inventory.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="jobs-and-shifts.html" class="btn btn-neutral float-left" title="Manage jobs and shifts" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="links.html" class="btn btn-neutral float-right" title="Links" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2015 - 2022,  Sven Hertle and contributors.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  
+<br /><br />
+<a href="https://www.helfertool.org/impressum">Impressum</a> | <a href="https://www.helfertool.org/datenschutz">Datenschutz</a>
+
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>helfertoolctl &mdash; Documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/icon.png"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Further topics" href="further/index.html" />
+    <link rel="prev" title="Updates" href="updates.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> Helfertool
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Admin guide</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="versions.html">Versions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuration.html">Configuration options</a></li>
+<li class="toctree-l2"><a class="reference internal" href="updates.html">Updates</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">helfertoolctl</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#repositories">Repositories</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#debian">Debian</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#centos">CentOS</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#basic-commands">Basic commands</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#start">Start</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#stop">Stop</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#reload">Reload</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#updates">Updates</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#initialize">Initialize</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#create-administrator">Create administrator</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#add-example-event">Add example event</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#show-some-statistics">Show some statistics</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#commands-for-automation">Commands for automation</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#open-close-public-registration-automatically">Open / close public registration automatically</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#disable-old-accounts">Disable old accounts</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#advanced-commands">Advanced commands</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#shell-access">Shell access</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#django-management-command">Django management command</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#log-file-postrotate">Log file postrotate</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="further/index.html">Further topics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="migration/index.html">Migration guides</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../user/index.html">User guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../development/index.html">Development guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../releases/index.html">Releases</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Helfertool</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="index.html">Admin guide</a> &raquo;</li>
+      <li>helfertoolctl</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="helfertoolctl">
+<span id="id1"></span><h1>helfertoolctl<a class="headerlink" href="#helfertoolctl" title="Permalink to this heading"></a></h1>
+<section id="repositories">
+<h2>Repositories<a class="headerlink" href="#repositories" title="Permalink to this heading"></a></h2>
+<p>There are Debian and CentOS repositories for <cite>helfertoolctl</cite> on <a class="reference external" href="https://repo.helfertool.org/">https://repo.helfertool.org/</a>.</p>
+<section id="debian">
+<h3>Debian<a class="headerlink" href="#debian" title="Permalink to this heading"></a></h3>
+<p>There is a stable repository for Debian Bullseye:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>deb https://repo.helfertool.org/debian/ bullseye main
+</pre></div>
+</div>
+<p>Additionally, there is a repository for Debian Unstable that may contain a less stable version:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>deb https://repo.helfertool.org/debian/ unstable main
+</pre></div>
+</div>
+</section>
+<section id="centos">
+<h3>CentOS<a class="headerlink" href="#centos" title="Permalink to this heading"></a></h3>
+<p>There is a stable and testing repository for CentOS 7, see <a class="reference external" href="https://repo.helfertool.org/centos7.repo">repo file</a>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>[helfertoolctl-stable]
+name=helfertoolctl stable - $basearch
+baseurl=https://repo.helfertool.org/centos/7/$basearch/stable
+gpgcheck=1
+repo_gpgcheck=1
+gpgkey=https://repo.helfertool.org/gpg.key
+enabled=1
+protect=1
+
+[helfertoolctl-testing]
+name=helfertoolctl testing - $basearch
+baseurl=https://repo.helfertool.org/centos/7/$basearch/testing
+gpgcheck=1
+repo_gpgcheck=1
+gpgkey=https://repo.helfertool.org/gpg.key
+enabled=0
+protect=1
+</pre></div>
+</div>
+</section>
+</section>
+<section id="basic-commands">
+<h2>Basic commands<a class="headerlink" href="#basic-commands" title="Permalink to this heading"></a></h2>
+<section id="start">
+<h3>Start<a class="headerlink" href="#start" title="Permalink to this heading"></a></h3>
+<p>To start the Helfertool service, run:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>sudo systemctl start helfertool
+</pre></div>
+</div>
+<p>It is also possible to run <code class="docutils literal notranslate"><span class="pre">helfertoolctl</span> <span class="pre">start</span></code>, but usually the systemd service should be used.</p>
+</section>
+<section id="stop">
+<h3>Stop<a class="headerlink" href="#stop" title="Permalink to this heading"></a></h3>
+<p>To stop the Helfertool service, run:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>sudo systemctl stop helfertool
+</pre></div>
+</div>
+<p>It is also possible to run <code class="docutils literal notranslate"><span class="pre">helfertoolctl</span> <span class="pre">stop</span></code>, but usually the systemd service should be used.</p>
+</section>
+<section id="reload">
+<h3>Reload<a class="headerlink" href="#reload" title="Permalink to this heading"></a></h3>
+<p>It is possible to reload the configuration file without restarting the Docker container:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>sudo systemctl reload helfertool
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">helfertoolctl</span> <span class="pre">reload</span></code> is the same here and can also be called.</p>
+</section>
+<section id="updates">
+<h3>Updates<a class="headerlink" href="#updates" title="Permalink to this heading"></a></h3>
+<p>To download the newest version of Helfertool, run:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>sudo helfertoolctl download
+</pre></div>
+</div>
+<p>After that, the service needs to be restarted. To check, if a restart is necessary, you can run:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>sudo helfertoolctl needsrestart
+</pre></div>
+</div>
+</section>
+<section id="initialize">
+<h3>Initialize<a class="headerlink" href="#initialize" title="Permalink to this heading"></a></h3>
+<p>After the installation, the database needs to be filled with some initial data:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>sudo helfertoolctl init
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Only run this once at the beginning!</p>
+</div>
+</section>
+<section id="create-administrator">
+<h3>Create administrator<a class="headerlink" href="#create-administrator" title="Permalink to this heading"></a></h3>
+<p>To create a new administrator account using the command line, run:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>sudo helfertoolctl createadmin
+</pre></div>
+</div>
+</section>
+<section id="add-example-event">
+<h3>Add example event<a class="headerlink" href="#add-example-event" title="Permalink to this heading"></a></h3>
+<p>In case you want to have a test event with most features enables, you can run:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>sudo helfertoolctl exampledata
+</pre></div>
+</div>
+</section>
+<section id="show-some-statistics">
+<h3>Show some statistics<a class="headerlink" href="#show-some-statistics" title="Permalink to this heading"></a></h3>
+<p>To get the number of events, jobs, shifts and total number of helpers including archived helpers, run:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>sudo helfertoolctl statistics
+</pre></div>
+</div>
+</section>
+</section>
+<section id="commands-for-automation">
+<h2>Commands for automation<a class="headerlink" href="#commands-for-automation" title="Permalink to this heading"></a></h2>
+<section id="open-close-public-registration-automatically">
+<h3>Open / close public registration automatically<a class="headerlink" href="#open-close-public-registration-automatically" title="Permalink to this heading"></a></h3>
+<p><cite>helfertoolctl</cite> provides commands to open and close the registration of events:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>sudo helfertoolctl open &lt;url_name&gt;
+sudo helfertoolctl close &lt;url_name&gt;
+</pre></div>
+</div>
+<p>To open the registration for a event at a specific time, the <code class="docutils literal notranslate"><span class="pre">at</span></code> daemon
+can be used:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>at &#39;13:55 10/18/2018&#39;
+</pre></div>
+</div>
+</section>
+<section id="disable-old-accounts">
+<h3>Disable old accounts<a class="headerlink" href="#disable-old-accounts" title="Permalink to this heading"></a></h3>
+<p>Inactive accounts can be disabled with the <code class="docutils literal notranslate"><span class="pre">disableaccounts</span></code> command. Inactive means that</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>the user did not log in since a specified date or</p></li>
+<li><p>the user never logged in, but the account was created before the specified date.</p></li>
+</ul>
+</div></blockquote>
+<p>Accounts from external authentication sources (LDAP) are not changed since the
+active flag is synced again from there.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>sudo helfertoolctl disableaccounts [--dry-run] YYYY-MM-DD
+</pre></div>
+</div>
+</section>
+</section>
+<section id="advanced-commands">
+<h2>Advanced commands<a class="headerlink" href="#advanced-commands" title="Permalink to this heading"></a></h2>
+<section id="shell-access">
+<h3>Shell access<a class="headerlink" href="#shell-access" title="Permalink to this heading"></a></h3>
+<p>To start a shell inside the Docker container, run:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>sudo helfertoolctl shell
+</pre></div>
+</div>
+</section>
+<section id="django-management-command">
+<h3>Django management command<a class="headerlink" href="#django-management-command" title="Permalink to this heading"></a></h3>
+<p>To run some Django management command directly, run:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>sudo helfertoolctl manage [...]
+</pre></div>
+</div>
+</section>
+<section id="log-file-postrotate">
+<h3>Log file postrotate<a class="headerlink" href="#log-file-postrotate" title="Permalink to this heading"></a></h3>
+<p>After the log file was rotated (by logrotate), <code class="docutils literal notranslate"><span class="pre">postrotate</span></code> must be executed:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>sudo helfertoolctl postrotate
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="updates.html" class="btn btn-neutral float-left" title="Updates" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="further/index.html" class="btn btn-neutral float-right" title="Further topics" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2015 - 2022,  Sven Hertle and contributors.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  
+<br /><br />
+<a href="https://www.helfertool.org/impressum">Impressum</a> | <a href="https://www.helfertool.org/datenschutz">Datenschutz</a>
+
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

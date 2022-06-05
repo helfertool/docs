@@ -1,0 +1,70 @@
+.. _migration-2-0-0:
+
+=============
+Version 2.0.0
+=============
+
+During the update for version 2.0.0, some manual changes are necessary.
+
+Backup
+------
+
+Create a backup of the database and the ``media`` directory (default: ``/srv/helfertool/media``).
+Including the ``media`` directory in the backup is important as these files will be changed during the update.
+
+Update
+------
+
+Update the Helfertool (see :ref:`documentation <updates>`).
+
+Migrate ``media`` files
+-----------------------
+
+The files in in the ``media`` directory are now split into two directories: ``private`` and ``public``.
+Only the ``public`` directory is served directly without access control.
+
+The migration is implemented as management command. If you use `helfertoolctl`, run:
+
+.. code-block::
+
+    helfertoolctl manage migrate_files
+
+For manual deployments, run:
+
+.. code-block::
+
+    python manage.py migrate_files
+
+In case you do not use the `helfertoolctl` or the Docker container, update your web server configuration.
+
+* Old configuration: the complete ``media`` directory is served as ``/media``.
+* New configuration: the ``media/public`` directory is served as ``/media/public``. The ``private`` directory is not accessible via the web server.
+
+Newsletter
+----------
+
+The newsletter subscription is changed as described in the :ref:`changelog <changelog-2-0-0>`.
+No manual changes are necessary, but the new subscription flow should be reviewed.
+
+If the `Check installation` page shows issues for the templates, edit the `Newsletter subscription` template once (empty text is ok).
+
+Mail validation is now required for all events. The configuration option to disable it was removed.
+
+Verify web server configuration
+-------------------------------
+
+Helfertool uses the domain, which is used to access the page, to generate URLs for e-mails.
+If your instance is reachable with different domain names, this may be confusing.
+
+For example, if you subscribe on ``app.helfertool.org/subscribe``, the e-mail will contain a link to ``app.helfertool.org``.
+If you access the same instance on ``www.app.helfertool.org`` instead, the link will be ``www.app.helfertool.org``.
+
+It may be desirable that the same URL is used always. This can be achived with a redirect in the reverse proxy.
+For nginx, the example config contains:
+
+.. code-block::
+
+    # redirect to "app.helfertool.org" if necessary (without www)
+    if ($host != 'app.helfertool.org') {
+            return 301 https://app.helfertool.org$request_uri;
+    }

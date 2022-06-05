@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Configuration options &mdash; Documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/icon.png"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Updates" href="updates.html" />
+    <link rel="prev" title="Installation" href="installation.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> Helfertool
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Admin guide</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="versions.html">Versions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Configuration options</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#announcement">Announcement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#language">Language</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#database">Database</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#postgresql">PostgreSQL</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mysql-mariadb">MySQL / MariaDB</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sqlite">SQLite</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#additional-database-settings">Additional database settings</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#rabbitmq">RabbitMQ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mail-server">Mail server</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#authentication">Authentication</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#ldap">LDAP</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#openid-connect">OpenID Connect</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#local-users">Local users</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#logging">Logging</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#error-reporting">Error reporting</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#syslog">Syslog</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#configuration-logging-database">Database</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#security-settings">Security settings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#features">Features</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#customization">Customization</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#badge-settings">Badge settings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#newsletter-settings">Newsletter settings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#additional-settings-without-docker">Additional settings without Docker</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="updates.html">Updates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="helfertoolctl.html">helfertoolctl</a></li>
+<li class="toctree-l2"><a class="reference internal" href="further/index.html">Further topics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="migration/index.html">Migration guides</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../user/index.html">User guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../development/index.html">Development guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../releases/index.html">Releases</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Helfertool</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="index.html">Admin guide</a> &raquo;</li>
+      <li>Configuration options</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="configuration-options">
+<span id="configuration"></span><h1>Configuration options<a class="headerlink" href="#configuration-options" title="Permalink to this heading"></a></h1>
+<p>The configuration file is in YAML format.
+The following documentation describes the settings for a deployment with Docker, but there are also some additional configuration options if Docker is not used.</p>
+<section id="announcement">
+<h2>Announcement<a class="headerlink" href="#announcement" title="Permalink to this heading"></a></h2>
+<p>A text line can be displayed on every page of the Helfertool, this is useful to announce downtimes for maintenance.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>announcement: &quot;Maintenance on May 4th from 8 pm to 10 pm.&quot;
+</pre></div>
+</div>
+</section>
+<section id="language">
+<h2>Language<a class="headerlink" href="#language" title="Permalink to this heading"></a></h2>
+<p>The language of the Helfertool is usually chosen based on the browser request.
+If no language is specified, the default language is used (for example for Facebook link previews).</p>
+<p>Available languages:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>English: <code class="docutils literal notranslate"><span class="pre">en</span></code></p></li>
+<li><p>German: <code class="docutils literal notranslate"><span class="pre">de</span></code></p></li>
+</ul>
+</div></blockquote>
+<p>The default language of the badges can be chosen independently of the overall default language.
+The language of the badges can also be changed per event.</p>
+<p>The timezone currently can only be set for the whole Helfertool, not per event.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span># Possible values: de, en
+language:
+    # Default language if not specified by the browser
+    default: &quot;de&quot;
+
+    # Language used for badges
+    badges: &quot;de&quot;
+
+    # Timezone
+    timezone: &quot;Europe/Berlin&quot;
+
+    # Default country for Corona contact tracing (ISO-3166-1)
+    country: &quot;DE&quot;
+</pre></div>
+</div>
+</section>
+<section id="database">
+<h2>Database<a class="headerlink" href="#database" title="Permalink to this heading"></a></h2>
+<section id="postgresql">
+<h3>PostgreSQL<a class="headerlink" href="#postgresql" title="Permalink to this heading"></a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>database:
+    backend: &quot;postgresql&quot;
+    name: &quot;helfertool&quot;
+    user: &quot;helfertool&quot;
+    password: &quot;&lt;PASSWORD&gt;&quot;
+    host: 172.17.0.1
+    port: 5432
+</pre></div>
+</div>
+</section>
+<section id="mysql-mariadb">
+<h3>MySQL / MariaDB<a class="headerlink" href="#mysql-mariadb" title="Permalink to this heading"></a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>database:
+    backend: &quot;mysql&quot;
+    name: &quot;helfertool&quot;
+    user: &quot;helfertool&quot;
+    password: &quot;&lt;PASSWORD&gt;&quot;
+    host: 172.17.0.1
+    port: 3306
+</pre></div>
+</div>
+</section>
+<section id="sqlite">
+<h3>SQLite<a class="headerlink" href="#sqlite" title="Permalink to this heading"></a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>database:
+    backend: &quot;sqlite3&quot;
+    name: &quot;/data/db.sqlite3&quot;
+</pre></div>
+</div>
+<p>For Docker deployments, the SQLite file needs to be placed in <code class="docutils literal notranslate"><span class="pre">/data</span></code>. Otherwise, it is not stored persistently.</p>
+</section>
+<section id="additional-database-settings">
+<h3>Additional database settings<a class="headerlink" href="#additional-database-settings" title="Permalink to this heading"></a></h3>
+<p>Django allows to specify additional options like <code class="docutils literal notranslate"><span class="pre">init_command</span></code>, they can also be added in the Helfertool configuration file:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>database:
+    options:
+        init_command: &quot;SET sql_mode=&#39;STRICT_TRANS_TABLES&#39;;&quot;
+</pre></div>
+</div>
+<p>The <a class="reference external" href="https://docs.djangoproject.com/en/dev/ref/databases/">Django documentation</a> describes the possible options for the different database backends.</p>
+</section>
+</section>
+<section id="rabbitmq">
+<h2>RabbitMQ<a class="headerlink" href="#rabbitmq" title="Permalink to this heading"></a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>rabbitmq:
+    vhost: &quot;&quot;
+    user: &quot;guest&quot;
+    password: &quot;guest&quot;
+    host: 172.17.0.1
+    port: 5672
+</pre></div>
+</div>
+</section>
+<section id="mail-server">
+<h2>Mail server<a class="headerlink" href="#mail-server" title="Permalink to this heading"></a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>mail:
+    # Connection to mail server for sending
+    send:
+        host: &quot;localhost&quot;
+        port: 25
+        user: null
+        password: null
+        tls: false
+        starttls: false
+
+    # Connection to mail server for receiving
+    #receive:
+    #    host: &quot;localhost&quot;
+    #    port: 993
+    #    user: &quot;helfertool&quot;
+    #    password: &quot;&lt;PASSWORD&gt;&quot;
+    #    tls: true
+    #    starttls: false
+    #
+    #    # The IMAP folder that should be checked for new mails
+    #    folder: &quot;INBOX&quot;
+    #
+    #    # Time between checks (in seconds)
+    #    interval: 300
+
+    # Sender address and display name for all outgoing mails
+    sender_address: &quot;helfertool@localhost&quot;
+    sender_name: &quot;Helfertool&quot;
+
+    # Forward received mails that are not handled automatically to this address (with this display name)
+    #forward_unhandled_address: &quot;helfertoolintern@localhost&quot;
+    #forward_unhandled_name: &quot;Helfertool&quot;
+
+    # Batch size if a high amount of mails is sent
+    # This is currently only used for the newsletter, the other mails are sent
+    # with all addresses in BCC!
+    batch_size: 200
+    batch_gap: 5
+</pre></div>
+</div>
+</section>
+<section id="authentication">
+<h2>Authentication<a class="headerlink" href="#authentication" title="Permalink to this heading"></a></h2>
+<p>The Helfertool supports different authentication backends:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Local accounts</p></li>
+<li><p>LDAP</p></li>
+<li><p>OpenID Connect</p></li>
+</ul>
+</div></blockquote>
+<p>While it is possible to use local accounts together with LDAP or OpenID Connect, it is not recommended to enable LDAP and OpenID Connect at the same time.</p>
+<section id="ldap">
+<h3>LDAP<a class="headerlink" href="#ldap" title="Permalink to this heading"></a></h3>
+<p>The login to the Helfertool can be restricted to members of a LDAP group.
+When <code class="docutils literal notranslate"><span class="pre">null</span></code> is specified for the <code class="docutils literal notranslate"><span class="pre">login</span></code> option, every user is allowed to login.
+If can also be determined based on LDAP group memberships whether an user is administrator or not.
+Here, <code class="docutils literal notranslate"><span class="pre">null</span></code> means that the admin privilege is not managed by LDAP.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>authentication:
+    ldap:
+        # Connection details
+        server:
+            host: &quot;ldaps://ldap.helfertool.org&quot;
+            bind_dn: &quot;cn=helfertool,ou=Roles,dc=helfertool,dc=org&quot;
+            bind_password: null
+
+        # LDAP schema and attributes
+        schema:
+            # User definition
+            user_dn_template: &quot;uid=%(user)s,ou=People,dc=helfertool,dc=org&quot;
+            first_name_attr: &quot;givenName&quot;
+            last_name_attr: &quot;sn&quot;
+            email_attr: &quot;mail&quot;
+
+            # Group definition
+            # See https://django-auth-ldap.readthedocs.io/en/latest/groups.html?highlight=AUTH_LDAP_GROUP_TYPE#types-of-groups
+            # for a list of all posible values for group_type
+            group_type: &quot;GroupOfNamesType&quot;
+            group_base_dn: &quot;ou=Groups,dc=helfertool,dc=org&quot;
+            group_object_class: &quot;groupOfNames&quot;
+
+        # Permissions based on groups
+        groups:
+            login: null
+            admin: &quot;cn=admins,ou=Group,dc=helfertool,dc=org&quot;
+</pre></div>
+</div>
+</section>
+<section id="openid-connect">
+<h3>OpenID Connect<a class="headerlink" href="#openid-connect" title="Permalink to this heading"></a></h3>
+<p>The following claims are required at minimum (the scopes <code class="docutils literal notranslate"><span class="pre">openid</span></code>, <code class="docutils literal notranslate"><span class="pre">email</span></code> and <code class="docutils literal notranslate"><span class="pre">profile</span></code> are requested):</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">email</span></code> (needs to be unique as it is used as username internally)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">given_name</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">family_name</span></code></p></li>
+</ul>
+</div></blockquote>
+<p>The redirect URL for a deployment under <code class="docutils literal notranslate"><span class="pre">app.helfertool.org</span></code> whould be : <code class="docutils literal notranslate"><span class="pre">https://app.helfertool.org/oidc/callback/</span></code> (<code class="docutils literal notranslate"><span class="pre">/</span></code> at the end is important).</p>
+<p>It can be decided based on claims if an user is allowed to login and if an user is administator.
+A claim can be directly compared, for example <code class="docutils literal notranslate"><span class="pre">helfertool-login</span></code> has to be <code class="docutils literal notranslate"><span class="pre">true</span></code> to allow an user to login.
+Alternatively, the claim can be a list and a specific item needs to be in the list.
+This can be used when group memberships or roles are written to a claim.</p>
+<p>The claim names can be specified with <a class="reference external" href="https://jmespath.org/">JMESPath</a>, so it is possible to configure plain claim names or have a more complex configuration.</p>
+<p>If no <code class="docutils literal notranslate"><span class="pre">login</span></code> claims restriction is configured, every user is allowed to login.
+If the <code class="docutils literal notranslate"><span class="pre">admin</span></code> configuration is not present, the admin privilege is not touched during the login and can be assigned manually.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The logout only ends the session in the Helfertool, not the session at the identity provider.
+A click on login usually logs the user in again without asking for a password.</p>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>authentication:
+    # Get users over OpenID Connect
+    oidc:
+        # Name of the provider (only for login view)
+        provider_name: &quot;OpenID Connect&quot;
+
+        # Provider details
+        provider:
+            # Endpoint URLs
+            authorization_endpoint: &quot;https://auth.helfertool.org/auth/realms/test/protocol/openid-connect/auth&quot;
+            token_endpoint: &quot;https://auth.helfertool.org/auth/realms/test/protocol/openid-connect/token&quot;
+            user_endpoint: &quot;https://auth.helfertool.org/auth/realms/test/protocol/openid-connect/userinfo&quot;
+
+            # URI to get JWKS
+            jwks_uri: &quot;https://auth.helfertool.org/auth/realms/test/protocol/openid-connect/certs&quot;
+
+            # Client ID and secret
+            client_id: &quot;helfertool&quot;
+            client_secret: &quot;&lt;SECRET&gt;&quot;
+
+            # Controls the session cookie SameSite attribute, forcing it to &quot;Lax&quot;. This is necessary if your OIDC provider
+            # resides on a different top level domain name than the Helfertool (error message: &quot;Login failed&quot;)
+            # Set it to true in this case.
+            thirdparty_domain: false
+
+            # It could happen that the user is disabled or claims change. So we can redirect the users from time to time
+            # to the OIDC provider and validate if they are still allowed to login.
+            # Time in minutes, set to 0 to disable it (Note: the idle timeout of the provider should be higher than this value)
+            renew_check_interval: 15
+
+            # If the session is only terminated in the application, the login via OIDC works again without asking for credentials.
+            # Therefore, we can also trigger a logout at the OIDC provider.
+            # The URL is less well specified and depends on the provider (here: Keycloak)
+            logout:
+                endpoint: &quot;https://auth.helfertool.org/auth/realms/test/protocol/openid-connect/logout&quot;
+                redirect_parameter: &quot;redirect_uri&quot;
+
+        # Permissions based on claims
+        claims:
+            # There are two types to handle claims
+            # 1) direct: the claim is directly compared
+            # 2) member: the claim is a list and it is checked if the specified value is included (useful for groups/roles)
+            # The path is a JMESPath. Plain claim names like &quot;roles&quot; are also a valid JMESPath.
+            login:
+                #compare: &quot;direct&quot;
+                #path: &quot;helfertool_login&quot;
+                #value: true
+                compare: &quot;member&quot;
+                path: &quot;roles&quot;
+                value: &quot;helfertool_login&quot;
+
+            admin:
+                #compare: &quot;direct&quot;
+                #path: &quot;helfertool_admin&quot;
+                #value: true
+                compare: &quot;member&quot;
+                path: &quot;roles&quot;
+                value: &quot;helfertool_admin&quot;
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>JMESPath support was added in version 1.1. For version 1.0, the parameter <code class="docutils literal notranslate"><span class="pre">path</span></code> is called <code class="docutils literal notranslate"><span class="pre">name</span></code> and directly looked up in the claim.</p>
+</div>
+</section>
+<section id="local-users">
+<h3>Local users<a class="headerlink" href="#local-users" title="Permalink to this heading"></a></h3>
+<p>When using local users together with LDAP and OpenID Connect, conflicting usernames need to be prevented.
+This can be done by prepending a special character in front of local usernames (here: <code class="docutils literal notranslate"><span class="pre">&#64;</span></code>).</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>authentication:
+    # Prepend character to all locally created users
+    # This is useful if you have for example users from LDAP but also local
+    # users. The additional character like &#39;@&#39; is used to prevent identical
+    # user names for different users
+    local_user_char: &#39;@&#39;
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This setting is ignored by the <code class="docutils literal notranslate"><span class="pre">createupseruser</span></code> CLI command. The CLI should only be used to create the initial administrator.
+Further administrators should be added in the web interface.</p>
+</div>
+</section>
+</section>
+<section id="logging">
+<h2>Logging<a class="headerlink" href="#logging" title="Permalink to this heading"></a></h2>
+<section id="error-reporting">
+<h3>Error reporting<a class="headerlink" href="#error-reporting" title="Permalink to this heading"></a></h3>
+<p>If an exception occurs, Django can send out a mail to notify the administrators.
+Usually, this means that there is a bug in the Helfertool, a configuration error or some infrastructure issue.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>logging:
+    # Sent mails on internal server errors
+    mails:
+        - root@localhost
+</pre></div>
+</div>
+</section>
+<section id="syslog">
+<h3>Syslog<a class="headerlink" href="#syslog" title="Permalink to this heading"></a></h3>
+<p>The application log can be sent out via syslog (see <a class="reference internal" href="further/logging.html#logging"><span class="std std-ref">Logging</span></a> for available events).</p>
+<p>When using the Docker container and <cite>helfertoolctl</cite>, the application log is written to the log directory <code class="docutils literal notranslate"><span class="pre">/var/log/helfertool</span></code>.
+The syslog forwarding can be used additionally.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>logging:
+    syslog:
+        # Log level that will be sent to syslog: INFO, WARNING, ERROR
+        level: &#39;INFO&#39;
+
+        # Server, port and protocol
+        # UDP is recommended. With TCP, the syslog server needs to run and accept connections when the Helfertool is started.
+        server: &#39;localhost&#39;
+        port: 514
+        protocol: &#39;udp&#39;
+
+        # Syslog facility to use
+        facility: &#39;local7&#39;
+</pre></div>
+</div>
+</section>
+<section id="configuration-logging-database">
+<span id="id1"></span><h3>Database<a class="headerlink" href="#configuration-logging-database" title="Permalink to this heading"></a></h3>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This feature is available since version 1.2.</p>
+</div>
+<p>The log entries, which belong to an event, are additionally stored in the database and can be viewed by event admins.
+Other log entries like logins or password changes, which do not belong to a particular event,
+are not stored in the database (see previous section for syslog and log files).</p>
+<p>The stored log entries are deleted when an event is archived.</p>
+<p>The database logging can be disabled:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span># Store all event-related events in the database.
+# The log entries are only stored as long as the event exists and are deleted with the event.
+#database: true
+</pre></div>
+</div>
+</section>
+</section>
+<section id="security-settings">
+<h2>Security settings<a class="headerlink" href="#security-settings" title="Permalink to this heading"></a></h2>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Never set <code class="docutils literal notranslate"><span class="pre">debug</span></code> to <code class="docutils literal notranslate"><span class="pre">true</span></code> in production!</p>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>security:
+    # Do not activate debugging in productive environments!
+    debug: false
+
+    # Unique and secret key
+    secret: &quot;change_this_for_production&quot;
+
+    # URLs that are used for the software
+    allowed_hosts:
+    #    - &quot;app.helfertool.org&quot;
+    #    - &quot;www.app.helfertool.org&quot;
+
+    # Account lockout
+    lockout:
+        # Number of failed login attempts until lockout
+        limit: 5
+
+        # Lockout duration in minutes
+        time: 10
+
+    # Minimal password length (for local accounts)
+    password_length: 12
+</pre></div>
+</div>
+</section>
+<section id="features">
+<span id="configuration-features"></span><h2>Features<a class="headerlink" href="#features" title="Permalink to this heading"></a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>These configuration options are available since version 1.2.</p>
+</div>
+<p>Helfertool features can be disabled globally which means that the feature cannot be enabled at all.</p>
+<p>If a flag is changed to disabled, all events are modified automatically after a reload (note for custom installations: this requires Celery).
+Enabling a feature does not change event settings.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>features:
+    # Collect mail addresses for newsletter.
+    # This also disables the unsubscribe link. If the feature was used previously and is now disabled,
+    # you should take care of the stored data (greetings from GDPR)
+    newsletter: true
+
+    # Further features
+    badges: true
+    gifts: true
+    prerequisites: true
+    inventory: true
+    corona: true
+</pre></div>
+</div>
+</section>
+<section id="customization">
+<h2>Customization<a class="headerlink" href="#customization" title="Permalink to this heading"></a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>customization:
+    # Modify certain properties for the general helfertool to display
+    display:
+        # Maximum years of events to be displayed by default on the main page
+        events_last_years: 2
+
+    # Fuzzy search for helper names
+    # Only available on PostgrSQL with pg_trgm extension, disabled automatically otherwise
+    search:
+        # Values between 0.2 (show more results) and 0.5 (show less results) seem to be reasonable.
+        # The similarity threshold of 0.3 was selected based on a name database of ~4000 western
+        # european names and the gut feel when a good match was actually found.
+        similarity: 0.3
+
+        # If PostgreSQL is used and pg_trgm is installed, the similarity search is automatically used.
+        # If you do not want to have this, disable it here.
+        disable_similarity: false
+
+    # There are some external links that should/can be changed
+    urls:
+        # Imprint with contact details
+        imprint: &quot;https://app.helfertool.org/impressum/&quot;
+
+        # Privacy statement
+        privacy: &quot;https://app.helfertool.org/datenschutz/&quot;
+
+        # Link to documentation (usually no change necessary)
+        docs: &quot;https://docs.helfertool.org&quot;
+
+    # Contact address for support requests
+    contact_address: &quot;helfertool@localhost&quot;
+</pre></div>
+</div>
+</section>
+<section id="badge-settings">
+<h2>Badge settings<a class="headerlink" href="#badge-settings" title="Permalink to this heading"></a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>badges:
+    # Alternative default template, path to tex file
+    # Relative paths again are relative to the git directory
+    template: &quot;src/badges/latextemplate/badge.tex&quot;
+
+    # Maximum photo size in kb
+    photo_max_size: 1000
+
+    # Maximum number of copies for special badges
+    special_badges_max: 50
+
+    # Time until PDF file is deleted after it was created in minutes
+    pdf_timeout: 30
+
+    # Time until files are really deleted after cleanup was triggered
+    # in minutes
+    rm_delay: 2
+</pre></div>
+</div>
+</section>
+<section id="newsletter-settings">
+<h2>Newsletter settings<a class="headerlink" href="#newsletter-settings" title="Permalink to this heading"></a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>newsletter:
+    # Newsletter subscriptions need to be confirmed with by clicking on a link.
+    # This setting specifies how long the link is valid (days). Afterwards, the mail address is deleted.
+    subscribe_deadline: 3
+</pre></div>
+</div>
+</section>
+<section id="additional-settings-without-docker">
+<h2>Additional settings without Docker<a class="headerlink" href="#additional-settings-without-docker" title="Permalink to this heading"></a></h2>
+<p>If Docker is not used, some additional settings may be interesting:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span># Location of uploaded files, static files and temporary files.
+# Relative paths are relative to the git directory, absolute paths
+# are also possible.
+files:
+    static: &quot;static&quot;
+    media: &quot;media&quot;
+    tmp: &quot;/tmp&quot;
+
+security:
+    # Application is behind additional/second proxy. In this case, the HTTP
+    # header X-Forwarded-Host is used. Example: Apache &gt; nginx &gt; uwsgi
+    behind_proxy: False
+
+badges:
+    # Path to pdflatex binary
+    pdflatex: &quot;/usr/bin/pdflatex&quot;
+
+# Deployed in docker image?
+docker: false
+</pre></div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="installation.html" class="btn btn-neutral float-left" title="Installation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="updates.html" class="btn btn-neutral float-right" title="Updates" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2015 - 2022,  Sven Hertle and contributors.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  
+<br /><br />
+<a href="https://www.helfertool.org/impressum">Impressum</a> | <a href="https://www.helfertool.org/datenschutz">Datenschutz</a>
+
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
