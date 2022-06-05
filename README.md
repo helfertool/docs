@@ -1,9 +1,8 @@
 # Helfertool documentation
 
-## Build
+To build the documentation locally:
 
+    pip install -r requirements.txt
     make html
 
-## Publish
-
-    ./deploy.sh
+The documentation is published via Github actions and pages.
