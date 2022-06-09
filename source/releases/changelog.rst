@@ -21,7 +21,7 @@ Have a look at the :ref:`migration guide <migration-3-0-0>` before the update.
 * Users and their permisions for events can be merged by admins
 * Validation links in mail contain additional parameter to prevent guessing of the link (not enforced yet, will be enforced in future release)
 * Bug fix: Allow whitespaces as alternative badge texts to overwrite generated values
-* Bug fix: Add pdflatex to prevent waiting for missing files
+* Bug fix: Add pdflatex parameter to prevent waiting for missing files
 * Bug fix: Handle DNS errors in mail connection tests on "Check installation" page
 * For development: pre-commit and black are used now
 
