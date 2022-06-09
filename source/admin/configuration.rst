@@ -538,6 +538,3 @@ If Docker is not used, some additional settings may be interesting:
    badges:
        # Path to pdflatex binary
        pdflatex: "/usr/bin/pdflatex"
-
-   # Deployed in docker image?
-   docker: false
