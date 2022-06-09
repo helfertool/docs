@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Migration guides &mdash; Documentation</title>
+  <title>Version 3.0.0 &mdash; Documentation</title>
       <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/css/custom.css" type="text/css" />
@@ -21,8 +21,8 @@
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Version 2.0.0" href="2-0-0.html" />
-    <link rel="prev" title="Logging" href="../further/logging.html" /> 
+    <link rel="next" title="User guide" href="../../user/index.html" />
+    <link rel="prev" title="Version 2.0.0" href="2-0-0.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -48,9 +48,13 @@
 <li class="toctree-l2"><a class="reference internal" href="../updates.html">Updates</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../helfertoolctl.html">helfertoolctl</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../further/index.html">Further topics</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Migration guides</a><ul>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Migration guides</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="2-0-0.html">Version 2.0.0</a></li>
-<li class="toctree-l3"><a class="reference internal" href="3-0-0.html">Version 3.0.0</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Version 3.0.0</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#with-helfertoolctl">With helfertoolctl</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#other-deployments">Other deployments</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -75,7 +79,8 @@
   <ul class="wy-breadcrumbs">
       <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
           <li><a href="../index.html">Admin guide</a> &raquo;</li>
-      <li>Migration guides</li>
+          <li><a href="index.html">Migration guides</a> &raquo;</li>
+      <li>Version 3.0.0</li>
       <li class="wy-breadcrumbs-aside">
       </li>
   </ul>
@@ -84,23 +89,32 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="migration-guides">
-<h1>Migration guides<a class="headerlink" href="#migration-guides" title="Permalink to this heading"></a></h1>
-<p>Migration guides for updates with breaking changes:</p>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="2-0-0.html">Version 2.0.0</a></li>
-<li class="toctree-l1"><a class="reference internal" href="3-0-0.html">Version 3.0.0</a></li>
-</ul>
+  <section id="version-3-0-0">
+<span id="migration-3-0-0"></span><h1>Version 3.0.0<a class="headerlink" href="#version-3-0-0" title="Permalink to this heading"></a></h1>
+<p>The container was updated and requires slightly different parameters now.</p>
+<section id="with-helfertoolctl">
+<h2>With helfertoolctl<a class="headerlink" href="#with-helfertoolctl" title="Permalink to this heading"></a></h2>
+<p>Make sure that you have <code class="docutils literal notranslate"><span class="pre">helfertoolctl</span></code> version <code class="docutils literal notranslate"><span class="pre">0.9.0</span></code> or later.
+It will take care of all required changes automatically.</p>
+<p>You can remove the following configuration from <code class="docutils literal notranslate"><span class="pre">helfertool.yaml</span></code>:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">docker</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span><span class="w"></span>
+</pre></div>
 </div>
+</section>
+<section id="other-deployments">
+<h2>Other deployments<a class="headerlink" href="#other-deployments" title="Permalink to this heading"></a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">run</span></code> command with the correct parameters can be found in the
+<a class="reference external" href="https://github.com/helfertool/helfertoolctl/blob/ab37bcd9d5b008e8f708cfa236f21a369d04fbb9/src/helfertoolctl/helfertoolctl#L93">helfertoolctl script</a>.</p>
+<p>An example for <code class="docutils literal notranslate"><span class="pre">podman</span></code> can be found <a class="reference external" href="https://github.com/helfertool/helfertool/blob/5c1a4f18d560bc51d08f845f8959a80693c5b259/scripts/container.sh#L86">here</a>.</p>
+</section>
 </section>
 
 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="../further/logging.html" class="btn btn-neutral float-left" title="Logging" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="2-0-0.html" class="btn btn-neutral float-right" title="Version 2.0.0" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="2-0-0.html" class="btn btn-neutral float-left" title="Version 2.0.0" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../../user/index.html" class="btn btn-neutral float-right" title="User guide" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

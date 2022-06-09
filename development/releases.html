@@ -51,7 +51,7 @@
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Making releases</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#preparation">Preparation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#git">Git</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#docker">Docker</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#container">Container</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#website-and-documentation">Website and documentation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#git-cleanup">Git cleanup</a></li>
 </ul>
@@ -130,19 +130,19 @@ git push --tags
 </pre></div>
 </div>
 </section>
-<section id="docker">
-<h2>Docker<a class="headerlink" href="#docker" title="Permalink to this heading"></a></h2>
-<p>The, the Docker container need to be build, tested and pushed:</p>
-<p>First, build the container from scratch:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>./scripts/docker.sh build
+<section id="container">
+<h2>Container<a class="headerlink" href="#container" title="Permalink to this heading"></a></h2>
+<p>The container is built and pushed automatically via Github actions.</p>
+<p>In case there are issues, a local build is possible:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>./scripts/container.sh build
 </pre></div>
 </div>
 <p>Then run it to see if every services starts, check <a class="reference external" href="http://localhost:8000">http://localhost:8000</a> in your browser:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>./scripts/docker.sh test
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>./scripts/container.sh test
 </pre></div>
 </div>
 <p>If that worked, push the new container:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>./scripts/docker.sh push
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>./scripts/container.sh push
 </pre></div>
 </div>
 </section>
