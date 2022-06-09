@@ -1,0 +1,27 @@
+.. _migration-3-0-0:
+
+=============
+Version 3.0.0
+=============
+
+The container was updated and requires slightly different parameters now.
+
+With helfertoolctl
+------------------
+
+Make sure that you have ``helfertoolctl`` version ``0.9.0`` or later.
+It will take care of all required changes automatically.
+
+You can remove the following configuration from ``helfertool.yaml``:
+
+.. code-block:: yaml
+
+   docker: false
+
+Other deployments
+-----------------
+
+The ``docker run`` command with the correct parameters can be found in the
+`helfertoolctl script <https://github.com/helfertool/helfertoolctl/blob/ab37bcd9d5b008e8f708cfa236f21a369d04fbb9/src/helfertoolctl/helfertoolctl#L93>`_.
+
+An example for ``podman`` can be found `here <https://github.com/helfertool/helfertool/blob/5c1a4f18d560bc51d08f845f8959a80693c5b259/scripts/container.sh#L86>`_.

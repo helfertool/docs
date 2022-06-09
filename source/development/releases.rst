@@ -54,28 +54,28 @@ If this is ok, merge the branch and also push the tags:
    git push
    git push --tags
 
-Docker
-------
+Container
+---------
 
-The, the Docker container need to be build, tested and pushed:
+The container is built and pushed automatically via Github actions.
 
-First, build the container from scratch:
+In case there are issues, a local build is possible:
 
 .. code-block:: none
 
-   ./scripts/docker.sh build
+   ./scripts/container.sh build
 
 Then run it to see if every services starts, check http://localhost:8000 in your browser:
 
 .. code-block:: none
 
-   ./scripts/docker.sh test
+   ./scripts/container.sh test
 
 If that worked, push the new container:
 
 .. code-block:: none
 
-   ./scripts/docker.sh push
+   ./scripts/container.sh push
 
 Website and documentation
 -------------------------
