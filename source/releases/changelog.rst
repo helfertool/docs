@@ -4,6 +4,15 @@
 Changelog
 =========
 
+.. _changelog-3-1-0:
+
+3.1.0 (2022-07-25)
+------------------
+
+* Important bug fix: moving an event sets date of all events to same day
+* Improved mail tracking: show delivery errors for events and newsletter
+* Language chooser for resending of confirmation mail
+
 .. _changelog-3-0-0:
 
 3.0.0 (2022-06-09)
