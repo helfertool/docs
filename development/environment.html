@@ -198,8 +198,10 @@ The following sections explain how to run these services for development purpose
 <li><p>Some tasks like scaling an image</p></li>
 </ul>
 <p>If you notice strange freezes of the Helfertool during development, it may try to put a message (i.e. a Celery task) into the queue.</p>
-<p>An easy way to run RabbitMQ is using Docker:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>docker run -d --rm --hostname helfertool-rabbitmq --name helfertool-rabbitmq -p 127.0.0.1:5672:5672 rabbitmq
+<p>An easy way to run RabbitMQ is using Podman/Docker:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>podman run -d --rm --hostname helfertool-rabbitmq --name helfertool-rabbitmq -p 127.0.0.1:5672:5672 docker.io/rabbitmq
+# or
+docker run -d --rm --hostname helfertool-rabbitmq --name helfertool-rabbitmq -p 127.0.0.1:5672:5672 rabbitmq
 </pre></div>
 </div>
 <p>Now start Celery:</p>
@@ -211,11 +213,15 @@ celery -A helfertool worker --loglevel=info -B
 The celery worker here has the celery beat service included (<code class="docutils literal notranslate"><span class="pre">-B</span></code>).
 This is not recommended for production (see <a class="reference external" href="https://docs.celeryproject.org/en/latest/userguide/periodic-tasks.html#starting-the-scheduler">celery documentation</a>)!</p>
 <p>If you want to stop the container again, run:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>docker stop helfertool-rabbitmq
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>podman stop helfertool-rabbitmq
+# or
+docker stop helfertool-rabbitmq
 </pre></div>
 </div>
 <p>And to update the container image, run:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>docker pull rabbitmq
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>podman pull docker.io/rabbitmq
+# or
+docker pull rabbitmq
 </pre></div>
 </div>
 </section>
@@ -223,7 +229,9 @@ This is not recommended for production (see <a class="reference external" href="
 <h3>PostgreSQL<a class="headerlink" href="#postgresql" title="Permalink to this heading"></a></h3>
 <p>There is one feature that does not work with SQLite: the similarity based helper search.
 If you want to work on exactly this feature, you could get a PostgreSQL server via Docker:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>docker run -d --rm --name helfertool-postgres -e POSTGRES_USER=helfertool -e POSTGRES_DB=helfertool -e POSTGRES_PASSWORD=password -p 127.0.0.1:5432:5432 postgres
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>podman run -d --rm --name helfertool-postgres -e POSTGRES_USER=helfertool -e POSTGRES_DB=helfertool -e POSTGRES_PASSWORD=password -p 127.0.0.1:5432:5432 docker.io/postgres
+# or
+docker run -d --rm --name helfertool-postgres -e POSTGRES_USER=helfertool -e POSTGRES_DB=helfertool -e POSTGRES_PASSWORD=password -p 127.0.0.1:5432:5432 postgres
 </pre></div>
 </div>
 <p>The <code class="docutils literal notranslate"><span class="pre">pg_trgm</span></code> extension needs to be enabled afterwards:</p>
