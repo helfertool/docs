@@ -130,10 +130,12 @@ The following features currently make use of Celery and RabbitMQ:
 
 If you notice strange freezes of the Helfertool during development, it may try to put a message (i.e. a Celery task) into the queue.
 
-An easy way to run RabbitMQ is using Docker:
+An easy way to run RabbitMQ is using Podman/Docker:
 
 .. code-block:: none
 
+   podman run -d --rm --hostname helfertool-rabbitmq --name helfertool-rabbitmq -p 127.0.0.1:5672:5672 docker.io/rabbitmq
+   # or
    docker run -d --rm --hostname helfertool-rabbitmq --name helfertool-rabbitmq -p 127.0.0.1:5672:5672 rabbitmq
 
 Now start Celery:
@@ -151,12 +153,16 @@ If you want to stop the container again, run:
 
 .. code-block:: none
 
+   podman stop helfertool-rabbitmq
+   # or
    docker stop helfertool-rabbitmq
 
 And to update the container image, run:
 
 .. code-block:: none
 
+   podman pull docker.io/rabbitmq
+   # or
    docker pull rabbitmq
 
 PostgreSQL
@@ -167,6 +173,8 @@ If you want to work on exactly this feature, you could get a PostgreSQL server v
 
 .. code-block:: none
 
+   podman run -d --rm --name helfertool-postgres -e POSTGRES_USER=helfertool -e POSTGRES_DB=helfertool -e POSTGRES_PASSWORD=password -p 127.0.0.1:5432:5432 docker.io/postgres
+   # or
    docker run -d --rm --name helfertool-postgres -e POSTGRES_USER=helfertool -e POSTGRES_DB=helfertool -e POSTGRES_PASSWORD=password -p 127.0.0.1:5432:5432 postgres
 
 The ``pg_trgm`` extension needs to be enabled afterwards:
