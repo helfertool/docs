@@ -230,8 +230,9 @@ If the ``admin`` configuration is not present, the admin privilege is not touche
 
 .. warning::
 
-   The logout only ends the session in the Helfertool, not the session at the identity provider.
+   By default, the logout only ends the session in the Helfertool, not the session at the identity provider.
    A click on login usually logs the user in again without asking for a password.
+   You should configure the logout URL as described below, but this depends on the used identity provider as it is not standardized.
 
 .. code-block:: none
 
@@ -295,8 +296,25 @@ If the ``admin`` configuration is not present, the admin privilege is not touche
                    value: "helfertool_admin"
 
 .. note::
-
    JMESPath support was added in version 1.1. For version 1.0, the parameter ``path`` is called ``name`` and directly looked up in the claim.
+
+You can use more complex JMESPath queries like this (it allows the login if the claim `custom-claim` is set to `value1` or `value2`):
+
+.. code-block:: none
+
+   login:
+       compare: "direct"
+       path: "\"custom-claim\" == 'value1' || \"custom-claim\" == 'value2'"
+       value: True
+
+Another pitfall are claims with dashes, the correct escaping looks like this:
+
+.. code-block:: none
+
+   admin:
+       compare: "member"
+       path: "\"custom-claim\""
+       value: "admin"
 
 
 Local users
