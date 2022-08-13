@@ -319,8 +319,9 @@ This can be used when group memberships or roles are written to a claim.</p>
 If the <code class="docutils literal notranslate"><span class="pre">admin</span></code> configuration is not present, the admin privilege is not touched during the login and can be assigned manually.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>The logout only ends the session in the Helfertool, not the session at the identity provider.
-A click on login usually logs the user in again without asking for a password.</p>
+<p>By default, the logout only ends the session in the Helfertool, not the session at the identity provider.
+A click on login usually logs the user in again without asking for a password.
+You should configure the logout URL as described below, but this depends on the used identity provider as it is not standardized.</p>
 </div>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>authentication:
     # Get users over OpenID Connect
@@ -385,6 +386,20 @@ A click on login usually logs the user in again without asking for a password.</
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>JMESPath support was added in version 1.1. For version 1.0, the parameter <code class="docutils literal notranslate"><span class="pre">path</span></code> is called <code class="docutils literal notranslate"><span class="pre">name</span></code> and directly looked up in the claim.</p>
+</div>
+<p>You can use more complex JMESPath queries like this (it allows the login if the claim <cite>custom-claim</cite> is set to <cite>value1</cite> or <cite>value2</cite>):</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>login:
+    compare: &quot;direct&quot;
+    path: &quot;\&quot;custom-claim\&quot; == &#39;value1&#39; || \&quot;custom-claim\&quot; == &#39;value2&#39;&quot;
+    value: True
+</pre></div>
+</div>
+<p>Another pitfall are claims with dashes, the correct escaping looks like this:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>admin:
+    compare: &quot;member&quot;
+    path: &quot;\&quot;custom-claim\&quot;&quot;
+    value: &quot;admin&quot;
+</pre></div>
 </div>
 </section>
 <section id="local-users">
