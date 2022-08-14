@@ -47,8 +47,16 @@
 <li class="toctree-l2"><a class="reference internal" href="jobs-and-shifts.html">Manage jobs and shifts</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Permissions and access control</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#event">Event</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#admins">Admins</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#job-admins">Job admins</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#administrator">Administrator</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#restricted-administrator">Restricted administrator</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#front-desk">Front desk</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#inventory">Inventory</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#badges">Badges</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#jobs">Jobs</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#full-access-to-all-data">Full access to all data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#default-access">Default access</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#global-permissions">Global permissions</a></li>
@@ -57,7 +65,7 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="links.html">Links</a></li>
 <li class="toctree-l2"><a class="reference internal" href="badges/index.html">Badges</a></li>
-<li class="toctree-l2"><a class="reference internal" href="gifts.html">Gifts and attendance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gifts.html">Gifts and presence</a></li>
 <li class="toctree-l2"><a class="reference internal" href="inventory.html">Inventory</a></li>
 <li class="toctree-l2"><a class="reference internal" href="prerequisites.html">Prerequisites</a></li>
 </ul>
@@ -94,19 +102,17 @@
 <span id="access-control"></span><h1>Permissions and access control<a class="headerlink" href="#permissions-and-access-control" title="Permalink to this heading"></a></h1>
 <section id="event">
 <h2>Event<a class="headerlink" href="#event" title="Permalink to this heading"></a></h2>
-<section id="admins">
-<h3>Admins<a class="headerlink" href="#admins" title="Permalink to this heading"></a></h3>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>The different admin roles on event level are introduced in version 1.1.</p>
+<p>The different admin roles on event level were introduced in version 1.1.</p>
 </div>
 <p>There are different admin roles for an event:</p>
 <section id="administrator">
-<h4>Administrator<a class="headerlink" href="#administrator" title="Permalink to this heading"></a></h4>
+<h3>Administrator<a class="headerlink" href="#administrator" title="Permalink to this heading"></a></h3>
 <p>Can do everything with the event, including deletion and permissions changes.</p>
 </section>
 <section id="restricted-administrator">
-<h4>Restricted administrator<a class="headerlink" href="#restricted-administrator" title="Permalink to this heading"></a></h4>
+<h3>Restricted administrator<a class="headerlink" href="#restricted-administrator" title="Permalink to this heading"></a></h3>
 <p>Can manage helpers and all related features, but not change the event settings. The user can not:</p>
 <ul class="simple">
 <li><p>Edit or delete the event itself</p></li>
@@ -118,40 +124,39 @@
 </ul>
 </section>
 <section id="front-desk">
-<h4>Front desk<a class="headerlink" href="#front-desk" title="Permalink to this heading"></a></h4>
+<h3>Front desk<a class="headerlink" href="#front-desk" title="Permalink to this heading"></a></h3>
 <p>Can read all helper data, resend the confirmation mail, edit the internal comment and change the delivered
 gifts of the helpers. The user cannot change the presence or any other data.</p>
 </section>
 <section id="inventory">
-<h4>Inventory<a class="headerlink" href="#inventory" title="Permalink to this heading"></a></h4>
+<h3>Inventory<a class="headerlink" href="#inventory" title="Permalink to this heading"></a></h3>
 <p>Can read all helper data and register or take back inventory items.</p>
 </section>
 <section id="badges">
-<h4>Badges<a class="headerlink" href="#badges" title="Permalink to this heading"></a></h4>
+<h3>Badges<a class="headerlink" href="#badges" title="Permalink to this heading"></a></h3>
 <p>Can print and register badges.</p>
 </section>
 </section>
-<section id="job-admins">
-<h3>Job admins<a class="headerlink" href="#job-admins" title="Permalink to this heading"></a></h3>
+<section id="jobs">
+<h2>Jobs<a class="headerlink" href="#jobs" title="Permalink to this heading"></a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The different roles on job level were introduced in version 3.0.</p>
+</div>
 <p>When editing an job you can add the so called <em>job admins</em>. These users can
 see and edit the helpers for a specific job. Here is a list of things they
-can or cannot do:</p>
-<section id="can-do">
-<h4>Can do<a class="headerlink" href="#can-do" title="Permalink to this heading"></a></h4>
+can or cannot do in general:</p>
+<p>Can do:</p>
 <ul class="simple">
 <li><p>View the number of helpers for all jobs and shifts</p></li>
 <li><p>Add helpers to their job, also before the registration is open</p></li>
 <li><p>Edit or delete helpers of their job</p></li>
-<li><p>Search helpers (will list also helpers of other jobs, only the name is
-visible)</p></li>
-<li><p>View the names, phone numbers and mail addresses of all coordinators of the
-event</p></li>
+<li><p>Search helpers (will list also helpers of other jobs, only the name is visible)</p></li>
+<li><p>View the names, phone numbers and mail addresses of all coordinators of the event</p></li>
 <li><p>Send mails to the helpers and coordinators of their job</p></li>
 <li><p>View the T-shirt statistic of their job</p></li>
 </ul>
-</section>
-<section id="cannot-do">
-<h4>Cannot do<a class="headerlink" href="#cannot-do" title="Permalink to this heading"></a></h4>
+<p>Cannot do:</p>
 <ul class="simple">
 <li><p>Edit the event</p></li>
 <li><p>Edit the job and shifts (e.g. change the number of helpers)</p></li>
@@ -161,7 +166,15 @@ event</p></li>
 <li><p>View the total number of helpers</p></li>
 <li><p>Anything with badges</p></li>
 </ul>
+<p>There are different roles that differ in the access to the data of the helpers:</p>
+<section id="full-access-to-all-data">
+<h3>Full access to all data<a class="headerlink" href="#full-access-to-all-data" title="Permalink to this heading"></a></h3>
+<p>Can access all personal data of the helpers.</p>
 </section>
+<section id="default-access">
+<h3>Default access<a class="headerlink" href="#default-access" title="Permalink to this heading"></a></h3>
+<p>Can access the personal data of the helpers except of:
+- Mobile phone number</p>
 </section>
 </section>
 <section id="global-permissions">

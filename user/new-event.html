@@ -43,12 +43,20 @@
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../admin/index.html">Admin guide</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">User guide</a><ul class="current">
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Create a new event</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Create a new event</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#general">General</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#registration">Registration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#texts">Texts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#logos">Logos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#requested-helper-data">Requested helper data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#features">Features</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="jobs-and-shifts.html">Manage jobs and shifts</a></li>
 <li class="toctree-l2"><a class="reference internal" href="access-control.html">Permissions and access control</a></li>
 <li class="toctree-l2"><a class="reference internal" href="links.html">Links</a></li>
 <li class="toctree-l2"><a class="reference internal" href="badges/index.html">Badges</a></li>
-<li class="toctree-l2"><a class="reference internal" href="gifts.html">Gifts and attendance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gifts.html">Gifts and presence</a></li>
 <li class="toctree-l2"><a class="reference internal" href="inventory.html">Inventory</a></li>
 <li class="toctree-l2"><a class="reference internal" href="prerequisites.html">Prerequisites</a></li>
 </ul>
@@ -85,40 +93,48 @@
 <span id="new-event"></span><h1>Create a new event<a class="headerlink" href="#create-a-new-event" title="Permalink to this heading"></a></h1>
 <p>When creating a new event or editing and existing event there are a lot of
 options.</p>
+<section id="general">
+<h2>General<a class="headerlink" href="#general" title="Permalink to this heading"></a></h2>
 <dl>
 <dt>Name for URL:</dt><dd><p>This is the name used in the URL for the registration.</p>
 <p>Example: if the name for the URL is <em>testevent</em> then the registration is
 available under <a class="reference external" href="http://app.helfertool.org/testevent">http://app.helfertool.org/testevent</a>.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>You should not change this value after the registration was opened or
-you sent a link to someone.</p>
+<p>You should not change this value after the registration was opened or you sent a link to someone.</p>
 </div>
 </dd>
 <dt>Event name:</dt><dd><p>This is the displayed name of the event, you can change it whenever you
 want.</p>
 </dd>
-<dt>Text before registration:</dt><dd><p>This text is shown on the registration page on top.</p>
+<dt>Date:</dt><dd><p>Date of the event, that is displayed on the overview page.
+It is also relevant if you move or duplicate the event
+(if you move the event from 1.1. to 2.1. for example, all shifts will be moved by 1 day).</p>
 </dd>
-<dt>Imprint:</dt><dd><p>This text if displayed at the bottom on the registration page and after
-a helper registered.</p>
-<p>Please add a mail address here in case some people want to contact you.</p>
-</dd>
-<dt>Text after registration:</dt><dd><p>This text is shown after a helper registered on top of the page.</p>
+<dt>Number of days:</dt><dd><p>Displayed on the overview page. No further use.</p>
 </dd>
 <dt>E-Mail:</dt><dd><p>This mail address is used as reply-to address for the confirmation mails.
-Usually some people respond to these mails when they want to
-contact you. So you should make sure that mails sent to this address are
-read.</p>
+Usually some people respond to these mails when they want to contact you.
+So you should make sure that mails sent to this address are read.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Our experience shows that most mails are sent by helpers to the reply-to address,
+but there are always mails that are sent to the “From” address of the mails.
+So you should make sure that you read these mails, too.</p>
+</div>
 </dd>
-<dt>Logo:</dt><dd><p>This image is displayed on top of the registration form.</p>
-<p>Please use a reasonable image size!
-The image is not scaled down automatically at the moment.
-A width of 400 px should be really enough!</p>
+</dl>
+</section>
+<section id="registration">
+<h2>Registration<a class="headerlink" href="#registration" title="Permalink to this heading"></a></h2>
+<dl>
+<dt>Registration publicly visible:</dt><dd><p>The event is visible publicly.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The registration over links is possible even when this is not set.</p>
+</div>
 </dd>
-<dt>Logo for Facebook:</dt><dd><p>This image will be shown when a link to the event is posted on Facebook.
-The image size should be 1052 x 548 px, a higher resolution does not bring
-a better result here since Facebook scales the image down.</p>
+<dt>Show number of helpers on registration page:</dt><dd><p>Show or hide numbers of registered and requird helpers.</p>
 </dd>
 <dt>Maximal overlapping of shifts:</dt><dd><p>If two shifts overlap more than this value in minutes it is not possible to
 register for both shifts. Leave empty to disable this check.</p>
@@ -126,49 +142,70 @@ register for both shifts. Leave empty to disable this check.</p>
 15 here. Then a helper can register for both shifts but not for shifts
 with a higher overlap.</p>
 </dd>
-<dt>Admins:</dt><dd><p>These people can edit the complete event (and also delete it, including
-all registrations!).</p>
-<p>When you create a new event you will be set as admin automatically.</p>
+</dl>
+</section>
+<section id="texts">
+<h2>Texts<a class="headerlink" href="#texts" title="Permalink to this heading"></a></h2>
+<dl>
+<dt>Before registration:</dt><dd><p>This text is shown on the registration page on top.</p>
 </dd>
-<dt>Registration publicly visible:</dt><dd><p>The event is visible publicly.</p>
+<dt>After registration:</dt><dd><p>This text is shown after a helper registered on top of the page.</p>
+</dd>
+<dt>Contact:</dt><dd><p>This text if displayed at the bottom of the registration page and other event-specific pages.</p>
+<p>It is recommended to include contact information like a mail address here.</p>
+</dd>
+</dl>
+</section>
+<section id="logos">
+<h2>Logos<a class="headerlink" href="#logos" title="Permalink to this heading"></a></h2>
+<dl>
+<dt>Logo:</dt><dd><p>This image is displayed on top of the registration form.</p>
+<p>Please use a reasonable image size! The image is not scaled down automatically.
+A width of 400 px should be really enough!</p>
+</dd>
+<dt>Logo for Facebook:</dt><dd><p>This image will be shown when a link to the event is posted on Facebook.
+The image size should be 1052 x 548 px, a higher resolution does not bring
+a better result here since Facebook scales the image down.</p>
+</dd>
+</dl>
+</section>
+<section id="requested-helper-data">
+<h2>Requested helper data<a class="headerlink" href="#requested-helper-data" title="Permalink to this heading"></a></h2>
+<dl>
+<dt>Helpers have to confirm to be full age:</dt><dd><p>There is a checkbox in the registration form for this.
+If users does not confirm it they cannot register.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>The registration over links is possible even when this is not set.</p>
+<p>This is of course not sufficient from a legal point of view and does not replace the ID check.
+However, it is a nice filter to prevent misunderstandings.</p>
 </div>
-</dd>
-<dt>Ask for T-shirt size:</dt><dd><p>Obvious</p>
-</dd>
-<dt>Ask, if helper is vegetarian:</dt><dd><p>Obvious</p>
-</dd>
-<dt>Helpers have to confirm to be full age:</dt><dd><p>There is a checkbox in the registration form for this. If someone does not
-click it he cannot register.</p>
 </dd>
 <dt>Ask if helper wants to be notified about new events:</dt><dd><p>The helper is asked if he wants to receive mails about further events.</p>
 </dd>
-<dt>Show number of helpers on registration page:</dt><dd><p>Obvious</p>
+<dt>Ask for preferred nutrition:</dt><dd><p>Ask for preferred nutrition during registration (No preference, vegetarian, vegan, other).</p>
 </dd>
-<dt>Registrations for public shifts must be validated by a link that is sent per mail:</dt><dd><p>If a helper does not validate its mail address there is a red cross shown
-in the table beside the name.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Even if a helper does not validate the mail address the helper is
-registered for the selected shifts anyway.</p>
-<p>But for you this is a sign that the helper does not read his mails and
-maybe does show up to his shifts.</p>
-</div>
+<dt>Ask for phone number:</dt><dd><p>Ask for phone number during registration.</p>
 </dd>
+<dt>Ask for T-shirt size:</dt><dd><p>Ask for T-shirt size during registration. If enabled, the available sizes can be configured.</p>
+</dd>
+</dl>
+</section>
+<section id="features">
+<h2>Features<a class="headerlink" href="#features" title="Permalink to this heading"></a></h2>
+<dl class="simple">
 <dt>Use badge creation:</dt><dd><p>Activate the badge creation system, see <a class="reference internal" href="badges/index.html#badges"><span class="std std-ref">Badges</span></a>.</p>
 </dd>
-<dt>Manage gifts for helpers:</dt><dd><p>You can manage whether a helper got the T-shirt, the gifts for the shifts
-and payed caution for that, see <a class="reference internal" href="gifts.html#gifts"><span class="std std-ref">Gifts and attendance</span></a>.</p>
+<dt>Manage gifts and presence for helpers:</dt><dd><p>You can manage whether a helper attended their shift, got the T-shirt, the gifts for the shifts and payed caution for that, see <a class="reference internal" href="gifts.html#gifts"><span class="std std-ref">Gifts and presence</span></a>.</p>
+</dd>
+<dt>Manage prerequisites for helpers:</dt><dd><p>You can manage different prerequisites for jobs and whether the helpers fulfill these or not, see <a class="reference internal" href="prerequisites.html#prerequisites"><span class="std std-ref">Prerequisites</span></a>.</p>
 </dd>
 <dt>Use the inventory functionality:</dt><dd><p>Helpers may receive some items like flashlights during their shift,
 you can manage the loan using barcodes on the badges and items.</p>
 </dd>
-<dt>Available T-shirt sizes:</dt><dd><p>You can specify the available T-shirt sizes here, if “Ask for T-shirt size”
-is enabled.</p>
+<dt>Collect additional data for COVID-19 contact tracing:</dt><dd><p>Helpers must provide their address for contact tracing during registered.</p>
 </dd>
 </dl>
+</section>
 </section>
 
 

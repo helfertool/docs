@@ -21,8 +21,8 @@
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Gifts and attendance" href="../gifts.html" />
-    <link rel="prev" title="LaTeX Template" href="template.html" /> 
+    <link rel="next" title="Special badges" href="special-badges.html" />
+    <link rel="prev" title="Concept" href="concept.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -49,11 +49,16 @@
 <li class="toctree-l2"><a class="reference internal" href="../links.html">Links</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="index.html">Badges</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="concept.html">Concept</a></li>
-<li class="toctree-l3"><a class="reference internal" href="template.html">LaTeX Template</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">Configuration</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Configuration</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#template">Template</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#roles-and-designs">Roles and designs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#customize-badges-of-helpers">Customize badges of helpers</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../gifts.html">Gifts and attendance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="special-badges.html">Special badges</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../gifts.html">Gifts and presence</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../inventory.html">Inventory</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../prerequisites.html">Prerequisites</a></li>
 </ul>
@@ -89,18 +94,144 @@
              
   <section id="configuration">
 <h1>Configuration<a class="headerlink" href="#configuration" title="Permalink to this heading"></a></h1>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>This section is missing, sorry!</p>
+<section id="template">
+<h2>Template<a class="headerlink" href="#template" title="Permalink to this heading"></a></h2>
+<p>The template and related settings can be configured under Badge settings &gt; Advanced settings.</p>
+<section id="permissions">
+<h3>Permissions<a class="headerlink" href="#permissions" title="Permalink to this heading"></a></h3>
+<p>You should start with the permissions as their names will be required for the template.</p>
+<p>The name of the permission is used in the tool, but not for the badge. You can configured different things there (text, icons, etc.).
+The LaTeX name is important for the badge.</p>
+</section>
+<section id="latex-template">
+<h3>LaTeX Template<a class="headerlink" href="#latex-template" title="Permalink to this heading"></a></h3>
+<p>You should download the default template and start customizing it.
+The relevant sections are marked with <code class="docutils literal notranslate"><span class="pre">CHANGE</span></code> in the LaTeX file.</p>
+<p>First, the variables for all permissions must be defined.
+If you have permissions with the LaTeX names <code class="docutils literal notranslate"><span class="pre">finance</span></code> and <code class="docutils literal notranslate"><span class="pre">food</span></code>, it looks like this:</p>
+<div class="highlight-latex notranslate"><div class="highlight"><pre><span></span><span class="c">% CHANGE: Insert your permissions here</span>
+<span class="c">% If you add a permission with the name &quot;foo&quot; in the tool, you have to add</span>
+<span class="c">% the following two lines with &quot;perm-foo&quot;.</span>
+<span class="c">% Remember to update or remove the following two sample permissions if you do</span>
+<span class="c">% not use them.</span>
+<span class="c">%</span>
+<span class="k">\newboolean</span><span class="nb">{</span>badge@perm-finance<span class="nb">}</span>
+<span class="k">\define</span>@key<span class="nb">{</span>badge<span class="nb">}{</span>perm-finance<span class="nb">}{</span><span class="k">\setboolean</span><span class="nb">{</span>badge@perm-finance<span class="nb">}{</span>#1<span class="nb">}}</span>
+
+<span class="k">\newboolean</span><span class="nb">{</span>badge@perm-food<span class="nb">}</span>
+<span class="k">\define</span>@key<span class="nb">{</span>badge<span class="nb">}{</span>perm-food<span class="nb">}{</span><span class="k">\setboolean</span><span class="nb">{</span>badge@perm-food<span class="nb">}{</span>#1<span class="nb">}}</span>
+</pre></div>
 </div>
+<p>You can change the size of the badges:</p>
+<div class="highlight-latex notranslate"><div class="highlight"><pre><span></span><span class="c">% CHANGE: Badge size</span>
+<span class="c">% When changing these values you have most likely to update the number of</span>
+<span class="c">% rows and columns in the advanced badge settings.</span>
+<span class="c">%</span>
+<span class="k">\newlength</span><span class="nb">{</span><span class="k">\badgewidth</span><span class="nb">}</span>
+<span class="k">\setlength</span><span class="nb">{</span><span class="k">\badgewidth</span><span class="nb">}{</span>8cm<span class="nb">}</span>
+<span class="k">\newlength</span><span class="nb">{</span><span class="k">\badgeheight</span><span class="nb">}</span>
+<span class="k">\setlength</span><span class="nb">{</span><span class="k">\badgeheight</span><span class="nb">}{</span>5cm<span class="nb">}</span>
+</pre></div>
+</div>
+<p>The front and back of the badge are defined as TikZ picture.
+It is recommended to only change the part that is marked in the template.</p>
+<div class="highlight-latex notranslate"><div class="highlight"><pre><span></span><span class="k">\newcommand*\badgefront</span><span class="na">[1][]</span><span class="nb">{</span><span class="c">%</span>
+   ...
+   <span class="c">% all coordinates are relative to background (0,0) to (1,1)</span>
+   <span class="k">\begin</span><span class="nb">{</span>scope<span class="nb">}</span>[shift=<span class="nb">{</span>(bg.north west)<span class="nb">}</span>, x=<span class="nb">{</span>(bg.north)<span class="nb">}</span>, y=<span class="nb">{</span>(bg.west)<span class="nb">}</span>, scale=2]
+         <span class="c">%</span>
+         <span class="c">% CHANGE: this is the content of the front side of the badge.</span>
+         <span class="c">% All coordinates are relative to the badge size:</span>
+         <span class="c">% (0, 0) is the top left corner</span>
+         <span class="c">% (1, 1) is the bottom right corner</span>
+         <span class="c">%</span>
+
+         <span class="c">% name</span>
+         <span class="k">\node</span><span class="na">[draw=none, text width=0.5\badgewidth]</span> at (0.05,0.1) <span class="nb">{</span><span class="k">\Large</span> <span class="k">\badge</span>@firstname<span class="k">\ \badge</span>@surname<span class="nb">}</span>;
+
+         <span class="c">% job</span>
+         <span class="k">\node</span><span class="na">[text width=0.5\badgewidth]</span> at (0.05,0.5) <span class="nb">{</span><span class="k">\badge</span>@job<span class="nb">}</span>;
+         ...
+
+         <span class="c">%</span>
+         <span class="c">% END CHANGE</span>
+         <span class="c">%</span>
+   <span class="k">\end</span><span class="nb">{</span>scope<span class="nb">}</span>
+</pre></div>
+</div>
+<p>If is recommended to specify a maximum width for all text fields that can be specified by the user.
+Otherwise, it is possible that the badge becomes to big which destroys the complete page.</p>
+<div class="highlight-latex notranslate"><div class="highlight"><pre><span></span><span class="k">\node</span><span class="na">[text width=0.5\badgewidth]</span> at (0.05,0.5) <span class="nb">{</span><span class="k">\badge</span>@job<span class="nb">}</span>;
+</pre></div>
+</div>
+<p>The permission flags can be used like this (example from back of badge).
+Instead of printing text, you of course can also show icons or do anything else in LaTeX.</p>
+<div class="highlight-latex notranslate"><div class="highlight"><pre><span></span><span class="k">\ifthenelse</span><span class="nb">{</span><span class="k">\boolean</span><span class="nb">{</span>badge@perm-food<span class="nb">}}</span>
+<span class="nb">{</span>
+   <span class="k">\node</span> at (0.15,0.35) <span class="nb">{</span>Free food<span class="nb">}</span>;
+<span class="nb">}</span>
+<span class="nb">{</span>
+   <span class="k">\node</span> at (0.15,0.35) <span class="nb">{</span><span class="k">\sout</span><span class="nb">{</span>Free food<span class="nb">}}</span>;
+<span class="nb">}</span>
+</pre></div>
+</div>
+</section>
+<section id="further-settings-for-template">
+<h3>Further settings for template<a class="headerlink" href="#further-settings-for-template" title="Permalink to this heading"></a></h3>
+<dl class="simple">
+<dt>Number of columns/rows on one page:</dt><dd><p>This depends on the badge size in the template (<code class="docutils literal notranslate"><span class="pre">badgewidth</span></code> and <code class="docutils literal notranslate"><span class="pre">badgeheight</span></code>).
+You probably will notice if these values need to be changed.</p>
+</dd>
+<dt>Role for coordinators:</dt><dd><p>Text for role on badge if the helper is a coordinator (available as <code class="docutils literal notranslate"><span class="pre">\badge&#64;role</span></code>).</p>
+</dd>
+<dt>Role for helpers:</dt><dd><p>Text for role on badge if the helper is not a coordinator (available as <code class="docutils literal notranslate"><span class="pre">\badge&#64;role</span></code>).</p>
+</dd>
+<dt>Language of badges:</dt><dd><p>Language that should be used to generate the badges (English or German).</p>
+</dd>
+<dt>Format for shift on badges:</dt><dd><p>The shift is available as <code class="docutils literal notranslate"><span class="pre">\badge&#64;shift</span></code> in LaTeX.
+As helpers might have several different shifts, a list might become longer.
+Therefore, there are different ways for format the shift (hours only, include weekday, include date).</p>
+</dd>
+<dt>Do not use shift names for badges, always print times:</dt><dd><p>If enabled, shift names are not used when printing the shifts on the badges.</p>
+</dd>
+<dt>Badges only for coordinators:</dt><dd><p>Badges are only created for coordinators.</p>
+</dd>
+<dt>Print barcodes on badges to avoid duplicates:</dt><dd><p>Each badge has an unique number that can be printed on the badge as barcode.
+The barcode can then be scanned so that the badge is marked as printed and will not be included in future exports.</p>
+</dd>
+</dl>
+</section>
+</section>
+<section id="roles-and-designs">
+<h2>Roles and designs<a class="headerlink" href="#roles-and-designs" title="Permalink to this heading"></a></h2>
+<p>The configuration of roles and designs is easier as it does not require changes in the LaTeX template.</p>
+<p>A default role and design has to be set.
+Additionally, it is also possible to set different roles and designs per job or even per helper.</p>
+</section>
+<section id="customize-badges-of-helpers">
+<h2>Customize badges of helpers<a class="headerlink" href="#customize-badges-of-helpers" title="Permalink to this heading"></a></h2>
+<p>You can change all details of a badge for any helper (helper &gt; Edit badge):</p>
+<ul class="simple">
+<li><p>Firstname</p></li>
+<li><p>Surname</p></li>
+<li><p>Job</p></li>
+<li><p>Shift</p></li>
+<li><p>Role</p></li>
+<li><p>Primary job (required if a helper has multiple jobs so that the tool can decide which role/design should be used)</p></li>
+<li><p>Role</p></li>
+<li><p>Design</p></li>
+<li><p>Photo</p></li>
+</ul>
+<p>This can for example be used if the name of a helper is too long for the badge.</p>
+</section>
 </section>
 
 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="template.html" class="btn btn-neutral float-left" title="LaTeX Template" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="../gifts.html" class="btn btn-neutral float-right" title="Gifts and attendance" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="concept.html" class="btn btn-neutral float-left" title="Concept" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="special-badges.html" class="btn btn-neutral float-right" title="Special badges" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
