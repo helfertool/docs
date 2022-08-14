@@ -1,8 +1,8 @@
 .. _gifts:
 
-====================
-Gifts and attendance
-====================
+==================
+Gifts and presence
+==================
 
 .. note::
    This section is missing, sorry!

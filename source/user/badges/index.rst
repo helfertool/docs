@@ -8,5 +8,5 @@ Badges
    :maxdepth: 1
 
    concept
-   template
    configuration
+   special-badges
