@@ -6,3 +6,4 @@ Further topics
    :maxdepth: 1
 
    logging
+   mail

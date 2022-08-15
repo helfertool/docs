@@ -117,6 +117,9 @@ RabbitMQ
 Mail server
 -----------
 
+A mail server that can be used to send mails must be configured.
+Optionally, Helfertool can also receive mails and process non delivery reports, see :ref:`mail`.
+
 .. code-block:: none
 
    mail:
