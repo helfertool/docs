@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mail handling &mdash; Documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/custom.css" type="text/css" />
+    <link rel="shortcut icon" href="../../_static/icon.png"/>
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Migration guides" href="../migration/index.html" />
+    <link rel="prev" title="Logging" href="logging.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../index.html" class="icon icon-home"> Helfertool
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Admin guide</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../versions.html">Versions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../configuration.html">Configuration options</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../updates.html">Updates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helfertoolctl.html">helfertoolctl</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Further topics</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="logging.html">Logging</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Mail handling</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#simple-example">Simple example</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#example-with-mailman">Example with Mailman</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../migration/index.html">Migration guides</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../user/index.html">User guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../development/index.html">Development guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../releases/index.html">Releases</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Helfertool</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../index.html">Admin guide</a> &raquo;</li>
+          <li><a href="index.html">Further topics</a> &raquo;</li>
+      <li>Mail handling</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="mail-handling">
+<span id="mail"></span><h1>Mail handling<a class="headerlink" href="#mail-handling" title="Permalink to this heading"></a></h1>
+<p>All mails sent by Helfertool are sent from one configured mail address.
+The app can also read the mails that are sent back to this address and process non delivery reports.
+If the affected helper can be identified (based on the custom mail header <code class="docutils literal notranslate"><span class="pre">X-Helfertool</span></code> containing an ID and the original recipient address),
+the failed delivery is displayed in the app.
+All other mails can be forwarded to another mail address, so Helfertool filters out non delivery reports for you.</p>
+<section id="simple-example">
+<h2>Simple example<a class="headerlink" href="#simple-example" title="Permalink to this heading"></a></h2>
+<p>Let’s assume you have a mailbox <code class="docutils literal notranslate"><span class="pre">helfertool&#64;app.helfertool.org</span></code> that you can access via SMTP and IMAP and that is used to send out mails.
+Furthermore you have a mailing list / distribution group <code class="docutils literal notranslate"><span class="pre">volunteers&#64;app.helfertool.org</span></code> that is read by your team.</p>
+<p>A shortened configuration looks like this:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>mail:
+    # Connection to mail server for sending
+    send:
+        user: &quot;helfertool@app.helfertool.org&quot;
+        ...
+
+    # Connection to mail server for receiving
+    receive:
+        user: &quot;helfertool@app.helfertool.org&quot;
+        ...
+
+        # The IMAP folder that should be checked for new mails
+        folder: &quot;INBOX&quot;
+
+        # Time between checks (in seconds)
+        interval: 300
+
+    # Sender address and display name for all outgoing mails
+    sender_address: &quot;helfertool@app.helfertool.org&quot;
+    sender_name: &quot;Helfertool&quot;
+
+    # Forward received mails that are not handled automatically to this address (with this display name)
+    forward_unhandled_address: &quot;volunteers@app.helfertool.org&quot;
+    forward_unhandled_name: &quot;Helfertool&quot;
+</pre></div>
+</div>
+<p>This means that (almost all) non delivery reports sent to <code class="docutils literal notranslate"><span class="pre">helfertool&#64;app.helfertool.org</span></code> are automatically processed and not forwarded to your team.
+Any other mail, for example replies by helpers, is forwarded to <code class="docutils literal notranslate"><span class="pre">volunteers&#64;app.helfertool.org</span></code> so you can take care of it.</p>
+</section>
+<section id="example-with-mailman">
+<h2>Example with Mailman<a class="headerlink" href="#example-with-mailman" title="Permalink to this heading"></a></h2>
+<p>We use Mailman for our own deployment.
+The setup might be a bit more complex than necessary but maybe it helps to understand what is possible.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">helfertool&#64;app.helfertool.org</span></code> is a Mailman list and is also used as sender address.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">volunteers&#64;app.helfertool.org</span></code> is another Mailman list.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">helfertoolservice&#64;app.helfertool.org</span></code> is a mailbox (SMTP + IMAP). It is member of the <code class="docutils literal notranslate"><span class="pre">helfertool&#64;app.helfertool.org</span></code> mailing list.</p></li>
+</ul>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>mail:
+    # Connection to mail server for sending
+    send:
+        user: &quot;helfertoolservice@app.helfertool.org&quot;
+        ...
+
+    # Connection to mail server for receiving
+    receive:
+        user: &quot;helfertoolservice@app.helfertool.org&quot;
+        ...
+
+        # The IMAP folder that should be checked for new mails
+        folder: &quot;helfertool&quot;
+
+        # Time between checks (in seconds)
+        interval: 300
+
+    # Sender address and display name for all outgoing mails
+    sender_address: &quot;helfertool@app.helfertool.org&quot;
+    sender_name: &quot;Helfertool&quot;
+
+    # Forward received mails that are not handled automatically to this address (with this display name)
+    forward_unhandled_address: &quot;volunteers@app.helfertool.org&quot;
+    forward_unhandled_name: &quot;Helfertool&quot;
+</pre></div>
+</div>
+<p>We now have a similar setup as the simple example above, but incoming mails are first handled by Mailman.
+Mailman then forwards the mail to the <code class="docutils literal notranslate"><span class="pre">helfertoolservice</span></code> mailbox that is monitored by Helfertool.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="logging.html" class="btn btn-neutral float-left" title="Logging" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../migration/index.html" class="btn btn-neutral float-right" title="Migration guides" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2015 - 2022,  Sven Hertle and contributors.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  
+<br /><br />
+<a href="https://www.helfertool.org/impressum">Impressum</a>
+
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
