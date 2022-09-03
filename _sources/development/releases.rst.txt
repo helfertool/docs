@@ -7,6 +7,8 @@ Making releases
 Preparation
 -----------
 
+* Check that python libs are up-to-date.
+* Check that external CSS/JS libs are up-to-date.
 * Check that all migrations are created (``makemigrations``).
 * Check that all translations are done.
 * Check for changes in ``helfertool.yaml``: update docs and ``helfertoolctl``
