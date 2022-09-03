@@ -4,6 +4,14 @@
 Changelog
 =========
 
+.. _changelog-3-1-1:
+
+3.1.1 (2022-09-03)
+------------------
+
+* Fixes for updated python libraries
+* Pin python libraries in requirements.txt files
+
 .. _changelog-3-1-0:
 
 3.1.0 (2022-07-25)
