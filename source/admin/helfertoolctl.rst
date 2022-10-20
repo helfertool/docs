@@ -158,7 +158,7 @@ can be used:
 
 .. code-block:: none
 
-   at '13:55 10/18/2018'
+   at '13:55 10/18/2022'  # date format is mm/dd/yyyy
 
 Disable old accounts
 ^^^^^^^^^^^^^^^^^^^^
