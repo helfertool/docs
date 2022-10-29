@@ -4,6 +4,13 @@
 Changelog
 =========
 
+.. _changelog-3-1-2:
+
+3.1.2 (2022-10-29)
+------------------
+
+* Fix bug in badge creation when number of columns is not 2
+
 .. _changelog-3-1-1:
 
 3.1.1 (2022-09-03)
