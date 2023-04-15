@@ -30,6 +30,9 @@ Then, create a Python virtual environment and install all dependencies:
 
 .. code-block:: none
 
+   sudo apt-get install libldap2-dev libsasl2-dev  # Ubuntu/Debian
+   sudo yum install openldap-devel                 # RedHat/CentOS
+
    python3 -m venv venv
    . ./venv/bin/activate
 
