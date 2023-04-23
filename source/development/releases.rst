@@ -7,7 +7,8 @@ Making releases
 Preparation
 -----------
 
-* Check that python libs are up-to-date.
+* Check that python libs are up-to-date (start in clean virtual env,
+  ``pip install -U -r requirements_dev.txt -r requirements_prod.txt -r requirements.txt``, ```pip list --outdated``).
 * Check that external CSS/JS libs are up-to-date.
 * Check that all migrations are created (``makemigrations``).
 * Check that all translations are done.
