@@ -93,7 +93,8 @@
 <section id="preparation">
 <h2>Preparation<a class="headerlink" href="#preparation" title="Permalink to this heading"></a></h2>
 <ul class="simple">
-<li><p>Check that python libs are up-to-date.</p></li>
+<li><p>Check that python libs are up-to-date (start in clean virtual env,
+<code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">-U</span> <span class="pre">-r</span> <span class="pre">requirements_dev.txt</span> <span class="pre">-r</span> <span class="pre">requirements_prod.txt</span> <span class="pre">-r</span> <span class="pre">requirements.txt</span></code>, <code class="docutils literal notranslate"><span class="pre">`pip</span> <span class="pre">list</span> <span class="pre">--outdated</span></code>).</p></li>
 <li><p>Check that external CSS/JS libs are up-to-date.</p></li>
 <li><p>Check that all migrations are created (<code class="docutils literal notranslate"><span class="pre">makemigrations</span></code>).</p></li>
 <li><p>Check that all translations are done.</p></li>
