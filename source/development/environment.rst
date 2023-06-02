@@ -38,6 +38,12 @@ Then, create a Python virtual environment and install all dependencies:
 
    pip install -r src/requirements.txt -r src/requirements_dev.txt
 
+In case you are using macOS, you need to install ``libmagic`` manually, for example via ``brew``:
+
+.. code-block:: none
+
+   brew install libmagic
+
 pre-commit
 ^^^^^^^^^^
 

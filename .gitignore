@@ -6,8 +6,10 @@ Session.vim
 .netrwhist
 *~
 
-# other editors
+# other editors/things
 /.vscode
+/.DS_Store
 
-# sphinx
+# sphinx/python
 /build/
+/venv/
