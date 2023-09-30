@@ -4,6 +4,15 @@
 Changelog
 =========
 
+.. _changelog-3-2-0:
+
+3.2.0 (2023-09-30)
+------------------
+
+* Updates of dependencies (Django 4.2, Celery 5, Debian Bookworm for container, ...)
+* Fix bug in e-mail hanlding during authentication with OpenID Connect
+* Minor UI fixes
+
 .. _changelog-3-1-2:
 
 3.1.2 (2022-10-29)
