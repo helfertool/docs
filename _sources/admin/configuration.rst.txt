@@ -472,6 +472,9 @@ Customization
 .. code-block:: none
 
    customization:
+       # Title for all pages
+       title: "Helfertool"
+
        # Modify certain properties for the general helfertool to display
        display:
            # Maximum years of events to be displayed by default on the main page
@@ -552,8 +555,8 @@ If Docker is not used, some additional settings may be interesting:
        tmp: "/tmp"
 
    security:
-       # Application is behind additional/second proxy. In this case, the HTTP
-       # header X-Forwarded-Host is used. Example: Apache > nginx > uwsgi
+       # Application is behind reverse proxy. In this case, the HTTP header X-Forwarded-Proto
+       # is used to check if the application is accessed via HTTPS.
        behind_proxy: False
 
    badges:

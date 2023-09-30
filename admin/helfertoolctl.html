@@ -13,11 +13,11 @@
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/doctools.js"></script>
-        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=2709fde1"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -114,12 +114,12 @@
            <div itemprop="articleBody">
              
   <section id="helfertoolctl">
-<span id="id1"></span><h1>helfertoolctl<a class="headerlink" href="#helfertoolctl" title="Permalink to this heading"></a></h1>
+<span id="id1"></span><h1>helfertoolctl<a class="headerlink" href="#helfertoolctl" title="Link to this heading"></a></h1>
 <section id="repositories">
-<h2>Repositories<a class="headerlink" href="#repositories" title="Permalink to this heading"></a></h2>
+<h2>Repositories<a class="headerlink" href="#repositories" title="Link to this heading"></a></h2>
 <p>There are Debian and CentOS repositories for <cite>helfertoolctl</cite> on <a class="reference external" href="https://repo.helfertool.org/">https://repo.helfertool.org/</a>.</p>
 <section id="debian">
-<h3>Debian<a class="headerlink" href="#debian" title="Permalink to this heading"></a></h3>
+<h3>Debian<a class="headerlink" href="#debian" title="Link to this heading"></a></h3>
 <p>There is a stable repository for Debian Bullseye:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>deb https://repo.helfertool.org/debian/ bullseye main
 </pre></div>
@@ -130,7 +130,7 @@
 </div>
 </section>
 <section id="centos">
-<h3>CentOS<a class="headerlink" href="#centos" title="Permalink to this heading"></a></h3>
+<h3>CentOS<a class="headerlink" href="#centos" title="Link to this heading"></a></h3>
 <p>There is a stable and testing repository for CentOS 7, see <a class="reference external" href="https://repo.helfertool.org/centos7.repo">repo file</a>:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>[helfertoolctl-stable]
 name=helfertoolctl stable - $basearch
@@ -154,9 +154,9 @@ protect=1
 </section>
 </section>
 <section id="basic-commands">
-<h2>Basic commands<a class="headerlink" href="#basic-commands" title="Permalink to this heading"></a></h2>
+<h2>Basic commands<a class="headerlink" href="#basic-commands" title="Link to this heading"></a></h2>
 <section id="start">
-<h3>Start<a class="headerlink" href="#start" title="Permalink to this heading"></a></h3>
+<h3>Start<a class="headerlink" href="#start" title="Link to this heading"></a></h3>
 <p>To start the Helfertool service, run:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>sudo systemctl start helfertool
 </pre></div>
@@ -164,7 +164,7 @@ protect=1
 <p>It is also possible to run <code class="docutils literal notranslate"><span class="pre">helfertoolctl</span> <span class="pre">start</span></code>, but usually the systemd service should be used.</p>
 </section>
 <section id="stop">
-<h3>Stop<a class="headerlink" href="#stop" title="Permalink to this heading"></a></h3>
+<h3>Stop<a class="headerlink" href="#stop" title="Link to this heading"></a></h3>
 <p>To stop the Helfertool service, run:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>sudo systemctl stop helfertool
 </pre></div>
@@ -172,7 +172,7 @@ protect=1
 <p>It is also possible to run <code class="docutils literal notranslate"><span class="pre">helfertoolctl</span> <span class="pre">stop</span></code>, but usually the systemd service should be used.</p>
 </section>
 <section id="reload">
-<h3>Reload<a class="headerlink" href="#reload" title="Permalink to this heading"></a></h3>
+<h3>Reload<a class="headerlink" href="#reload" title="Link to this heading"></a></h3>
 <p>It is possible to reload the configuration file without restarting the Docker container:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>sudo systemctl reload helfertool
 </pre></div>
@@ -180,7 +180,7 @@ protect=1
 <p><code class="docutils literal notranslate"><span class="pre">helfertoolctl</span> <span class="pre">reload</span></code> is the same here and can also be called.</p>
 </section>
 <section id="updates">
-<h3>Updates<a class="headerlink" href="#updates" title="Permalink to this heading"></a></h3>
+<h3>Updates<a class="headerlink" href="#updates" title="Link to this heading"></a></h3>
 <p>To download the newest version of Helfertool, run:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>sudo helfertoolctl download
 </pre></div>
@@ -191,7 +191,7 @@ protect=1
 </div>
 </section>
 <section id="initialize">
-<h3>Initialize<a class="headerlink" href="#initialize" title="Permalink to this heading"></a></h3>
+<h3>Initialize<a class="headerlink" href="#initialize" title="Link to this heading"></a></h3>
 <p>After the installation, the database needs to be filled with some initial data:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>sudo helfertoolctl init
 </pre></div>
@@ -202,21 +202,21 @@ protect=1
 </div>
 </section>
 <section id="create-administrator">
-<h3>Create administrator<a class="headerlink" href="#create-administrator" title="Permalink to this heading"></a></h3>
+<h3>Create administrator<a class="headerlink" href="#create-administrator" title="Link to this heading"></a></h3>
 <p>To create a new administrator account using the command line, run:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>sudo helfertoolctl createadmin
 </pre></div>
 </div>
 </section>
 <section id="add-example-event">
-<h3>Add example event<a class="headerlink" href="#add-example-event" title="Permalink to this heading"></a></h3>
+<h3>Add example event<a class="headerlink" href="#add-example-event" title="Link to this heading"></a></h3>
 <p>In case you want to have a test event with most features enables, you can run:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>sudo helfertoolctl exampledata
 </pre></div>
 </div>
 </section>
 <section id="show-some-statistics">
-<h3>Show some statistics<a class="headerlink" href="#show-some-statistics" title="Permalink to this heading"></a></h3>
+<h3>Show some statistics<a class="headerlink" href="#show-some-statistics" title="Link to this heading"></a></h3>
 <p>To get the number of events, jobs, shifts and total number of helpers including archived helpers, run:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>sudo helfertoolctl statistics
 </pre></div>
@@ -224,9 +224,9 @@ protect=1
 </section>
 </section>
 <section id="commands-for-automation">
-<h2>Commands for automation<a class="headerlink" href="#commands-for-automation" title="Permalink to this heading"></a></h2>
+<h2>Commands for automation<a class="headerlink" href="#commands-for-automation" title="Link to this heading"></a></h2>
 <section id="open-close-public-registration-automatically">
-<h3>Open / close public registration automatically<a class="headerlink" href="#open-close-public-registration-automatically" title="Permalink to this heading"></a></h3>
+<h3>Open / close public registration automatically<a class="headerlink" href="#open-close-public-registration-automatically" title="Link to this heading"></a></h3>
 <p><cite>helfertoolctl</cite> provides commands to open and close the registration of events:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>sudo helfertoolctl open &lt;url_name&gt;
 sudo helfertoolctl close &lt;url_name&gt;
@@ -239,7 +239,7 @@ can be used:</p>
 </div>
 </section>
 <section id="disable-old-accounts">
-<h3>Disable old accounts<a class="headerlink" href="#disable-old-accounts" title="Permalink to this heading"></a></h3>
+<h3>Disable old accounts<a class="headerlink" href="#disable-old-accounts" title="Link to this heading"></a></h3>
 <p>Inactive accounts can be disabled with the <code class="docutils literal notranslate"><span class="pre">disableaccounts</span></code> command. Inactive means that</p>
 <blockquote>
 <div><ul class="simple">
@@ -255,23 +255,23 @@ active flag is synced again from there.</p>
 </section>
 </section>
 <section id="advanced-commands">
-<h2>Advanced commands<a class="headerlink" href="#advanced-commands" title="Permalink to this heading"></a></h2>
+<h2>Advanced commands<a class="headerlink" href="#advanced-commands" title="Link to this heading"></a></h2>
 <section id="shell-access">
-<h3>Shell access<a class="headerlink" href="#shell-access" title="Permalink to this heading"></a></h3>
+<h3>Shell access<a class="headerlink" href="#shell-access" title="Link to this heading"></a></h3>
 <p>To start a shell inside the Docker container, run:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>sudo helfertoolctl shell
 </pre></div>
 </div>
 </section>
 <section id="django-management-command">
-<h3>Django management command<a class="headerlink" href="#django-management-command" title="Permalink to this heading"></a></h3>
+<h3>Django management command<a class="headerlink" href="#django-management-command" title="Link to this heading"></a></h3>
 <p>To run some Django management command directly, run:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>sudo helfertoolctl manage [...]
 </pre></div>
 </div>
 </section>
 <section id="log-file-postrotate">
-<h3>Log file postrotate<a class="headerlink" href="#log-file-postrotate" title="Permalink to this heading"></a></h3>
+<h3>Log file postrotate<a class="headerlink" href="#log-file-postrotate" title="Link to this heading"></a></h3>
 <p>After the log file was rotated (by logrotate), <code class="docutils literal notranslate"><span class="pre">postrotate</span></code> must be executed:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>sudo helfertoolctl postrotate
 </pre></div>
