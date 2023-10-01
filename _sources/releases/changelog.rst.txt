@@ -4,6 +4,13 @@
 Changelog
 =========
 
+.. _changelog-3-2-1:
+
+3.2.1 (2023-10-01)
+------------------
+
+* Fix validation links (UUID handling)
+
 .. _changelog-3-2-0:
 
 3.2.0 (2023-09-30)
