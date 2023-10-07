@@ -6,6 +6,12 @@ Changelog
 
 .. _changelog-3-2-1:
 
+3.2.2 (2023-10-07)
+------------------
+
+* Security update for Pillow library
+* Increase upload limit for nginx in container
+
 3.2.1 (2023-10-01)
 ------------------
 
