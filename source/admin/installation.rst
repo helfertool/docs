@@ -292,8 +292,28 @@ Place the configuration in ``/etc/apache2/sites-available/helfertool.conf``.
   the file is also in the git repository under ``stuff/deployment/apache.conf``.
   Review and adapt the settings carefully.
 
-.. note::
-   This configuration example is missing, sorry!
+.. code-block:: none
+
+   ServerTokens Prod
+   ServerSignature Off
+
+   <VirtualHost *:80>
+
+    Protocols h2 h2c http/1.1
+
+    ProxyPass / http://127.0.0.1:8000/
+    ProxyPassReverse / http://127.0.0.1:8000/
+
+    ProxyPreserveHost On
+    ProxyAddHeaders On
+        RequestHeader set X-Forwarded-Proto "https"
+        RequestHeader set Host "YOUR_DOMAIN"
+
+    ErrorLog ${APACHE_LOG_DIR}/error.log
+    CustomLog ${APACHE_LOG_DIR}/access.log combined
+
+   </VirtualHost>
+
 
 The Apache module remoteip needs to be enabled.
 Then activate the new vHost and if necessary disable the default vHost.
@@ -304,7 +324,7 @@ Then activate the new vHost and if necessary disable the default vHost.
 
    sudo a2ensite helfertool.conf
    sudo a2dissite 000-default.conf  # for a new apache installation
-   sudo a2enmod rewrite ssl headers
+   sudo a2enmod rewrite ssl headers proxy proxy_balancer proxy_http
    sudo systemctl restart apache2
 
 First steps
