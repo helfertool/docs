@@ -27,8 +27,6 @@ Release series
 Versions with the same major and minor version form a release series, named like ``1.0.x``.
 Relase series are used to tag the Docker containers, the patch version of the Helfertool and container
 version are not included in the Docker tags.
-Additionally, there is a separate Git branch for every release series
-(but this is not important if you just want to use the Docker containers).
 
 Every release series contains one or more new features and changes.
 New patch versions within one release series then only fix potential issues.
@@ -36,24 +34,14 @@ It is recommended to update to the newest version when it is released, as the Do
 for older versions are not updated anymore.
 They may therefore contain outdated software with vulnerabilities.
 
-If you do not want to update the Helfertool itself that often, there is a `long term support` release series.
-For those Helfertool versions, the Docker container is still rebuilt for a longer time.
-In case a critical bug or security vulnerability is found in the Helfertool, it will also be fixed.
-Nevertheless, you should always use the latest release of this release series.
-Please note that `helfertoolctl` ships the configuration for the latest release which may be incompatibel
-with the LTS version.
+Latest release
+---------------
 
-Supported releases
-------------------
-
-+-----------------+--------------------------------------------+------------------+------------------+
-| Relase series   | Latest release                             | Release date     | End of life      |
-+=================+============================================+==================+==================+
-| 3.2.x           | :ref:`3.2.2 <changelog-3-2-2>`             | 2023-10-01       |                  |
-+-----------------+--------------------------------------------+------------------+------------------+
-
-For non-LTS versions, the support ends with the next release.
-There is no planned release schedule.
++-----------------+--------------------------------------------+------------------+
+| Relase series   | Latest release                             | Release date     |
++=================+============================================+==================+
+| 3.2.x           | :ref:`3.2.3 <changelog-3-2-3>`             | 2024-04-09       |
++-----------------+--------------------------------------------+------------------+
 
 .. _versions_tags:
 
@@ -62,6 +50,6 @@ Tags
 
 The following Docker tags can be used to refer to a certain release series:
 
-* ``latest``: The latest, but (hopefully) stable release. This is the default and recommended, unless you want to use the LTS version.
-* ``1.0.x``: The latest version in a specific release series. Use this for LTS versions.
+* ``latest``: The latest, but (hopefully) stable release
+* ``1.0.x``: The latest version in a specific release series
 * ``dev``: the current `dev` Git branch (not stable)
