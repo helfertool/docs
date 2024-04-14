@@ -1,13 +1,15 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="../">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Versions &mdash; Documentation</title>
-      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=0de5c193" />
+
+  
     <link rel="shortcut icon" href="../_static/icon.png"/>
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
@@ -49,7 +51,7 @@
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Versions</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#version-numbers">Version numbers</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#release-series">Release series</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#supported-releases">Supported releases</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#latest-release">Latest release</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#tags">Tags</a></li>
 </ul>
 </li>
@@ -122,48 +124,36 @@ the build date in RFC3339 / ISO8601 format in UTC (e.g. <code class="docutils li
 <h2>Release series<a class="headerlink" href="#release-series" title="Link to this heading"></a></h2>
 <p>Versions with the same major and minor version form a release series, named like <code class="docutils literal notranslate"><span class="pre">1.0.x</span></code>.
 Relase series are used to tag the Docker containers, the patch version of the Helfertool and container
-version are not included in the Docker tags.
-Additionally, there is a separate Git branch for every release series
-(but this is not important if you just want to use the Docker containers).</p>
+version are not included in the Docker tags.</p>
 <p>Every release series contains one or more new features and changes.
 New patch versions within one release series then only fix potential issues.
 It is recommended to update to the newest version when it is released, as the Docker containers
 for older versions are not updated anymore.
 They may therefore contain outdated software with vulnerabilities.</p>
-<p>If you do not want to update the Helfertool itself that often, there is a <cite>long term support</cite> release series.
-For those Helfertool versions, the Docker container is still rebuilt for a longer time.
-In case a critical bug or security vulnerability is found in the Helfertool, it will also be fixed.
-Nevertheless, you should always use the latest release of this release series.
-Please note that <cite>helfertoolctl</cite> ships the configuration for the latest release which may be incompatibel
-with the LTS version.</p>
 </section>
-<section id="supported-releases">
-<h2>Supported releases<a class="headerlink" href="#supported-releases" title="Link to this heading"></a></h2>
+<section id="latest-release">
+<h2>Latest release<a class="headerlink" href="#latest-release" title="Link to this heading"></a></h2>
 <table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head"><p>Relase series</p></th>
 <th class="head"><p>Latest release</p></th>
 <th class="head"><p>Release date</p></th>
-<th class="head"><p>End of life</p></th>
 </tr>
 </thead>
 <tbody>
 <tr class="row-even"><td><p>3.2.x</p></td>
-<td><p><span class="xref std std-ref">3.2.2</span></p></td>
-<td><p>2023-10-01</p></td>
-<td></td>
+<td><p><a class="reference internal" href="../releases/changelog.html#changelog-3-2-3"><span class="std std-ref">3.2.3</span></a></p></td>
+<td><p>2024-04-09</p></td>
 </tr>
 </tbody>
 </table>
-<p>For non-LTS versions, the support ends with the next release.
-There is no planned release schedule.</p>
 </section>
 <section id="tags">
 <span id="versions-tags"></span><h2>Tags<a class="headerlink" href="#tags" title="Link to this heading"></a></h2>
 <p>The following Docker tags can be used to refer to a certain release series:</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">latest</span></code>: The latest, but (hopefully) stable release. This is the default and recommended, unless you want to use the LTS version.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">1.0.x</span></code>: The latest version in a specific release series. Use this for LTS versions.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">latest</span></code>: The latest, but (hopefully) stable release</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">1.0.x</span></code>: The latest version in a specific release series</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">dev</span></code>: the current <cite>dev</cite> Git branch (not stable)</p></li>
 </ul>
 </section>
@@ -180,7 +170,7 @@ There is no planned release schedule.</p>
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2015 - 2023,  Sven Hertle and contributors.</p>
+    <p>&#169; Copyright 2015 - 2024,  Sven Hertle and contributors.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

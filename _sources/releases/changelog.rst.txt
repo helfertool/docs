@@ -4,13 +4,22 @@
 Changelog
 =========
 
-.. _changelog-3-2-1:
+.. _changelog-3-2-3:
+
+3.2.3 (2024-04-09)
+------------------
+
+* Security update for Pillow library
+
+.. _changelog-3-2-2:
 
 3.2.2 (2023-10-07)
 ------------------
 
 * Security update for Pillow library
 * Increase upload limit for nginx in container
+
+.. _changelog-3-2-1:
 
 3.2.1 (2023-10-01)
 ------------------
