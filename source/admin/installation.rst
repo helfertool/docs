@@ -4,7 +4,7 @@
 Installation
 ============
 
-This installation guide is written for Debian Bullseye.
+This installation guide is written for Debian Bookworm.
 
 Docker and helfertoolctl
 ------------------------
@@ -17,7 +17,7 @@ The `helfertoolctl` package can be installed from the Debian repository https://
 
    sudo apt install gnupg
 
-   echo "deb https://repo.helfertool.org/debian/ bullseye main" | sudo tee /etc/apt/sources.list.d/helfertool.list
+   echo "deb https://repo.helfertool.org/debian/ bookworm main" | sudo tee /etc/apt/sources.list.d/helfertool.list
 
    sudo apt-key adv --recv-keys FA1023F9F6AC494F
 
@@ -57,15 +57,15 @@ By default, PostgreSQL only listens to localhost. To allow access from the Docke
 the following configuration files need to be modified:
 
 .. code-block:: none
-   :caption: /etc/postgresql/13/main/postgresql.conf
+   :caption: /etc/postgresql/15/main/postgresql.conf
 
    listen_addresses = '*'
 
 .. code-block:: none
-   :caption: /etc/postgresql/13/main/pg_hba.conf
+   :caption: /etc/postgresql/15/main/pg_hba.conf
 
    # connection from docker container
-   host    all             all             172.17.0.0/16           md5
+   host    all             all             172.17.0.0/16           scram-sha-256
 
 Then restart PostgreSQL:
 
