@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" data-content_root="../">
 <head>
@@ -5,21 +7,17 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Installation &mdash; Documentation</title>
-      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
-      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=0de5c193" />
 
   
     <link rel="shortcut icon" href="../_static/icon.png"/>
-  <!--[if lt IE 9]>
-    <script src="../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
-  
-        <script src="../_static/jquery.js?v=5d32c60e"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../_static/documentation_options.js?v=2709fde1"></script>
-        <script src="../_static/doctools.js?v=888ff710"></script>
-        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=2709fde1"></script>
+      <script src="../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -106,14 +104,14 @@
              
   <section id="installation">
 <span id="id1"></span><h1>Installation<a class="headerlink" href="#installation" title="Link to this heading"></a></h1>
-<p>This installation guide is written for Debian Bullseye.</p>
+<p>This installation guide is written for Debian Bookworm.</p>
 <section id="docker-and-helfertoolctl">
 <h2>Docker and helfertoolctl<a class="headerlink" href="#docker-and-helfertoolctl" title="Link to this heading"></a></h2>
 <p>First, install Docker according to the <a class="reference external" href="https://docs.docker.com/install/linux/docker-ce/debian/">Docker documentation</a>.</p>
 <p>The <cite>helfertoolctl</cite> package can be installed from the Debian repository <a class="reference external" href="https://repo.helfertool.org/debian/">https://repo.helfertool.org/debian/</a>:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>sudo apt install gnupg
 
-echo &quot;deb https://repo.helfertool.org/debian/ bullseye main&quot; | sudo tee /etc/apt/sources.list.d/helfertool.list
+echo &quot;deb https://repo.helfertool.org/debian/ bookworm main&quot; | sudo tee /etc/apt/sources.list.d/helfertool.list
 
 sudo apt-key adv --recv-keys FA1023F9F6AC494F
 
@@ -146,15 +144,15 @@ CREATE EXTENSION pg_trgm;
 <p>By default, PostgreSQL only listens to localhost. To allow access from the Docker container,
 the following configuration files need to be modified:</p>
 <div class="literal-block-wrapper docutils container" id="id2">
-<div class="code-block-caption"><span class="caption-text">/etc/postgresql/13/main/postgresql.conf</span><a class="headerlink" href="#id2" title="Link to this code"></a></div>
+<div class="code-block-caption"><span class="caption-text">/etc/postgresql/15/main/postgresql.conf</span><a class="headerlink" href="#id2" title="Link to this code"></a></div>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>listen_addresses = &#39;*&#39;
 </pre></div>
 </div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id3">
-<div class="code-block-caption"><span class="caption-text">/etc/postgresql/13/main/pg_hba.conf</span><a class="headerlink" href="#id3" title="Link to this code"></a></div>
+<div class="code-block-caption"><span class="caption-text">/etc/postgresql/15/main/pg_hba.conf</span><a class="headerlink" href="#id3" title="Link to this code"></a></div>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span># connection from docker container
-host    all             all             172.17.0.0/16           md5
+host    all             all             172.17.0.0/16           scram-sha-256
 </pre></div>
 </div>
 </div>
@@ -390,7 +388,7 @@ sudo helfertoolctl createadmin
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2015 - 2024,  Sven Hertle and contributors.</p>
+    <p>&#169; Copyright 2015 - 2025,  Sven Hertle and contributors.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

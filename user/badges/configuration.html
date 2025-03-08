@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" data-content_root="../../">
 <head>
@@ -5,21 +7,17 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Configuration &mdash; Documentation</title>
-      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
-      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/custom.css?v=0de5c193" />
 
   
     <link rel="shortcut icon" href="../../_static/icon.png"/>
-  <!--[if lt IE 9]>
-    <script src="../../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
-  
-        <script src="../../_static/jquery.js?v=5d32c60e"></script>
-        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../../_static/documentation_options.js?v=2709fde1"></script>
-        <script src="../../_static/doctools.js?v=888ff710"></script>
-        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=2709fde1"></script>
+      <script src="../../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -122,10 +120,10 @@ If you have permissions with the LaTeX names <code class="docutils literal notra
 <span class="c">% not use them.</span>
 <span class="c">%</span>
 <span class="k">\newboolean</span><span class="nb">{</span>badge@perm-finance<span class="nb">}</span>
-<span class="k">\define</span>@key<span class="nb">{</span>badge<span class="nb">}{</span>perm-finance<span class="nb">}{</span><span class="k">\setboolean</span><span class="nb">{</span>badge@perm-finance<span class="nb">}{</span>#1<span class="nb">}}</span>
+<span class="k">\define@key</span><span class="nb">{</span>badge<span class="nb">}{</span>perm-finance<span class="nb">}{</span><span class="k">\setboolean</span><span class="nb">{</span>badge@perm-finance<span class="nb">}{</span>#1<span class="nb">}}</span>
 
 <span class="k">\newboolean</span><span class="nb">{</span>badge@perm-food<span class="nb">}</span>
-<span class="k">\define</span>@key<span class="nb">{</span>badge<span class="nb">}{</span>perm-food<span class="nb">}{</span><span class="k">\setboolean</span><span class="nb">{</span>badge@perm-food<span class="nb">}{</span>#1<span class="nb">}}</span>
+<span class="k">\define@key</span><span class="nb">{</span>badge<span class="nb">}{</span>perm-food<span class="nb">}{</span><span class="k">\setboolean</span><span class="nb">{</span>badge@perm-food<span class="nb">}{</span>#1<span class="nb">}}</span>
 </pre></div>
 </div>
 <p>You can change the size of the badges:</p>
@@ -153,10 +151,10 @@ It is recommended to only change the part that is marked in the template.</p>
          <span class="c">%</span>
 
          <span class="c">% name</span>
-         <span class="k">\node</span><span class="na">[draw=none, text width=0.5\badgewidth]</span> at (0.05,0.1) <span class="nb">{</span><span class="k">\Large</span> <span class="k">\badge</span>@firstname<span class="k">\ \badge</span>@surname<span class="nb">}</span>;
+         <span class="k">\node</span><span class="na">[draw=none, text width=0.5\badgewidth]</span> at (0.05,0.1) <span class="nb">{</span><span class="k">\Large</span> <span class="k">\badge@firstname\</span> <span class="k">\badge@surname</span><span class="nb">}</span>;
 
          <span class="c">% job</span>
-         <span class="k">\node</span><span class="na">[text width=0.5\badgewidth]</span> at (0.05,0.5) <span class="nb">{</span><span class="k">\badge</span>@job<span class="nb">}</span>;
+         <span class="k">\node</span><span class="na">[text width=0.5\badgewidth]</span> at (0.05,0.5) <span class="nb">{</span><span class="k">\badge@job</span><span class="nb">}</span>;
          ...
 
          <span class="c">%</span>
@@ -167,7 +165,7 @@ It is recommended to only change the part that is marked in the template.</p>
 </div>
 <p>If is recommended to specify a maximum width for all text fields that can be specified by the user.
 Otherwise, it is possible that the badge becomes to big which destroys the complete page.</p>
-<div class="highlight-latex notranslate"><div class="highlight"><pre><span></span><span class="k">\node</span><span class="na">[text width=0.5\badgewidth]</span> at (0.05,0.5) <span class="nb">{</span><span class="k">\badge</span>@job<span class="nb">}</span>;
+<div class="highlight-latex notranslate"><div class="highlight"><pre><span></span><span class="k">\node</span><span class="na">[text width=0.5\badgewidth]</span> at (0.05,0.5) <span class="nb">{</span><span class="k">\badge@job</span><span class="nb">}</span>;
 </pre></div>
 </div>
 <p>The permission flags can be used like this (example from back of badge).
@@ -243,7 +241,7 @@ Additionally, it is also possible to set different roles and designs per job or 
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2015 - 2024,  Sven Hertle and contributors.</p>
+    <p>&#169; Copyright 2015 - 2025,  Sven Hertle and contributors.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
