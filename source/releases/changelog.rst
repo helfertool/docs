@@ -4,6 +4,21 @@
 Changelog
 =========
 
+.. _changelog-3-3-0:
+
+3.3.0 (2025-03-16)
+------------------
+
+* Users, who can add accounts, can read list of all accounts now
+* Add captchas for newsletter registration and event registration (two configuration options, disabled by default)
+* Add more shirt sizes (not enabled by default)
+* Add configuration option for requested OpenID Connect scopes (``scopes`` option)
+* Add configuration option to disable multi-language mode (``singlelanguage`` option)
+* Add configuration option for LDAP user search instead of direct bind (``user_search_base`` and ``user_search_filter`` options)
+* Fix broken paginations for audit log and user account list
+* Enable extended result logging of Celery tasks in Django database (more details about failed tasks)
+* Updates of dependencies
+
 .. _changelog-3-2-3:
 
 3.2.3 (2024-04-09)

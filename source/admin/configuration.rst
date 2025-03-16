@@ -21,7 +21,7 @@ Language
 --------
 
 The language of the Helfertool is usually chosen based on the browser request.
-If no language is specified, the default language is used (for example for Facebook link previews).
+If no language is specified, the default language is used (for example for social media link previews).
 
 Available languages:
 
@@ -31,7 +31,7 @@ Available languages:
 The default language of the badges can be chosen independently of the overall default language.
 The language of the badges can also be changed per event.
 
-The timezone currently can only be set for the whole Helfertool, not per event.
+The timezone can only be set for the whole Helfertool, not per event.
 
 .. code-block:: none
 
@@ -39,6 +39,9 @@ The timezone currently can only be set for the whole Helfertool, not per event.
    language:
        # Default language if not specified by the browser
        default: "de"
+
+       # Only provide the tool in the default language (removed the language selection)
+       singlelanguage: false
 
        # Language used for badges
        badges: "de"
@@ -192,8 +195,15 @@ Here, ``null`` means that the admin privilege is not managed by LDAP.
 
            # LDAP schema and attributes
            schema:
-               # User definition
-               user_dn_template: "uid=%(user)s,ou=People,dc=helfertool,dc=org"
+               # User search - option 1: search for user based on attribute, bind then
+               user_search_base: "ou=People,dc=helfertool,dc=org"
+               user_search_filter: "(uid=%(user)s)"
+
+               # User search - option 2: direct bind
+               # If this option is enabled, the search is skipped
+               #user_dn_template: "uid=%(user)s,ou=People,dc=helfertool,dc=org"
+
+               # User attribute definition
                first_name_attr: "givenName"
                last_name_attr: "sn"
                email_attr: "mail"
@@ -213,7 +223,7 @@ Here, ``null`` means that the admin privilege is not managed by LDAP.
 OpenID Connect
 ^^^^^^^^^^^^^^
 
-The following claims are required at minimum (the scopes ``openid``, ``email`` and ``profile`` are requested):
+The following claims are required at minimum (the scopes ``openid``, ``email`` and ``profile`` are requested by default):
 
  * ``email`` (needs to be unique as it is used as username internally)
  * ``given_name``
@@ -235,7 +245,7 @@ If the ``admin`` configuration is not present, the admin privilege is not touche
 
    By default, the logout only ends the session in the Helfertool, not the session at the identity provider.
    A click on login usually logs the user in again without asking for a password.
-   You should configure the logout URL as described below, but this depends on the used identity provider as it is not standardized.
+   You should configure the logout URL as described below, but this depends on the used identity provider.
 
 .. code-block:: none
 
@@ -258,6 +268,9 @@ If the ``admin`` configuration is not present, the admin privilege is not touche
                # Client ID and secret
                client_id: "helfertool"
                client_secret: "<SECRET>"
+
+               # The requested scopes
+               scopes: "openid email profile"
 
                # Controls the session cookie SameSite attribute, forcing it to "Lax". This is necessary if your OIDC provider
                # resides on a different top level domain name than the Helfertool (error message: "Login failed")
@@ -297,9 +310,6 @@ If the ``admin`` configuration is not present, the admin privilege is not touche
                    compare: "member"
                    path: "roles"
                    value: "helfertool_admin"
-
-.. note::
-   JMESPath support was added in version 1.1. For version 1.0, the parameter ``path`` is called ``name`` and directly looked up in the claim.
 
 You can use more complex JMESPath queries like this (it allows the login if the claim `custom-claim` is set to `value1` or `value2`):
 
@@ -386,11 +396,6 @@ The syslog forwarding can be used additionally.
 Database
 ^^^^^^^^
 
-.. note::
-
-   This feature is available since version 1.2.
-
-
 The log entries, which belong to an event, are additionally stored in the database and can be viewed by event admins.
 Other log entries like logins or password changes, which do not belong to a particular event,
 are not stored in the database (see previous section for syslog and log files).
@@ -437,14 +442,23 @@ Security settings
        # Minimal password length (for local accounts)
        password_length: 12
 
+       # Enable captchas
+       captchas:
+           # for newsletter registration (recommended)
+           newsletter: false
+
+           # for event registration
+           registration: false
+
+.. note::
+   Captchas were added in version 3.3.
+   They are disabled by default, but we recommend to enable it for the newsletter registration (if you use this feature).
+   Although the newsletter registration implementes a GDPR compliant double opt-in, one mail is still sent out.
+
 .. _configuration-features:
 
 Features
 --------
-
-.. note::
-
-   These configuration options are available since version 1.2.
 
 Helfertool features can be disabled globally which means that the feature cannot be enabled at all.
 

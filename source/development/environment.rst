@@ -224,6 +224,39 @@ Additionally, the syslog output needs to be enabled in ``helfertool.yaml``:
        port: 5140
        protocol: 'udp'
 
+LDAP
+^^^^
+
+This (third-party) container provides a simple LDAP test server: https://github.com/rroemhild/docker-test-openldap
+
+This LDAP configuration can be used in ``helfertool.yaml``:
+
+.. code-block:: none
+
+   ldap:
+      # Connection details
+      server:
+         host: "ldap://localhost:10389"
+         bind_dn: "cn=admin,dc=planetexpress,dc=com"
+         bind_password: "GoodNewsEveryone"
+   
+      # LDAP schema and attributes
+      schema:
+         # User search - option 1: search for user based on attribute, bind then
+         user_search_base: "ou=people,dc=planetexpress,dc=com"
+         user_search_filter: "(uid=%(user)s)"
+
+         # User search - option 2: direct bind
+         # If this option is enabled, the search is skipped
+         #user_dn_template: "cn=%(user)s,ou=people,dc=planetexpress,dc=com"
+
+         # User attribute definition
+         first_name_attr: "givenName"
+         last_name_attr: "sn"
+         email_attr: "mail"
+
+If the user search is enabled (option 1), login is possible with ``uid`` as username, if the direct bind is used (option 2) the username is the ``cn``.
+
 Updating
 --------
 
