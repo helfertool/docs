@@ -63,6 +63,7 @@
 <li class="toctree-l4"><a class="reference internal" href="#celery-and-rabbitmq">Celery and RabbitMQ</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#postgresql">PostgreSQL</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#syslog">Syslog</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ldap">LDAP</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#updating">Updating</a></li>
@@ -275,6 +276,35 @@ CREATE EXTENSION pg_trgm;
     protocol: &#39;udp&#39;
 </pre></div>
 </div>
+</section>
+<section id="ldap">
+<h3>LDAP<a class="headerlink" href="#ldap" title="Link to this heading"></a></h3>
+<p>This (third-party) container provides a simple LDAP test server: <a class="reference external" href="https://github.com/rroemhild/docker-test-openldap">https://github.com/rroemhild/docker-test-openldap</a></p>
+<p>This LDAP configuration can be used in <code class="docutils literal notranslate"><span class="pre">helfertool.yaml</span></code>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ldap:
+   # Connection details
+   server:
+      host: &quot;ldap://localhost:10389&quot;
+      bind_dn: &quot;cn=admin,dc=planetexpress,dc=com&quot;
+      bind_password: &quot;GoodNewsEveryone&quot;
+
+   # LDAP schema and attributes
+   schema:
+      # User search - option 1: search for user based on attribute, bind then
+      user_search_base: &quot;ou=people,dc=planetexpress,dc=com&quot;
+      user_search_filter: &quot;(uid=%(user)s)&quot;
+
+      # User search - option 2: direct bind
+      # If this option is enabled, the search is skipped
+      #user_dn_template: &quot;cn=%(user)s,ou=people,dc=planetexpress,dc=com&quot;
+
+      # User attribute definition
+      first_name_attr: &quot;givenName&quot;
+      last_name_attr: &quot;sn&quot;
+      email_attr: &quot;mail&quot;
+</pre></div>
+</div>
+<p>If the user search is enabled (option 1), login is possible with <code class="docutils literal notranslate"><span class="pre">uid</span></code> as username, if the direct bind is used (option 2) the username is the <code class="docutils literal notranslate"><span class="pre">cn</span></code>.</p>
 </section>
 </section>
 <section id="updating">

@@ -129,7 +129,7 @@ The following documentation describes the settings for a deployment with Docker,
 <section id="language">
 <h2>Language<a class="headerlink" href="#language" title="Link to this heading"></a></h2>
 <p>The language of the Helfertool is usually chosen based on the browser request.
-If no language is specified, the default language is used (for example for Facebook link previews).</p>
+If no language is specified, the default language is used (for example for social media link previews).</p>
 <p>Available languages:</p>
 <blockquote>
 <div><ul class="simple">
@@ -139,11 +139,14 @@ If no language is specified, the default language is used (for example for Faceb
 </div></blockquote>
 <p>The default language of the badges can be chosen independently of the overall default language.
 The language of the badges can also be changed per event.</p>
-<p>The timezone currently can only be set for the whole Helfertool, not per event.</p>
+<p>The timezone can only be set for the whole Helfertool, not per event.</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span># Possible values: de, en
 language:
     # Default language if not specified by the browser
     default: &quot;de&quot;
+
+    # Only provide the tool in the default language (removed the language selection)
+    singlelanguage: false
 
     # Language used for badges
     badges: &quot;de&quot;
@@ -285,8 +288,15 @@ Here, <code class="docutils literal notranslate"><span class="pre">null</span></
 
         # LDAP schema and attributes
         schema:
-            # User definition
-            user_dn_template: &quot;uid=%(user)s,ou=People,dc=helfertool,dc=org&quot;
+            # User search - option 1: search for user based on attribute, bind then
+            user_search_base: &quot;ou=People,dc=helfertool,dc=org&quot;
+            user_search_filter: &quot;(uid=%(user)s)&quot;
+
+            # User search - option 2: direct bind
+            # If this option is enabled, the search is skipped
+            #user_dn_template: &quot;uid=%(user)s,ou=People,dc=helfertool,dc=org&quot;
+
+            # User attribute definition
             first_name_attr: &quot;givenName&quot;
             last_name_attr: &quot;sn&quot;
             email_attr: &quot;mail&quot;
@@ -307,7 +317,7 @@ Here, <code class="docutils literal notranslate"><span class="pre">null</span></
 </section>
 <section id="openid-connect">
 <h3>OpenID Connect<a class="headerlink" href="#openid-connect" title="Link to this heading"></a></h3>
-<p>The following claims are required at minimum (the scopes <code class="docutils literal notranslate"><span class="pre">openid</span></code>, <code class="docutils literal notranslate"><span class="pre">email</span></code> and <code class="docutils literal notranslate"><span class="pre">profile</span></code> are requested):</p>
+<p>The following claims are required at minimum (the scopes <code class="docutils literal notranslate"><span class="pre">openid</span></code>, <code class="docutils literal notranslate"><span class="pre">email</span></code> and <code class="docutils literal notranslate"><span class="pre">profile</span></code> are requested by default):</p>
 <blockquote>
 <div><ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">email</span></code> (needs to be unique as it is used as username internally)</p></li>
@@ -327,7 +337,7 @@ If the <code class="docutils literal notranslate"><span class="pre">admin</span>
 <p class="admonition-title">Warning</p>
 <p>By default, the logout only ends the session in the Helfertool, not the session at the identity provider.
 A click on login usually logs the user in again without asking for a password.
-You should configure the logout URL as described below, but this depends on the used identity provider as it is not standardized.</p>
+You should configure the logout URL as described below, but this depends on the used identity provider.</p>
 </div>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>authentication:
     # Get users over OpenID Connect
@@ -348,6 +358,9 @@ You should configure the logout URL as described below, but this depends on the 
             # Client ID and secret
             client_id: &quot;helfertool&quot;
             client_secret: &quot;&lt;SECRET&gt;&quot;
+
+            # The requested scopes
+            scopes: &quot;openid email profile&quot;
 
             # Controls the session cookie SameSite attribute, forcing it to &quot;Lax&quot;. This is necessary if your OIDC provider
             # resides on a different top level domain name than the Helfertool (error message: &quot;Login failed&quot;)
@@ -388,10 +401,6 @@ You should configure the logout URL as described below, but this depends on the 
                 path: &quot;roles&quot;
                 value: &quot;helfertool_admin&quot;
 </pre></div>
-</div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>JMESPath support was added in version 1.1. For version 1.0, the parameter <code class="docutils literal notranslate"><span class="pre">path</span></code> is called <code class="docutils literal notranslate"><span class="pre">name</span></code> and directly looked up in the claim.</p>
 </div>
 <p>You can use more complex JMESPath queries like this (it allows the login if the claim <cite>custom-claim</cite> is set to <cite>value1</cite> or <cite>value2</cite>):</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>login:
@@ -463,10 +472,6 @@ The syslog forwarding can be used additionally.</p>
 </section>
 <section id="configuration-logging-database">
 <span id="id1"></span><h3>Database<a class="headerlink" href="#configuration-logging-database" title="Link to this heading"></a></h3>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>This feature is available since version 1.2.</p>
-</div>
 <p>The log entries, which belong to an event, are additionally stored in the database and can be viewed by event admins.
 Other log entries like logins or password changes, which do not belong to a particular event,
 are not stored in the database (see previous section for syslog and log files).</p>
@@ -507,15 +512,25 @@ are not stored in the database (see previous section for syslog and log files).<
 
     # Minimal password length (for local accounts)
     password_length: 12
+
+    # Enable captchas
+    captchas:
+        # for newsletter registration (recommended)
+        newsletter: false
+
+        # for event registration
+        registration: false
 </pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Captchas were added in version 3.3.
+They are disabled by default, but we recommend to enable it for the newsletter registration (if you use this feature).
+Although the newsletter registration implementes a GDPR compliant double opt-in, one mail is still sent out.</p>
 </div>
 </section>
 <section id="features">
 <span id="configuration-features"></span><h2>Features<a class="headerlink" href="#features" title="Link to this heading"></a></h2>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>These configuration options are available since version 1.2.</p>
-</div>
 <p>Helfertool features can be disabled globally which means that the feature cannot be enabled at all.</p>
 <p>If a flag is changed to disabled, all events are modified automatically after a reload (note for custom installations: this requires Celery).
 Enabling a feature does not change event settings.</p>
