@@ -4,6 +4,13 @@
 Changelog
 =========
 
+.. _changelog-3-3-1:
+
+3.3.1 (2025-06-03)
+------------------
+
+* Security update for django-select2 library
+
 .. _changelog-3-3-0:
 
 3.3.0 (2025-03-16)
