@@ -272,10 +272,9 @@ If the ``admin`` configuration is not present, the admin privilege is not touche
                # The requested scopes
                scopes: "openid email profile"
 
-               # Controls the session cookie SameSite attribute, forcing it to "Lax". This is necessary if your OIDC provider
-               # resides on a different top level domain name than the Helfertool (error message: "Login failed")
-               # Set it to true in this case.
-               thirdparty_domain: false
+               # The claim that should be used as username
+               # Reasonable choices are email or preferred_username
+               username_claim: "email"
 
                # It could happen that the user is disabled or claims change. So we can redirect the users from time to time
                # to the OIDC provider and validate if they are still allowed to login.
@@ -284,10 +283,11 @@ If the ``admin`` configuration is not present, the admin privilege is not touche
 
                # If the session is only terminated in the application, the login via OIDC works again without asking for credentials.
                # Therefore, we can also trigger a logout at the OIDC provider.
-               # The URL is less well specified and depends on the provider (here: Keycloak)
+               # We built URLs according to the OpenID Connect RP-Initiated Logout 1.0 standard by default
                logout:
                    endpoint: "https://auth.helfertool.org/auth/realms/test/protocol/openid-connect/logout"
                    redirect_parameter: "redirect_uri"
+                   id_token_hint: true
 
            # Permissions based on claims
            claims:
@@ -424,6 +424,7 @@ Security settings
        debug: false
 
        # Unique and secret key
+       # At least 50 characters recommended, for example: pwgen -s 50 1
        secret: "change_this_for_production"
 
        # URLs that are used for the software
@@ -445,15 +446,17 @@ Security settings
        # Enable captchas
        captchas:
            # for newsletter registration (recommended)
-           newsletter: false
+           newsletter: true
+
+           # for password reset (recommended)
+           password_reset: true
 
            # for event registration
            registration: false
 
 .. note::
-   Captchas were added in version 3.3.
-   They are disabled by default, but we recommend to enable it for the newsletter registration (if you use this feature).
-   Although the newsletter registration implementes a GDPR compliant double opt-in, one mail is still sent out.
+   Captchas were added in version 3.3 and were disabled by default.
+   Starting with version 4.0, captchas for newsletter registrations and password resets are enabled by default.
 
 .. _configuration-features:
 
@@ -536,6 +539,9 @@ Badge settings
        # Maximum number of copies for special badges
        special_badges_max: 50
 
+       # Time until PDF build is aborted in minutes
+       build_timeout: 5
+
        # Time until PDF file is deleted after it was created in minutes
        pdf_timeout: 30
 
@@ -552,6 +558,27 @@ Newsletter settings
        # Newsletter subscriptions need to be confirmed with by clicking on a link.
        # This setting specifies how long the link is valid (days). Afterwards, the mail address is deleted.
        subscribe_deadline: 3
+
+Admin automation settings
+-------------------------
+
+.. code-block:: none
+
+   automation:
+       # Send reminder mails to event admins that did not archive the event within time
+       # "deadline" and "interval" need to be set to enable the feature
+       event_archive:
+           # Deadline (months)
+           deadline: 6
+
+           # Interval of mails (days)
+           interval: 7
+
+           # Start this number of days before the deadline (optional)
+           start_before_deadline: 14
+
+           # Link to some documentation that is included in the mail (optional)
+           #docs: ""
 
 Additional settings without Docker
 ----------------------------------

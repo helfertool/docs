@@ -1,23 +1,23 @@
-
-
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" data-content_root="../">
+<html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Changelog &mdash; Documentation</title>
-      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
-      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
-      <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=0de5c193" />
-
-  
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
     <link rel="shortcut icon" href="../_static/icon.png"/>
-      <script src="../_static/jquery.js?v=5d32c60e"></script>
-      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="../_static/documentation_options.js?v=2709fde1"></script>
-      <script src="../_static/doctools.js?v=9a2dae69"></script>
-      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -50,6 +50,7 @@
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Releases</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="history.html">All release series</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Changelog</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#changelog-4-0-0">4.0.0 (2026-02-02)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#changelog-3-3-1">3.3.1 (2025-06-03)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#changelog-3-3-0">3.3.0 (2025-03-16)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#changelog-3-2-3">3.2.3 (2024-04-09)</a></li>
@@ -108,15 +109,57 @@
            <div itemprop="articleBody">
              
   <section id="changelog">
-<span id="id1"></span><h1>Changelog<a class="headerlink" href="#changelog" title="Link to this heading"></a></h1>
+<span id="id1"></span><h1>Changelog<a class="headerlink" href="#changelog" title="Permalink to this heading"></a></h1>
+<section id="changelog-4-0-0">
+<span id="id2"></span><h2>4.0.0 (2026-02-02)<a class="headerlink" href="#changelog-4-0-0" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>Breaking changes</p>
+<ul>
+<li><p>Removed Corona tracing app</p></li>
+<li><p>Enforce additional parameter in validation links, that prevent guessing (added since 3.0.0)</p></li>
+</ul>
+</li>
+<li><p>Security fixes</p>
+<ul>
+<li><p>Fix wrong permission checks in badge views</p></li>
+<li><p>Add build timeout for badge PDFs</p></li>
+<li><p>Show warning about debug mode and weak secret keys on “Check installation” page</p></li>
+<li><p>Escape <code class="docutils literal notranslate"><span class="pre">og:description</span></code> meta property correctly</p></li>
+</ul>
+</li>
+<li><p>Changes in <cite>helfertool.yaml</cite>:</p>
+<ul>
+<li><p>Removed: <code class="docutils literal notranslate"><span class="pre">language</span></code> -&gt; <code class="docutils literal notranslate"><span class="pre">country</span></code></p></li>
+<li><p>Removed: <code class="docutils literal notranslate"><span class="pre">authentication</span></code> -&gt; <code class="docutils literal notranslate"><span class="pre">oidc</span></code> -&gt; <code class="docutils literal notranslate"><span class="pre">provider</span></code> -&gt; <code class="docutils literal notranslate"><span class="pre">thirdparty_domain</span></code> (not required anymore, SameSite attribute of session cookie is always <code class="docutils literal notranslate"><span class="pre">Lax</span></code> now)</p></li>
+<li><p>New: <code class="docutils literal notranslate"><span class="pre">authentication</span></code> -&gt; <code class="docutils literal notranslate"><span class="pre">oidc</span></code> -&gt; <code class="docutils literal notranslate"><span class="pre">provider</span></code> -&gt; <code class="docutils literal notranslate"><span class="pre">username_claim</span></code></p></li>
+<li><p>New: <code class="docutils literal notranslate"><span class="pre">badges</span></code> -&gt; <code class="docutils literal notranslate"><span class="pre">build_timeout</span></code></p></li>
+<li><p>New: <code class="docutils literal notranslate"><span class="pre">automation</span></code> (and config below)</p></li>
+</ul>
+</li>
+<li><p>Add password reset via mail for local users</p></li>
+<li><p>New users can be added without directly setting a password - the password is then set via password reset</p></li>
+<li><p>Add automated reminder mails for event archival (disabled by default)</p></li>
+<li><p>Add option to ask for Matrix ID during registration</p></li>
+<li><p>When using OpenID Connect, the claim used for the username can be configured now (setting: <code class="docutils literal notranslate"><span class="pre">username_claim</span></code>)</p></li>
+<li><p>When using OpenID Connect, the logout according to the “OpenID Connect RP-Initiated Logout 1.0” standard is supported now (Keycloak and Entra ID for example support that)</p></li>
+<li><p>Fix performance issue on main page with list of events</p></li>
+<li><p>Improve some redirects after saving a shift or job and setting the presence of helpers</p></li>
+<li><p>Update of dependencies (Django, Debian 13 for container, …) and replaced CKEditor</p></li>
+</ul>
+<p>Thanks to the participants of the practical course “Web Application Security” at TUM for analyzing the tool and providing their results:</p>
+<ul class="simple">
+<li><p>Michael Vynogradov</p></li>
+<li><p><cite>… more names will be added</cite></p></li>
+</ul>
+</section>
 <section id="changelog-3-3-1">
-<span id="id2"></span><h2>3.3.1 (2025-06-03)<a class="headerlink" href="#changelog-3-3-1" title="Link to this heading"></a></h2>
+<span id="id3"></span><h2>3.3.1 (2025-06-03)<a class="headerlink" href="#changelog-3-3-1" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>Security update for django-select2 library</p></li>
 </ul>
 </section>
 <section id="changelog-3-3-0">
-<span id="id3"></span><h2>3.3.0 (2025-03-16)<a class="headerlink" href="#changelog-3-3-0" title="Link to this heading"></a></h2>
+<span id="id4"></span><h2>3.3.0 (2025-03-16)<a class="headerlink" href="#changelog-3-3-0" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>Users, who can add accounts, can read list of all accounts now</p></li>
 <li><p>Add captchas for newsletter registration and event registration (two configuration options, disabled by default)</p></li>
@@ -130,26 +173,26 @@
 </ul>
 </section>
 <section id="changelog-3-2-3">
-<span id="id4"></span><h2>3.2.3 (2024-04-09)<a class="headerlink" href="#changelog-3-2-3" title="Link to this heading"></a></h2>
+<span id="id5"></span><h2>3.2.3 (2024-04-09)<a class="headerlink" href="#changelog-3-2-3" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>Security update for Pillow library</p></li>
 </ul>
 </section>
 <section id="changelog-3-2-2">
-<span id="id5"></span><h2>3.2.2 (2023-10-07)<a class="headerlink" href="#changelog-3-2-2" title="Link to this heading"></a></h2>
+<span id="id6"></span><h2>3.2.2 (2023-10-07)<a class="headerlink" href="#changelog-3-2-2" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>Security update for Pillow library</p></li>
 <li><p>Increase upload limit for nginx in container</p></li>
 </ul>
 </section>
 <section id="changelog-3-2-1">
-<span id="id6"></span><h2>3.2.1 (2023-10-01)<a class="headerlink" href="#changelog-3-2-1" title="Link to this heading"></a></h2>
+<span id="id7"></span><h2>3.2.1 (2023-10-01)<a class="headerlink" href="#changelog-3-2-1" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>Fix validation links (UUID handling)</p></li>
 </ul>
 </section>
 <section id="changelog-3-2-0">
-<span id="id7"></span><h2>3.2.0 (2023-09-30)<a class="headerlink" href="#changelog-3-2-0" title="Link to this heading"></a></h2>
+<span id="id8"></span><h2>3.2.0 (2023-09-30)<a class="headerlink" href="#changelog-3-2-0" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>Updates of dependencies (Django 4.2, Celery 5, Debian Bookworm for container, …)</p></li>
 <li><p>Fix bug in e-mail hanlding during authentication with OpenID Connect</p></li>
@@ -157,20 +200,20 @@
 </ul>
 </section>
 <section id="changelog-3-1-2">
-<span id="id8"></span><h2>3.1.2 (2022-10-29)<a class="headerlink" href="#changelog-3-1-2" title="Link to this heading"></a></h2>
+<span id="id9"></span><h2>3.1.2 (2022-10-29)<a class="headerlink" href="#changelog-3-1-2" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>Fix bug in badge creation when number of columns is not 2</p></li>
 </ul>
 </section>
 <section id="changelog-3-1-1">
-<span id="id9"></span><h2>3.1.1 (2022-09-03)<a class="headerlink" href="#changelog-3-1-1" title="Link to this heading"></a></h2>
+<span id="id10"></span><h2>3.1.1 (2022-09-03)<a class="headerlink" href="#changelog-3-1-1" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>Fixes for updated python libraries</p></li>
 <li><p>Pin python libraries in requirements.txt files</p></li>
 </ul>
 </section>
 <section id="changelog-3-1-0">
-<span id="id10"></span><h2>3.1.0 (2022-07-25)<a class="headerlink" href="#changelog-3-1-0" title="Link to this heading"></a></h2>
+<span id="id11"></span><h2>3.1.0 (2022-07-25)<a class="headerlink" href="#changelog-3-1-0" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>Important bug fix: moving an event sets date of all events to same day</p></li>
 <li><p>Improved mail tracking: show delivery errors for events and newsletter</p></li>
@@ -178,7 +221,7 @@
 </ul>
 </section>
 <section id="changelog-3-0-0">
-<span id="id11"></span><h2>3.0.0 (2022-06-09)<a class="headerlink" href="#changelog-3-0-0" title="Link to this heading"></a></h2>
+<span id="id12"></span><h2>3.0.0 (2022-06-09)<a class="headerlink" href="#changelog-3-0-0" title="Permalink to this heading"></a></h2>
 <p>Have a look at the <a class="reference internal" href="../admin/migration/3-0-0.html#migration-3-0-0"><span class="std std-ref">migration guide</span></a> before the update.</p>
 <ul class="simple">
 <li><p>Breaking change: New container that requires different Docker parameters to run</p>
@@ -198,19 +241,19 @@
 </ul>
 </section>
 <section id="changelog-2-2-1">
-<span id="id12"></span><h2>2.2.1 (2022-01-06)<a class="headerlink" href="#changelog-2-2-1" title="Link to this heading"></a></h2>
+<span id="id13"></span><h2>2.2.1 (2022-01-06)<a class="headerlink" href="#changelog-2-2-1" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>Fix for breaking change in <a class="reference external" href="https://www.djangoproject.com/weblog/2022/jan/04/security-releases/">Django security update</a></p></li>
 </ul>
 </section>
 <section id="changelog-1-2-4">
-<span id="id13"></span><h2>1.2.4 (2022-01-06)<a class="headerlink" href="#changelog-1-2-4" title="Link to this heading"></a></h2>
+<span id="id14"></span><h2>1.2.4 (2022-01-06)<a class="headerlink" href="#changelog-1-2-4" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>Django update and fix for breaking change in <a class="reference external" href="https://www.djangoproject.com/weblog/2022/jan/04/security-releases/">Django security update</a></p></li>
 </ul>
 </section>
 <section id="changelog-2-2-0">
-<span id="id15"></span><h2>2.2.0 (2021-11-29)<a class="headerlink" href="#changelog-2-2-0" title="Link to this heading"></a></h2>
+<span id="id16"></span><h2>2.2.0 (2021-11-29)<a class="headerlink" href="#changelog-2-2-0" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>Implement logout at OpenID Connect provider</p></li>
 <li><p>Add configuration option for periodical OpenID Connect token validation</p></li>
@@ -218,7 +261,7 @@
 </ul>
 </section>
 <section id="changelog-2-1-3">
-<span id="id16"></span><h2>2.1.3 (2021-11-13)<a class="headerlink" href="#changelog-2-1-3" title="Link to this heading"></a></h2>
+<span id="id17"></span><h2>2.1.3 (2021-11-13)<a class="headerlink" href="#changelog-2-1-3" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>Add “2G plus” COVID-19 regulation</p></li>
 <li><p>COVID-19 contact tracing information can be changed after registration (if enabled)</p></li>
@@ -230,31 +273,31 @@
 </ul>
 </section>
 <section id="changelog-2-1-2">
-<span id="id17"></span><h2>2.1.2 (2021-10-10)<a class="headerlink" href="#changelog-2-1-2" title="Link to this heading"></a></h2>
+<span id="id18"></span><h2>2.1.2 (2021-10-10)<a class="headerlink" href="#changelog-2-1-2" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>Add “3G plus” COVID-19 regulation</p></li>
 </ul>
 </section>
 <section id="changelog-2-1-1">
-<span id="id18"></span><h2>2.1.1 (2021-10-06)<a class="headerlink" href="#changelog-2-1-1" title="Link to this heading"></a></h2>
+<span id="id19"></span><h2>2.1.1 (2021-10-06)<a class="headerlink" href="#changelog-2-1-1" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>Fix crash in event duplication if some features are disabled</p></li>
 </ul>
 </section>
 <section id="changelog-2-1-0">
-<span id="id19"></span><h2>2.1.0 (2021-10-02)<a class="headerlink" href="#changelog-2-1-0" title="Link to this heading"></a></h2>
+<span id="id20"></span><h2>2.1.0 (2021-10-02)<a class="headerlink" href="#changelog-2-1-0" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>Add feature to collect addresses for COVID-19 contact tracing</p></li>
 </ul>
 </section>
 <section id="changelog-2-0-1">
-<span id="id20"></span><h2>2.0.1 (2021-08-28)<a class="headerlink" href="#changelog-2-0-1" title="Link to this heading"></a></h2>
+<span id="id21"></span><h2>2.0.1 (2021-08-28)<a class="headerlink" href="#changelog-2-0-1" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>Fixed crash in edit/create event view</p></li>
 </ul>
 </section>
 <section id="changelog-2-0-0">
-<span id="id21"></span><h2>2.0.0 (2021-08-14)<a class="headerlink" href="#changelog-2-0-0" title="Link to this heading"></a></h2>
+<span id="id22"></span><h2>2.0.0 (2021-08-14)<a class="headerlink" href="#changelog-2-0-0" title="Permalink to this heading"></a></h2>
 <p>Have a look at the <a class="reference internal" href="../admin/migration/2-0-0.html#migration-2-0-0"><span class="std std-ref">migration guide</span></a> before the update.</p>
 <ul class="simple">
 <li><p>Breaking change: e-mail validation after registration cannot be disabled anymore (see next item)</p></li>
@@ -286,25 +329,25 @@ is hosted on other domain (<cite>oidc</cite> &gt; <cite>provider</cite> &gt; <ci
 </ul>
 </section>
 <section id="changelog-1-2-3">
-<span id="id22"></span><h2>1.2.3 (2021-05-13)<a class="headerlink" href="#changelog-1-2-3" title="Link to this heading"></a></h2>
+<span id="id23"></span><h2>1.2.3 (2021-05-13)<a class="headerlink" href="#changelog-1-2-3" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>Fix bug in event handler for failed logins (event was not created successfully)</p></li>
 </ul>
 </section>
 <section id="changelog-1-2-2">
-<span id="id23"></span><h2>1.2.2 (2021-05-11)<a class="headerlink" href="#changelog-1-2-2" title="Link to this heading"></a></h2>
+<span id="id24"></span><h2>1.2.2 (2021-05-11)<a class="headerlink" href="#changelog-1-2-2" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>Update chart.js due to CVE-2020-7746 (but no risk for Helfertool)</p></li>
 </ul>
 </section>
 <section id="changelog-1-2-1">
-<span id="id24"></span><h2>1.2.1 (2021-01-12)<a class="headerlink" href="#changelog-1-2-1" title="Link to this heading"></a></h2>
+<span id="id25"></span><h2>1.2.1 (2021-01-12)<a class="headerlink" href="#changelog-1-2-1" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>Fixed bug in event permission system (crash due to typo)</p></li>
 </ul>
 </section>
 <section id="changelog-1-2-0">
-<span id="id25"></span><h2>1.2.0 (2021-01-10)<a class="headerlink" href="#changelog-1-2-0" title="Link to this heading"></a></h2>
+<span id="id26"></span><h2>1.2.0 (2021-01-10)<a class="headerlink" href="#changelog-1-2-0" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>Helfertool features like badges can be disabled globally (see <a class="reference internal" href="../admin/configuration.html#configuration-features"><span class="std std-ref">here</span></a>)</p></li>
 <li><p>Introduce special badges which are not associated with helpers and numbered serially, for example: Police 1, Police 2, etc.</p></li>
@@ -320,7 +363,7 @@ is hosted on other domain (<cite>oidc</cite> &gt; <cite>provider</cite> &gt; <ci
 </ul>
 </section>
 <section id="changelog-1-1-0">
-<span id="id26"></span><h2>1.1.0 (2020-08-15)<a class="headerlink" href="#changelog-1-1-0" title="Link to this heading"></a></h2>
+<span id="id27"></span><h2>1.1.0 (2020-08-15)<a class="headerlink" href="#changelog-1-1-0" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>Overlapping shifts are greyed out and disabled on registration page</p></li>
 <li><p>Different admin roles for events are available (see <a class="reference internal" href="../user/access-control.html#access-control"><span class="std std-ref">here</span></a>)</p></li>
@@ -341,19 +384,19 @@ is hosted on other domain (<cite>oidc</cite> &gt; <cite>provider</cite> &gt; <ci
 </ul>
 </section>
 <section id="changelog-1-0-2">
-<span id="id27"></span><h2>1.0.2 (2020-06-13)<a class="headerlink" href="#changelog-1-0-2" title="Link to this heading"></a></h2>
+<span id="id28"></span><h2>1.0.2 (2020-06-13)<a class="headerlink" href="#changelog-1-0-2" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>Updated jQuery</p></li>
 </ul>
 </section>
 <section id="changelog-1-0-1">
-<span id="id28"></span><h2>1.0.1 (2020-05-31)<a class="headerlink" href="#changelog-1-0-1" title="Link to this heading"></a></h2>
+<span id="id29"></span><h2>1.0.1 (2020-05-31)<a class="headerlink" href="#changelog-1-0-1" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>OpenID Connect: Allow usage of id_token for claim validation</p></li>
 </ul>
 </section>
 <section id="changelog-1-0-0">
-<span id="id29"></span><h2>1.0.0 (2020-04-04)<a class="headerlink" href="#changelog-1-0-0" title="Link to this heading"></a></h2>
+<span id="id30"></span><h2>1.0.0 (2020-04-04)<a class="headerlink" href="#changelog-1-0-0" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>First release with version numbers</p></li>
 <li><p>Release “1.0” does not mean anything special, but we have to start counting somewhere.</p></li>
@@ -371,7 +414,7 @@ is hosted on other domain (<cite>oidc</cite> &gt; <cite>provider</cite> &gt; <ci
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2015 - 2025,  Sven Hertle and contributors.</p>
+    <p>&#169; Copyright 2015 - 2026,  Sven Hertle and contributors.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

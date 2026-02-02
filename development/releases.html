@@ -1,23 +1,23 @@
-
-
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" data-content_root="../">
+<html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Making releases &mdash; Documentation</title>
-      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
-      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
-      <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=0de5c193" />
-
-  
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
     <link rel="shortcut icon" href="../_static/icon.png"/>
-      <script src="../_static/jquery.js?v=5d32c60e"></script>
-      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="../_static/documentation_options.js?v=2709fde1"></script>
-      <script src="../_static/doctools.js?v=9a2dae69"></script>
-      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -91,9 +91,9 @@
            <div itemprop="articleBody">
              
   <section id="making-releases">
-<span id="releases"></span><h1>Making releases<a class="headerlink" href="#making-releases" title="Link to this heading"></a></h1>
+<span id="releases"></span><h1>Making releases<a class="headerlink" href="#making-releases" title="Permalink to this heading"></a></h1>
 <section id="preparation">
-<h2>Preparation<a class="headerlink" href="#preparation" title="Link to this heading"></a></h2>
+<h2>Preparation<a class="headerlink" href="#preparation" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>Check that python libs are up-to-date (start in clean virtual env,
 <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">-U</span> <span class="pre">-r</span> <span class="pre">requirements_dev.txt</span> <span class="pre">-r</span> <span class="pre">requirements_prod.txt</span> <span class="pre">-r</span> <span class="pre">requirements.txt</span></code>, <code class="docutils literal notranslate"><span class="pre">`pip</span> <span class="pre">list</span> <span class="pre">--outdated</span></code>).</p></li>
@@ -104,7 +104,7 @@
 </ul>
 </section>
 <section id="git">
-<h2>Git<a class="headerlink" href="#git" title="Link to this heading"></a></h2>
+<h2>Git<a class="headerlink" href="#git" title="Permalink to this heading"></a></h2>
 <p>The following describes the steps for a new release series (like <code class="docutils literal notranslate"><span class="pre">1.1.x</span></code>).</p>
 <p>Rebase the <code class="docutils literal notranslate"><span class="pre">dev</span></code> branch to the <code class="docutils literal notranslate"><span class="pre">main</span></code> first.
 Then, check that the version is correctly set in the following files.
@@ -137,7 +137,7 @@ git push --tags
 </div>
 </section>
 <section id="container">
-<h2>Container<a class="headerlink" href="#container" title="Link to this heading"></a></h2>
+<h2>Container<a class="headerlink" href="#container" title="Permalink to this heading"></a></h2>
 <p>The container is built and pushed automatically via Github actions.</p>
 <p>In case there are issues, a local build is possible:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>./scripts/container.sh build
@@ -153,14 +153,14 @@ git push --tags
 </div>
 </section>
 <section id="website-and-documentation">
-<h2>Website and documentation<a class="headerlink" href="#website-and-documentation" title="Link to this heading"></a></h2>
+<h2>Website and documentation<a class="headerlink" href="#website-and-documentation" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>Write changelog and update tables with releases (<a class="reference internal" href="../admin/versions.html#versions"><span class="std std-ref">here</span></a> and <a class="reference internal" href="../releases/history.html#version-history"><span class="std std-ref">here</span></a>)</p></li>
 <li><p>Publish news with tag <code class="docutils literal notranslate"><span class="pre">update</span></code> on website</p></li>
 </ul>
 </section>
 <section id="git-cleanup">
-<h2>Git cleanup<a class="headerlink" href="#git-cleanup" title="Link to this heading"></a></h2>
+<h2>Git cleanup<a class="headerlink" href="#git-cleanup" title="Permalink to this heading"></a></h2>
 <p>In the <code class="docutils literal notranslate"><span class="pre">dev</span></code> branch, the version in <code class="docutils literal notranslate"><span class="pre">src/vesion.txt</span></code> needs to be set to <code class="docutils literal notranslate"><span class="pre">dev</span></code> again.
 Commit this change to the <code class="docutils literal notranslate"><span class="pre">dev</span></code> branch.</p>
 </section>
@@ -177,7 +177,7 @@ Commit this change to the <code class="docutils literal notranslate"><span class
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2015 - 2025,  Sven Hertle and contributors.</p>
+    <p>&#169; Copyright 2015 - 2026,  Sven Hertle and contributors.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

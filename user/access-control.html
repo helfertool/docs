@@ -1,23 +1,23 @@
-
-
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" data-content_root="../">
+<html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Permissions and access control &mdash; Documentation</title>
-      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
-      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
-      <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=0de5c193" />
-
-  
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
     <link rel="shortcut icon" href="../_static/icon.png"/>
-      <script src="../_static/jquery.js?v=5d32c60e"></script>
-      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="../_static/documentation_options.js?v=2709fde1"></script>
-      <script src="../_static/doctools.js?v=9a2dae69"></script>
-      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -103,20 +103,20 @@
            <div itemprop="articleBody">
              
   <section id="permissions-and-access-control">
-<span id="access-control"></span><h1>Permissions and access control<a class="headerlink" href="#permissions-and-access-control" title="Link to this heading"></a></h1>
+<span id="access-control"></span><h1>Permissions and access control<a class="headerlink" href="#permissions-and-access-control" title="Permalink to this heading"></a></h1>
 <section id="event">
-<h2>Event<a class="headerlink" href="#event" title="Link to this heading"></a></h2>
+<h2>Event<a class="headerlink" href="#event" title="Permalink to this heading"></a></h2>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>The different admin roles on event level were introduced in version 1.1.</p>
 </div>
 <p>There are different admin roles for an event:</p>
 <section id="administrator">
-<h3>Administrator<a class="headerlink" href="#administrator" title="Link to this heading"></a></h3>
+<h3>Administrator<a class="headerlink" href="#administrator" title="Permalink to this heading"></a></h3>
 <p>Can do everything with the event, including deletion and permissions changes.</p>
 </section>
 <section id="restricted-administrator">
-<h3>Restricted administrator<a class="headerlink" href="#restricted-administrator" title="Link to this heading"></a></h3>
+<h3>Restricted administrator<a class="headerlink" href="#restricted-administrator" title="Permalink to this heading"></a></h3>
 <p>Can manage helpers and all related features, but not change the event settings. The user can not:</p>
 <ul class="simple">
 <li><p>Edit or delete the event itself</p></li>
@@ -128,21 +128,21 @@
 </ul>
 </section>
 <section id="front-desk">
-<h3>Front desk<a class="headerlink" href="#front-desk" title="Link to this heading"></a></h3>
+<h3>Front desk<a class="headerlink" href="#front-desk" title="Permalink to this heading"></a></h3>
 <p>Can read all helper data, resend the confirmation mail, edit the internal comment and change the delivered
 gifts of the helpers. The user cannot change the presence or any other data.</p>
 </section>
 <section id="inventory">
-<h3>Inventory<a class="headerlink" href="#inventory" title="Link to this heading"></a></h3>
+<h3>Inventory<a class="headerlink" href="#inventory" title="Permalink to this heading"></a></h3>
 <p>Can read all helper data and register or take back inventory items.</p>
 </section>
 <section id="badges">
-<h3>Badges<a class="headerlink" href="#badges" title="Link to this heading"></a></h3>
+<h3>Badges<a class="headerlink" href="#badges" title="Permalink to this heading"></a></h3>
 <p>Can print and register badges.</p>
 </section>
 </section>
 <section id="jobs">
-<h2>Jobs<a class="headerlink" href="#jobs" title="Link to this heading"></a></h2>
+<h2>Jobs<a class="headerlink" href="#jobs" title="Permalink to this heading"></a></h2>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>The different roles on job level were introduced in version 3.0.</p>
@@ -172,22 +172,22 @@ can or cannot do in general:</p>
 </ul>
 <p>There are different roles that differ in the access to the data of the helpers:</p>
 <section id="full-access-to-all-data">
-<h3>Full access to all data<a class="headerlink" href="#full-access-to-all-data" title="Link to this heading"></a></h3>
+<h3>Full access to all data<a class="headerlink" href="#full-access-to-all-data" title="Permalink to this heading"></a></h3>
 <p>Can access all personal data of the helpers.</p>
 </section>
 <section id="default-access">
-<h3>Default access<a class="headerlink" href="#default-access" title="Link to this heading"></a></h3>
+<h3>Default access<a class="headerlink" href="#default-access" title="Permalink to this heading"></a></h3>
 <p>Can access the personal data of the helpers except of:
 - Mobile phone number</p>
 </section>
 </section>
 <section id="global-permissions">
-<h2>Global permissions<a class="headerlink" href="#global-permissions" title="Link to this heading"></a></h2>
+<h2>Global permissions<a class="headerlink" href="#global-permissions" title="Permalink to this heading"></a></h2>
 <p>An user can have the permission to create new events, add new users or sent a newsletter.
 User can see whether they have some of these permissions or not.</p>
 </section>
 <section id="id1">
-<h2>Inventory<a class="headerlink" href="#id1" title="Link to this heading"></a></h2>
+<h2>Inventory<a class="headerlink" href="#id1" title="Permalink to this heading"></a></h2>
 <p>Inventories can only be created by Helfertool administrators, but every inventory can have its own administrators.
 These can edit the items of an inventory.</p>
 </section>
@@ -204,7 +204,7 @@ These can edit the items of an inventory.</p>
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2015 - 2025,  Sven Hertle and contributors.</p>
+    <p>&#169; Copyright 2015 - 2026,  Sven Hertle and contributors.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

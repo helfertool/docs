@@ -1,23 +1,23 @@
-
-
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" data-content_root="../">
+<html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Development environment &mdash; Documentation</title>
-      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
-      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
-      <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=0de5c193" />
-
-  
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
     <link rel="shortcut icon" href="../_static/icon.png"/>
-      <script src="../_static/jquery.js?v=5d32c60e"></script>
-      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="../_static/documentation_options.js?v=2709fde1"></script>
-      <script src="../_static/doctools.js?v=9a2dae69"></script>
-      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -104,14 +104,14 @@
            <div itemprop="articleBody">
              
   <section id="development-environment">
-<span id="dev-environment"></span><h1>Development environment<a class="headerlink" href="#development-environment" title="Link to this heading"></a></h1>
+<span id="dev-environment"></span><h1>Development environment<a class="headerlink" href="#development-environment" title="Permalink to this heading"></a></h1>
 <p>The following documentation explains how to setup the development environment on Linux.
 When the Windows Subsystem for Linux is used, it needs to be updated first to a recent Ubuntu version.
 Alternatively, you can just use a virtual machine with Linux.</p>
 <section id="initial-setup">
-<h2>Initial setup<a class="headerlink" href="#initial-setup" title="Link to this heading"></a></h2>
+<h2>Initial setup<a class="headerlink" href="#initial-setup" title="Permalink to this heading"></a></h2>
 <section id="get-source-code">
-<h3>Get source code<a class="headerlink" href="#get-source-code" title="Link to this heading"></a></h3>
+<h3>Get source code<a class="headerlink" href="#get-source-code" title="Permalink to this heading"></a></h3>
 <p>First, get the source code of the Helfertool.
 Please always start your changed from the <code class="docutils literal notranslate"><span class="pre">dev</span></code> branch, not from <code class="docutils literal notranslate"><span class="pre">main</span></code> (rebasing becomes easier then).</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>git clone https://github.com/helfertool/helfertool.git
@@ -121,7 +121,7 @@ git checkout dev
 </div>
 </section>
 <section id="python">
-<h3>Python<a class="headerlink" href="#python" title="Link to this heading"></a></h3>
+<h3>Python<a class="headerlink" href="#python" title="Permalink to this heading"></a></h3>
 <p>Then, create a Python virtual environment and install all dependencies:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>sudo apt-get install libldap2-dev libsasl2-dev  # Ubuntu/Debian
 sudo yum install openldap-devel                 # RedHat/CentOS
@@ -138,7 +138,7 @@ pip install -r src/requirements.txt -r src/requirements_dev.txt
 </div>
 </section>
 <section id="pre-commit">
-<h3>pre-commit<a class="headerlink" href="#pre-commit" title="Link to this heading"></a></h3>
+<h3>pre-commit<a class="headerlink" href="#pre-commit" title="Permalink to this heading"></a></h3>
 <p>We use <a class="reference external" href="https://pre-commit.com/">pre-commit</a> to apply the code style via <a class="reference external" href="https://black.readthedocs.io/en/stable/">black</a>
 and run <a class="reference external" href="https://pypi.org/project/pylint//">pylint</a>.</p>
 <p>Install the pre-commit git hook:</p>
@@ -147,7 +147,7 @@ and run <a class="reference external" href="https://pypi.org/project/pylint//">p
 </div>
 </section>
 <section id="first-run">
-<h3>First run<a class="headerlink" href="#first-run" title="Link to this heading"></a></h3>
+<h3>First run<a class="headerlink" href="#first-run" title="Permalink to this heading"></a></h3>
 <p>Before the first run, the database needs to be created. For development, SQLite is used.
 After that, the first user should be created.</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>cd src
@@ -166,25 +166,25 @@ python manage.py createsuperuser
 <p>Now open <a class="reference external" href="http://localhost:8000">http://localhost:8000</a> in your browser.</p>
 </section>
 <section id="example-data">
-<h3>Example data<a class="headerlink" href="#example-data" title="Link to this heading"></a></h3>
+<h3>Example data<a class="headerlink" href="#example-data" title="Permalink to this heading"></a></h3>
 <p>If you want to load some example data, run:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>python manage.py exampledata
 </pre></div>
 </div>
 </section>
 <section id="optional-editor">
-<h3>Optional: Editor<a class="headerlink" href="#optional-editor" title="Link to this heading"></a></h3>
+<h3>Optional: Editor<a class="headerlink" href="#optional-editor" title="Permalink to this heading"></a></h3>
 <p>In case you do not have a preferred editor or IDE for Python, give <a class="reference external" href="https://code.visualstudio.com/">Visual Studio Code</a> a try.
 It detects the virtual environment automatically and activates it when a new terminal is opened.</p>
 <p>Just open the main <code class="docutils literal notranslate"><span class="pre">helfertool</span></code> directory as folder and it should work out of the box.</p>
 </section>
 </section>
 <section id="further-dependencies">
-<h2>Further dependencies<a class="headerlink" href="#further-dependencies" title="Link to this heading"></a></h2>
+<h2>Further dependencies<a class="headerlink" href="#further-dependencies" title="Permalink to this heading"></a></h2>
 <p>Depending on the feature/module you want to work on, several other services may be required.
 The following sections explain how to run these services for development purposes or how to debug certain things (like mails).</p>
 <section id="e-mails">
-<h3>E-mails<a class="headerlink" href="#e-mails" title="Link to this heading"></a></h3>
+<h3>E-mails<a class="headerlink" href="#e-mails" title="Permalink to this heading"></a></h3>
 <p>The Helfertool tries to send mails to localhost:25 with the default configuration.</p>
 <p>If you work on a feature that sends e-mails, you can start a SMTP debug server with this command:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>python3 -m smtpd -n -c DebuggingServer localhost:1025
@@ -201,7 +201,7 @@ The following sections explain how to run these services for development purpose
 <p>The advantage of this method compared to the console e-mail backend from Django is, that you also see the mails sent in Celery tasks in the same window.</p>
 </section>
 <section id="celery-and-rabbitmq">
-<h3>Celery and RabbitMQ<a class="headerlink" href="#celery-and-rabbitmq" title="Link to this heading"></a></h3>
+<h3>Celery and RabbitMQ<a class="headerlink" href="#celery-and-rabbitmq" title="Permalink to this heading"></a></h3>
 <p>The following features currently make use of Celery and RabbitMQ:</p>
 <ul class="simple">
 <li><p>Generating badges</p></li>
@@ -238,7 +238,7 @@ docker pull rabbitmq
 </div>
 </section>
 <section id="postgresql">
-<h3>PostgreSQL<a class="headerlink" href="#postgresql" title="Link to this heading"></a></h3>
+<h3>PostgreSQL<a class="headerlink" href="#postgresql" title="Permalink to this heading"></a></h3>
 <p>There is one feature that does not work with SQLite: the similarity based helper search.
 If you want to work on exactly this feature, you could get a PostgreSQL server via Docker:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>podman run -d --rm --name helfertool-postgres -e POSTGRES_USER=helfertool -e POSTGRES_DB=helfertool -e POSTGRES_PASSWORD=password -p 127.0.0.1:5432:5432 docker.io/postgres
@@ -264,7 +264,7 @@ CREATE EXTENSION pg_trgm;
 </div>
 </section>
 <section id="syslog">
-<h3>Syslog<a class="headerlink" href="#syslog" title="Link to this heading"></a></h3>
+<h3>Syslog<a class="headerlink" href="#syslog" title="Permalink to this heading"></a></h3>
 <p>If the syslog output needs to be tested, you can run a simple “syslog receiver” with <cite>ncat</cite>:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ncat -ul 5140
 </pre></div>
@@ -278,7 +278,7 @@ CREATE EXTENSION pg_trgm;
 </div>
 </section>
 <section id="ldap">
-<h3>LDAP<a class="headerlink" href="#ldap" title="Link to this heading"></a></h3>
+<h3>LDAP<a class="headerlink" href="#ldap" title="Permalink to this heading"></a></h3>
 <p>This (third-party) container provides a simple LDAP test server: <a class="reference external" href="https://github.com/rroemhild/docker-test-openldap">https://github.com/rroemhild/docker-test-openldap</a></p>
 <p>This LDAP configuration can be used in <code class="docutils literal notranslate"><span class="pre">helfertool.yaml</span></code>:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ldap:
@@ -308,7 +308,7 @@ CREATE EXTENSION pg_trgm;
 </section>
 </section>
 <section id="updating">
-<h2>Updating<a class="headerlink" href="#updating" title="Link to this heading"></a></h2>
+<h2>Updating<a class="headerlink" href="#updating" title="Permalink to this heading"></a></h2>
 <p>To update all Python dependencies, run:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>. ./venv/bin/activate
 pip install -U -r src/requirements.txt -r src/requirements_dev.txt
@@ -328,7 +328,7 @@ pip install -U -r src/requirements.txt -r src/requirements_dev.txt
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2015 - 2025,  Sven Hertle and contributors.</p>
+    <p>&#169; Copyright 2015 - 2026,  Sven Hertle and contributors.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
