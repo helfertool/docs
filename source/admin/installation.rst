@@ -144,7 +144,7 @@ configure at least the following settings:
  * Database
  * RabbitMQ
  * Mail server
- * Secret key (``security`` > ``secret``)
+ * Secret key (``security`` > ``secret``) - at least 50 characters recommended, for example `pwgen -s 50 1`
  * Allowed hosts (``security`` > ``allowed_hosts``)
 
 .. TODO: explain, how to generate

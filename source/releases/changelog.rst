@@ -4,6 +4,45 @@
 Changelog
 =========
 
+.. _changelog-4-0-0:
+
+4.0.0 (2026-02-02)
+------------------
+
+* Breaking changes
+
+  * Removed Corona tracing app
+  * Enforce additional parameter in validation links, that prevent guessing (added since 3.0.0)
+
+* Security fixes
+
+  * Fix wrong permission checks in badge views
+  * Add build timeout for badge PDFs
+  * Show warning about debug mode and weak secret keys on "Check installation" page
+  * Escape ``og:description`` meta property correctly
+
+* Changes in `helfertool.yaml`:
+
+  * Removed: ``language`` -> ``country``
+  * Removed: ``authentication`` -> ``oidc`` -> ``provider`` -> ``thirdparty_domain`` (not required anymore, SameSite attribute of session cookie is always ``Lax`` now)
+  * New: ``authentication`` -> ``oidc`` -> ``provider`` -> ``username_claim``
+  * New: ``badges`` -> ``build_timeout``
+  * New: ``automation`` (and config below)
+* Add password reset via mail for local users
+* New users can be added without directly setting a password - the password is then set via password reset
+* Add automated reminder mails for event archival (disabled by default)
+* Add option to ask for Matrix ID during registration
+* When using OpenID Connect, the claim used for the username can be configured now (setting: ``username_claim``)
+* When using OpenID Connect, the logout according to the "OpenID Connect RP-Initiated Logout 1.0" standard is supported now (Keycloak and Entra ID for example support that)
+* Fix performance issue on main page with list of events
+* Improve some redirects after saving a shift or job and setting the presence of helpers
+* Update of dependencies (Django, Debian 13 for container, ...) and replaced CKEditor
+
+Thanks to the participants of the practical course "Web Application Security" at TUM for analyzing the tool and providing their results:
+
+* Michael Vynogradov
+* `... more names will be added`
+
 .. _changelog-3-3-1:
 
 3.3.1 (2025-06-03)
