@@ -1,23 +1,23 @@
+
+
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="../../">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Configuration &mdash; Documentation</title>
-      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/css/custom.css" type="text/css" />
-    <link rel="shortcut icon" href="../../_static/icon.png"/>
-  <!--[if lt IE 9]>
-    <script src="../../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/custom.css?v=0de5c193" />
+
   
-        <script src="../../_static/jquery.js"></script>
-        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-        <script src="../../_static/doctools.js"></script>
-        <script src="../../_static/sphinx_highlight.js"></script>
+    <link rel="shortcut icon" href="../../_static/icon.png"/>
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=2709fde1"></script>
+      <script src="../../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -97,18 +97,18 @@
            <div itemprop="articleBody">
              
   <section id="configuration">
-<h1>Configuration<a class="headerlink" href="#configuration" title="Permalink to this heading"></a></h1>
+<h1>Configuration<a class="headerlink" href="#configuration" title="Link to this heading"></a></h1>
 <section id="template">
-<h2>Template<a class="headerlink" href="#template" title="Permalink to this heading"></a></h2>
+<h2>Template<a class="headerlink" href="#template" title="Link to this heading"></a></h2>
 <p>The template and related settings can be configured under Badge settings &gt; Advanced settings.</p>
 <section id="permissions">
-<h3>Permissions<a class="headerlink" href="#permissions" title="Permalink to this heading"></a></h3>
+<h3>Permissions<a class="headerlink" href="#permissions" title="Link to this heading"></a></h3>
 <p>You should start with the permissions as their names will be required for the template.</p>
 <p>The name of the permission is used in the tool, but not for the badge. You can configured different things there (text, icons, etc.).
 The LaTeX name is important for the badge.</p>
 </section>
 <section id="latex-template">
-<h3>LaTeX Template<a class="headerlink" href="#latex-template" title="Permalink to this heading"></a></h3>
+<h3>LaTeX Template<a class="headerlink" href="#latex-template" title="Link to this heading"></a></h3>
 <p>You should download the default template and start customizing it.
 The relevant sections are marked with <code class="docutils literal notranslate"><span class="pre">CHANGE</span></code> in the LaTeX file.</p>
 <p>First, the variables for all permissions must be defined.
@@ -120,10 +120,10 @@ If you have permissions with the LaTeX names <code class="docutils literal notra
 <span class="c">% not use them.</span>
 <span class="c">%</span>
 <span class="k">\newboolean</span><span class="nb">{</span>badge@perm-finance<span class="nb">}</span>
-<span class="k">\define</span>@key<span class="nb">{</span>badge<span class="nb">}{</span>perm-finance<span class="nb">}{</span><span class="k">\setboolean</span><span class="nb">{</span>badge@perm-finance<span class="nb">}{</span>#1<span class="nb">}}</span>
+<span class="k">\define@key</span><span class="nb">{</span>badge<span class="nb">}{</span>perm-finance<span class="nb">}{</span><span class="k">\setboolean</span><span class="nb">{</span>badge@perm-finance<span class="nb">}{</span>#1<span class="nb">}}</span>
 
 <span class="k">\newboolean</span><span class="nb">{</span>badge@perm-food<span class="nb">}</span>
-<span class="k">\define</span>@key<span class="nb">{</span>badge<span class="nb">}{</span>perm-food<span class="nb">}{</span><span class="k">\setboolean</span><span class="nb">{</span>badge@perm-food<span class="nb">}{</span>#1<span class="nb">}}</span>
+<span class="k">\define@key</span><span class="nb">{</span>badge<span class="nb">}{</span>perm-food<span class="nb">}{</span><span class="k">\setboolean</span><span class="nb">{</span>badge@perm-food<span class="nb">}{</span>#1<span class="nb">}}</span>
 </pre></div>
 </div>
 <p>You can change the size of the badges:</p>
@@ -151,10 +151,10 @@ It is recommended to only change the part that is marked in the template.</p>
          <span class="c">%</span>
 
          <span class="c">% name</span>
-         <span class="k">\node</span><span class="na">[draw=none, text width=0.5\badgewidth]</span> at (0.05,0.1) <span class="nb">{</span><span class="k">\Large</span> <span class="k">\badge</span>@firstname<span class="k">\ \badge</span>@surname<span class="nb">}</span>;
+         <span class="k">\node</span><span class="na">[draw=none, text width=0.5\badgewidth]</span> at (0.05,0.1) <span class="nb">{</span><span class="k">\Large</span> <span class="k">\badge@firstname\</span> <span class="k">\badge@surname</span><span class="nb">}</span>;
 
          <span class="c">% job</span>
-         <span class="k">\node</span><span class="na">[text width=0.5\badgewidth]</span> at (0.05,0.5) <span class="nb">{</span><span class="k">\badge</span>@job<span class="nb">}</span>;
+         <span class="k">\node</span><span class="na">[text width=0.5\badgewidth]</span> at (0.05,0.5) <span class="nb">{</span><span class="k">\badge@job</span><span class="nb">}</span>;
          ...
 
          <span class="c">%</span>
@@ -165,7 +165,7 @@ It is recommended to only change the part that is marked in the template.</p>
 </div>
 <p>If is recommended to specify a maximum width for all text fields that can be specified by the user.
 Otherwise, it is possible that the badge becomes to big which destroys the complete page.</p>
-<div class="highlight-latex notranslate"><div class="highlight"><pre><span></span><span class="k">\node</span><span class="na">[text width=0.5\badgewidth]</span> at (0.05,0.5) <span class="nb">{</span><span class="k">\badge</span>@job<span class="nb">}</span>;
+<div class="highlight-latex notranslate"><div class="highlight"><pre><span></span><span class="k">\node</span><span class="na">[text width=0.5\badgewidth]</span> at (0.05,0.5) <span class="nb">{</span><span class="k">\badge@job</span><span class="nb">}</span>;
 </pre></div>
 </div>
 <p>The permission flags can be used like this (example from back of badge).
@@ -181,7 +181,7 @@ Instead of printing text, you of course can also show icons or do anything else 
 </div>
 </section>
 <section id="further-settings-for-template">
-<h3>Further settings for template<a class="headerlink" href="#further-settings-for-template" title="Permalink to this heading"></a></h3>
+<h3>Further settings for template<a class="headerlink" href="#further-settings-for-template" title="Link to this heading"></a></h3>
 <dl class="simple">
 <dt>Number of columns/rows on one page:</dt><dd><p>This depends on the badge size in the template (<code class="docutils literal notranslate"><span class="pre">badgewidth</span></code> and <code class="docutils literal notranslate"><span class="pre">badgeheight</span></code>).
 You probably will notice if these values need to be changed.</p>
@@ -207,13 +207,13 @@ The barcode can then be scanned so that the badge is marked as printed and will 
 </section>
 </section>
 <section id="roles-and-designs">
-<h2>Roles and designs<a class="headerlink" href="#roles-and-designs" title="Permalink to this heading"></a></h2>
+<h2>Roles and designs<a class="headerlink" href="#roles-and-designs" title="Link to this heading"></a></h2>
 <p>The configuration of roles and designs is easier as it does not require changes in the LaTeX template.</p>
 <p>A default role and design has to be set.
 Additionally, it is also possible to set different roles and designs per job or even per helper.</p>
 </section>
 <section id="customize-badges-of-helpers">
-<h2>Customize badges of helpers<a class="headerlink" href="#customize-badges-of-helpers" title="Permalink to this heading"></a></h2>
+<h2>Customize badges of helpers<a class="headerlink" href="#customize-badges-of-helpers" title="Link to this heading"></a></h2>
 <p>You can change all details of a badge for any helper (helper &gt; Edit badge):</p>
 <ul class="simple">
 <li><p>Firstname</p></li>

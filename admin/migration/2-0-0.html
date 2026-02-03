@@ -1,23 +1,23 @@
+
+
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="../../">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Version 2.0.0 &mdash; Documentation</title>
-      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/css/custom.css" type="text/css" />
-    <link rel="shortcut icon" href="../../_static/icon.png"/>
-  <!--[if lt IE 9]>
-    <script src="../../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/custom.css?v=0de5c193" />
+
   
-        <script src="../../_static/jquery.js"></script>
-        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-        <script src="../../_static/doctools.js"></script>
-        <script src="../../_static/sphinx_highlight.js"></script>
+    <link rel="shortcut icon" href="../../_static/icon.png"/>
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=2709fde1"></script>
+      <script src="../../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -97,19 +97,19 @@
            <div itemprop="articleBody">
              
   <section id="version-2-0-0">
-<span id="migration-2-0-0"></span><h1>Version 2.0.0<a class="headerlink" href="#version-2-0-0" title="Permalink to this heading"></a></h1>
+<span id="migration-2-0-0"></span><h1>Version 2.0.0<a class="headerlink" href="#version-2-0-0" title="Link to this heading"></a></h1>
 <p>During the update for version 2.0.0, some manual changes are necessary.</p>
 <section id="backup">
-<h2>Backup<a class="headerlink" href="#backup" title="Permalink to this heading"></a></h2>
+<h2>Backup<a class="headerlink" href="#backup" title="Link to this heading"></a></h2>
 <p>Create a backup of the database and the <code class="docutils literal notranslate"><span class="pre">media</span></code> directory (default: <code class="docutils literal notranslate"><span class="pre">/srv/helfertool/media</span></code>).
 Including the <code class="docutils literal notranslate"><span class="pre">media</span></code> directory in the backup is important as these files will be changed during the update.</p>
 </section>
 <section id="update">
-<h2>Update<a class="headerlink" href="#update" title="Permalink to this heading"></a></h2>
+<h2>Update<a class="headerlink" href="#update" title="Link to this heading"></a></h2>
 <p>Update the Helfertool (see <a class="reference internal" href="../updates.html#updates"><span class="std std-ref">documentation</span></a>).</p>
 </section>
 <section id="migrate-media-files">
-<h2>Migrate <code class="docutils literal notranslate"><span class="pre">media</span></code> files<a class="headerlink" href="#migrate-media-files" title="Permalink to this heading"></a></h2>
+<h2>Migrate <code class="docutils literal notranslate"><span class="pre">media</span></code> files<a class="headerlink" href="#migrate-media-files" title="Link to this heading"></a></h2>
 <p>The files in in the <code class="docutils literal notranslate"><span class="pre">media</span></code> directory are now split into two directories: <code class="docutils literal notranslate"><span class="pre">private</span></code> and <code class="docutils literal notranslate"><span class="pre">public</span></code>.
 Only the <code class="docutils literal notranslate"><span class="pre">public</span></code> directory is served directly without access control.</p>
 <p>The migration is implemented as management command. If you use <cite>helfertoolctl</cite>, run:</p>
@@ -127,14 +127,14 @@ Only the <code class="docutils literal notranslate"><span class="pre">public</sp
 </ul>
 </section>
 <section id="newsletter">
-<h2>Newsletter<a class="headerlink" href="#newsletter" title="Permalink to this heading"></a></h2>
+<h2>Newsletter<a class="headerlink" href="#newsletter" title="Link to this heading"></a></h2>
 <p>The newsletter subscription is changed as described in the <a class="reference internal" href="../../releases/changelog.html#changelog-2-0-0"><span class="std std-ref">changelog</span></a>.
 No manual changes are necessary, but the new subscription flow should be reviewed.</p>
 <p>If the <cite>Check installation</cite> page shows issues for the templates, edit the <cite>Newsletter subscription</cite> template once (empty text is ok).</p>
 <p>Mail validation is now required for all events. The configuration option to disable it was removed.</p>
 </section>
 <section id="verify-web-server-configuration">
-<h2>Verify web server configuration<a class="headerlink" href="#verify-web-server-configuration" title="Permalink to this heading"></a></h2>
+<h2>Verify web server configuration<a class="headerlink" href="#verify-web-server-configuration" title="Link to this heading"></a></h2>
 <p>Helfertool uses the domain, which is used to access the page, to generate URLs for e-mails.
 If your instance is reachable with different domain names, this may be confusing.</p>
 <p>For example, if you subscribe on <code class="docutils literal notranslate"><span class="pre">app.helfertool.org/subscribe</span></code>, the e-mail will contain a link to <code class="docutils literal notranslate"><span class="pre">app.helfertool.org</span></code>.

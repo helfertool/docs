@@ -1,23 +1,23 @@
+
+
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="../../">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Event admin roles &mdash; Documentation</title>
-      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/css/custom.css" type="text/css" />
-    <link rel="shortcut icon" href="../../_static/icon.png"/>
-  <!--[if lt IE 9]>
-    <script src="../../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/custom.css?v=0de5c193" />
+
   
-        <script src="../../_static/jquery.js"></script>
-        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-        <script src="../../_static/doctools.js"></script>
-        <script src="../../_static/sphinx_highlight.js"></script>
+    <link rel="shortcut icon" href="../../_static/icon.png"/>
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=2709fde1"></script>
+      <script src="../../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -96,15 +96,15 @@
            <div itemprop="articleBody">
              
   <section id="event-admin-roles">
-<span id="dev-event-roles"></span><h1>Event admin roles<a class="headerlink" href="#event-admin-roles" title="Permalink to this heading"></a></h1>
+<span id="dev-event-roles"></span><h1>Event admin roles<a class="headerlink" href="#event-admin-roles" title="Link to this heading"></a></h1>
 <p>The following concept is currently implemented for event admins only, but it is also planned for job admins.</p>
 <section id="roles">
-<h2>Roles<a class="headerlink" href="#roles" title="Permalink to this heading"></a></h2>
+<h2>Roles<a class="headerlink" href="#roles" title="Link to this heading"></a></h2>
 <p>The admin roles are defined in
 <a class="reference external" href="https://github.com/helfertool/helfertool/blob/dev/src/registration/models/adminroles.py">registration/models/adminroles.py</a>.</p>
 </section>
 <section id="accesses">
-<h2>Accesses<a class="headerlink" href="#accesses" title="Permalink to this heading"></a></h2>
+<h2>Accesses<a class="headerlink" href="#accesses" title="Link to this heading"></a></h2>
 <p>In the views, it is not checked whether an user has a certain role, but a certain access is requested insead.
 This has the advantage that roles can be changed more easily later.</p>
 <p>The file
@@ -112,7 +112,7 @@ This has the advantage that roles can be changed more easily later.</p>
 contains the access definitions, role mapping and functions for permission checks.</p>
 </section>
 <section id="checking-permissions-in-views">
-<h2>Checking permissions in views<a class="headerlink" href="#checking-permissions-in-views" title="Permalink to this heading"></a></h2>
+<h2>Checking permissions in views<a class="headerlink" href="#checking-permissions-in-views" title="Link to this heading"></a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">has_access</span></code> method can be used to check access to events, jobs and helpers (not shifts, use the job instead):</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>from ..permissions import has_access, ACCESS_EVENT_EDIT
 from .utils import nopermission
@@ -130,12 +130,12 @@ if not has_access_event_or_job(request.user, event, ACCESS_MAILS_SEND, ACCESS_JO
 </div>
 </section>
 <section id="checking-permissions-in-templates">
-<h2>Checking permissions in templates<a class="headerlink" href="#checking-permissions-in-templates" title="Permalink to this heading"></a></h2>
+<h2>Checking permissions in templates<a class="headerlink" href="#checking-permissions-in-templates" title="Link to this heading"></a></h2>
 <p>Template tags are defined in
 <a class="reference external" href="https://github.com/helfertool/helfertool/blob/dev/src/registration/templatetags/permissions.py">registration/templatetags/permissions.py</a>.</p>
 </section>
 <section id="rbac-matrix">
-<h2>RBAC matrix<a class="headerlink" href="#rbac-matrix" title="Permalink to this heading"></a></h2>
+<h2>RBAC matrix<a class="headerlink" href="#rbac-matrix" title="Link to this heading"></a></h2>
 <p>This matrix shows which roles allow which type of access:</p>
 <table class="docutils align-default">
 <thead>

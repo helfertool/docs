@@ -1,23 +1,23 @@
+
+
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="../../">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Mail handling &mdash; Documentation</title>
-      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/css/custom.css" type="text/css" />
-    <link rel="shortcut icon" href="../../_static/icon.png"/>
-  <!--[if lt IE 9]>
-    <script src="../../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/custom.css?v=0de5c193" />
+
   
-        <script src="../../_static/jquery.js"></script>
-        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-        <script src="../../_static/doctools.js"></script>
-        <script src="../../_static/sphinx_highlight.js"></script>
+    <link rel="shortcut icon" href="../../_static/icon.png"/>
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=2709fde1"></script>
+      <script src="../../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -94,14 +94,14 @@
            <div itemprop="articleBody">
              
   <section id="mail-handling">
-<span id="mail"></span><h1>Mail handling<a class="headerlink" href="#mail-handling" title="Permalink to this heading"></a></h1>
+<span id="mail"></span><h1>Mail handling<a class="headerlink" href="#mail-handling" title="Link to this heading"></a></h1>
 <p>All mails sent by Helfertool are sent from one configured mail address.
 The app can also read the mails that are sent back to this address and process non delivery reports.
 If the affected helper can be identified (based on the custom mail header <code class="docutils literal notranslate"><span class="pre">X-Helfertool</span></code> containing an ID and the original recipient address),
 the failed delivery is displayed in the app.
 All other mails can be forwarded to another mail address, so Helfertool filters out non delivery reports for you.</p>
 <section id="simple-example">
-<h2>Simple example<a class="headerlink" href="#simple-example" title="Permalink to this heading"></a></h2>
+<h2>Simple example<a class="headerlink" href="#simple-example" title="Link to this heading"></a></h2>
 <p>Let’s assume you have a mailbox <code class="docutils literal notranslate"><span class="pre">helfertool&#64;app.helfertool.org</span></code> that you can access via SMTP and IMAP and that is used to send out mails.
 Furthermore you have a mailing list / distribution group <code class="docutils literal notranslate"><span class="pre">volunteers&#64;app.helfertool.org</span></code> that is read by your team.</p>
 <p>A shortened configuration looks like this:</p>
@@ -135,7 +135,7 @@ Furthermore you have a mailing list / distribution group <code class="docutils l
 Any other mail, for example replies by helpers, is forwarded to <code class="docutils literal notranslate"><span class="pre">volunteers&#64;app.helfertool.org</span></code> so you can take care of it.</p>
 </section>
 <section id="example-with-mailman">
-<h2>Example with Mailman<a class="headerlink" href="#example-with-mailman" title="Permalink to this heading"></a></h2>
+<h2>Example with Mailman<a class="headerlink" href="#example-with-mailman" title="Link to this heading"></a></h2>
 <p>We use Mailman for our own deployment.
 The setup might be a bit more complex than necessary but maybe it helps to understand what is possible.</p>
 <ul class="simple">

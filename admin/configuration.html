@@ -1,23 +1,23 @@
+
+
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="../">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Configuration options &mdash; Documentation</title>
-      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
-    <link rel="shortcut icon" href="../_static/icon.png"/>
-  <!--[if lt IE 9]>
-    <script src="../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=0de5c193" />
+
   
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/doctools.js"></script>
-        <script src="../_static/sphinx_highlight.js"></script>
+    <link rel="shortcut icon" href="../_static/icon.png"/>
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=2709fde1"></script>
+      <script src="../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -117,18 +117,18 @@
            <div itemprop="articleBody">
              
   <section id="configuration-options">
-<span id="configuration"></span><h1>Configuration options<a class="headerlink" href="#configuration-options" title="Permalink to this heading"></a></h1>
+<span id="configuration"></span><h1>Configuration options<a class="headerlink" href="#configuration-options" title="Link to this heading"></a></h1>
 <p>The configuration file is in YAML format.
 The following documentation describes the settings for a deployment with Docker, but there are also some additional configuration options if Docker is not used.</p>
 <section id="announcement">
-<h2>Announcement<a class="headerlink" href="#announcement" title="Permalink to this heading"></a></h2>
+<h2>Announcement<a class="headerlink" href="#announcement" title="Link to this heading"></a></h2>
 <p>A text line can be displayed on every page of the Helfertool, this is useful to announce downtimes for maintenance.</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>announcement: &quot;Maintenance on May 4th from 8 pm to 10 pm.&quot;
 </pre></div>
 </div>
 </section>
 <section id="language">
-<h2>Language<a class="headerlink" href="#language" title="Permalink to this heading"></a></h2>
+<h2>Language<a class="headerlink" href="#language" title="Link to this heading"></a></h2>
 <p>The language of the Helfertool is usually chosen based on the browser request.
 If no language is specified, the default language is used (for example for social media link previews).</p>
 <p>Available languages:</p>
@@ -161,9 +161,9 @@ language:
 </div>
 </section>
 <section id="database">
-<h2>Database<a class="headerlink" href="#database" title="Permalink to this heading"></a></h2>
+<h2>Database<a class="headerlink" href="#database" title="Link to this heading"></a></h2>
 <section id="postgresql">
-<h3>PostgreSQL<a class="headerlink" href="#postgresql" title="Permalink to this heading"></a></h3>
+<h3>PostgreSQL<a class="headerlink" href="#postgresql" title="Link to this heading"></a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>database:
     backend: &quot;postgresql&quot;
     name: &quot;helfertool&quot;
@@ -175,7 +175,7 @@ language:
 </div>
 </section>
 <section id="mysql-mariadb">
-<h3>MySQL / MariaDB<a class="headerlink" href="#mysql-mariadb" title="Permalink to this heading"></a></h3>
+<h3>MySQL / MariaDB<a class="headerlink" href="#mysql-mariadb" title="Link to this heading"></a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>database:
     backend: &quot;mysql&quot;
     name: &quot;helfertool&quot;
@@ -187,7 +187,7 @@ language:
 </div>
 </section>
 <section id="sqlite">
-<h3>SQLite<a class="headerlink" href="#sqlite" title="Permalink to this heading"></a></h3>
+<h3>SQLite<a class="headerlink" href="#sqlite" title="Link to this heading"></a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>database:
     backend: &quot;sqlite3&quot;
     name: &quot;/data/db.sqlite3&quot;
@@ -196,7 +196,7 @@ language:
 <p>For Docker deployments, the SQLite file needs to be placed in <code class="docutils literal notranslate"><span class="pre">/data</span></code>. Otherwise, it is not stored persistently.</p>
 </section>
 <section id="additional-database-settings">
-<h3>Additional database settings<a class="headerlink" href="#additional-database-settings" title="Permalink to this heading"></a></h3>
+<h3>Additional database settings<a class="headerlink" href="#additional-database-settings" title="Link to this heading"></a></h3>
 <p>Django allows to specify additional options like <code class="docutils literal notranslate"><span class="pre">init_command</span></code>, they can also be added in the Helfertool configuration file:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>database:
     options:
@@ -207,7 +207,7 @@ language:
 </section>
 </section>
 <section id="rabbitmq">
-<h2>RabbitMQ<a class="headerlink" href="#rabbitmq" title="Permalink to this heading"></a></h2>
+<h2>RabbitMQ<a class="headerlink" href="#rabbitmq" title="Link to this heading"></a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>rabbitmq:
     vhost: &quot;&quot;
     user: &quot;guest&quot;
@@ -218,7 +218,7 @@ language:
 </div>
 </section>
 <section id="mail-server">
-<h2>Mail server<a class="headerlink" href="#mail-server" title="Permalink to this heading"></a></h2>
+<h2>Mail server<a class="headerlink" href="#mail-server" title="Link to this heading"></a></h2>
 <p>A mail server that can be used to send mails must be configured.
 Optionally, Helfertool can also receive mails and process non delivery reports, see <a class="reference internal" href="further/mail.html#mail"><span class="std std-ref">Mail handling</span></a>.</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>mail:
@@ -263,7 +263,7 @@ Optionally, Helfertool can also receive mails and process non delivery reports, 
 </div>
 </section>
 <section id="authentication">
-<h2>Authentication<a class="headerlink" href="#authentication" title="Permalink to this heading"></a></h2>
+<h2>Authentication<a class="headerlink" href="#authentication" title="Link to this heading"></a></h2>
 <p>The Helfertool supports different authentication backends:</p>
 <blockquote>
 <div><ul class="simple">
@@ -274,7 +274,7 @@ Optionally, Helfertool can also receive mails and process non delivery reports, 
 </div></blockquote>
 <p>While it is possible to use local accounts together with LDAP or OpenID Connect, it is not recommended to enable LDAP and OpenID Connect at the same time.</p>
 <section id="ldap">
-<h3>LDAP<a class="headerlink" href="#ldap" title="Permalink to this heading"></a></h3>
+<h3>LDAP<a class="headerlink" href="#ldap" title="Link to this heading"></a></h3>
 <p>The login to the Helfertool can be restricted to members of a LDAP group.
 When <code class="docutils literal notranslate"><span class="pre">null</span></code> is specified for the <code class="docutils literal notranslate"><span class="pre">login</span></code> option, every user is allowed to login.
 If can also be determined based on LDAP group memberships whether an user is administrator or not.
@@ -317,7 +317,7 @@ Here, <code class="docutils literal notranslate"><span class="pre">null</span></
 </div>
 </section>
 <section id="openid-connect">
-<h3>OpenID Connect<a class="headerlink" href="#openid-connect" title="Permalink to this heading"></a></h3>
+<h3>OpenID Connect<a class="headerlink" href="#openid-connect" title="Link to this heading"></a></h3>
 <p>The following claims are required at minimum (the scopes <code class="docutils literal notranslate"><span class="pre">openid</span></code>, <code class="docutils literal notranslate"><span class="pre">email</span></code> and <code class="docutils literal notranslate"><span class="pre">profile</span></code> are requested by default):</p>
 <blockquote>
 <div><ul class="simple">
@@ -419,7 +419,7 @@ You should configure the logout URL as described below, but this depends on the 
 </div>
 </section>
 <section id="local-users">
-<h3>Local users<a class="headerlink" href="#local-users" title="Permalink to this heading"></a></h3>
+<h3>Local users<a class="headerlink" href="#local-users" title="Link to this heading"></a></h3>
 <p>When using local users together with LDAP and OpenID Connect, conflicting usernames need to be prevented.
 This can be done by prepending a special character in front of local usernames (here: <code class="docutils literal notranslate"><span class="pre">&#64;</span></code>).</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>authentication:
@@ -438,9 +438,9 @@ Further administrators should be added in the web interface.</p>
 </section>
 </section>
 <section id="logging">
-<h2>Logging<a class="headerlink" href="#logging" title="Permalink to this heading"></a></h2>
+<h2>Logging<a class="headerlink" href="#logging" title="Link to this heading"></a></h2>
 <section id="error-reporting">
-<h3>Error reporting<a class="headerlink" href="#error-reporting" title="Permalink to this heading"></a></h3>
+<h3>Error reporting<a class="headerlink" href="#error-reporting" title="Link to this heading"></a></h3>
 <p>If an exception occurs, Django can send out a mail to notify the administrators.
 Usually, this means that there is a bug in the Helfertool, a configuration error or some infrastructure issue.</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>logging:
@@ -451,7 +451,7 @@ Usually, this means that there is a bug in the Helfertool, a configuration error
 </div>
 </section>
 <section id="syslog">
-<h3>Syslog<a class="headerlink" href="#syslog" title="Permalink to this heading"></a></h3>
+<h3>Syslog<a class="headerlink" href="#syslog" title="Link to this heading"></a></h3>
 <p>The application log can be sent out via syslog (see <a class="reference internal" href="further/logging.html#logging"><span class="std std-ref">Logging</span></a> for available events).</p>
 <p>When using the Docker container and <cite>helfertoolctl</cite>, the application log is written to the log directory <code class="docutils literal notranslate"><span class="pre">/var/log/helfertool</span></code>.
 The syslog forwarding can be used additionally.</p>
@@ -472,7 +472,7 @@ The syslog forwarding can be used additionally.</p>
 </div>
 </section>
 <section id="configuration-logging-database">
-<span id="id1"></span><h3>Database<a class="headerlink" href="#configuration-logging-database" title="Permalink to this heading"></a></h3>
+<span id="id1"></span><h3>Database<a class="headerlink" href="#configuration-logging-database" title="Link to this heading"></a></h3>
 <p>The log entries, which belong to an event, are additionally stored in the database and can be viewed by event admins.
 Other log entries like logins or password changes, which do not belong to a particular event,
 are not stored in the database (see previous section for syslog and log files).</p>
@@ -486,7 +486,7 @@ are not stored in the database (see previous section for syslog and log files).<
 </section>
 </section>
 <section id="security-settings">
-<h2>Security settings<a class="headerlink" href="#security-settings" title="Permalink to this heading"></a></h2>
+<h2>Security settings<a class="headerlink" href="#security-settings" title="Link to this heading"></a></h2>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>Never set <code class="docutils literal notranslate"><span class="pre">debug</span></code> to <code class="docutils literal notranslate"><span class="pre">true</span></code> in production!</p>
@@ -534,7 +534,7 @@ Starting with version 4.0, captchas for newsletter registrations and password re
 </div>
 </section>
 <section id="features">
-<span id="configuration-features"></span><h2>Features<a class="headerlink" href="#features" title="Permalink to this heading"></a></h2>
+<span id="configuration-features"></span><h2>Features<a class="headerlink" href="#features" title="Link to this heading"></a></h2>
 <p>Helfertool features can be disabled globally which means that the feature cannot be enabled at all.</p>
 <p>If a flag is changed to disabled, all events are modified automatically after a reload (note for custom installations: this requires Celery).
 Enabling a feature does not change event settings.</p>
@@ -554,7 +554,7 @@ Enabling a feature does not change event settings.</p>
 </div>
 </section>
 <section id="customization">
-<h2>Customization<a class="headerlink" href="#customization" title="Permalink to this heading"></a></h2>
+<h2>Customization<a class="headerlink" href="#customization" title="Link to this heading"></a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>customization:
     # Title for all pages
     title: &quot;Helfertool&quot;
@@ -593,7 +593,7 @@ Enabling a feature does not change event settings.</p>
 </div>
 </section>
 <section id="badge-settings">
-<h2>Badge settings<a class="headerlink" href="#badge-settings" title="Permalink to this heading"></a></h2>
+<h2>Badge settings<a class="headerlink" href="#badge-settings" title="Link to this heading"></a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>badges:
     # Alternative default template, path to tex file
     # Relative paths again are relative to the git directory
@@ -618,7 +618,7 @@ Enabling a feature does not change event settings.</p>
 </div>
 </section>
 <section id="newsletter-settings">
-<h2>Newsletter settings<a class="headerlink" href="#newsletter-settings" title="Permalink to this heading"></a></h2>
+<h2>Newsletter settings<a class="headerlink" href="#newsletter-settings" title="Link to this heading"></a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>newsletter:
     # Newsletter subscriptions need to be confirmed with by clicking on a link.
     # This setting specifies how long the link is valid (days). Afterwards, the mail address is deleted.
@@ -627,7 +627,7 @@ Enabling a feature does not change event settings.</p>
 </div>
 </section>
 <section id="admin-automation-settings">
-<h2>Admin automation settings<a class="headerlink" href="#admin-automation-settings" title="Permalink to this heading"></a></h2>
+<h2>Admin automation settings<a class="headerlink" href="#admin-automation-settings" title="Link to this heading"></a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>automation:
     # Send reminder mails to event admins that did not archive the event within time
     # &quot;deadline&quot; and &quot;interval&quot; need to be set to enable the feature
@@ -647,7 +647,7 @@ Enabling a feature does not change event settings.</p>
 </div>
 </section>
 <section id="additional-settings-without-docker">
-<h2>Additional settings without Docker<a class="headerlink" href="#additional-settings-without-docker" title="Permalink to this heading"></a></h2>
+<h2>Additional settings without Docker<a class="headerlink" href="#additional-settings-without-docker" title="Link to this heading"></a></h2>
 <p>If Docker is not used, some additional settings may be interesting:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span># Location of uploaded files, static files and temporary files.
 # Relative paths are relative to the git directory, absolute paths
