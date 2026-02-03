@@ -4,6 +4,16 @@
 Changelog
 =========
 
+.. _changelog-4-0-1:
+
+4.0.1 (2026-02-03)
+------------------
+
+* Fix wrong migration that enables Matrix IDs for existing events
+* Enable captchas for newsletter subscriptions and password resets by default, in case the configuration is not in `helfertool.yaml`
+
+See below at version :ref:`4.0.0 <changelog-4-0-0>` for all changes in the 4.0.x release.
+
 .. _changelog-4-0-0:
 
 4.0.0 (2026-02-02)
@@ -41,7 +51,12 @@ Changelog
 Thanks to the participants of the practical course "Web Application Security" at TUM for analyzing the tool and providing their results:
 
 * Michael Vynogradov
-* `... more names will be added`
+* Bernhard Schmalhofer
+* Lukas Tröger
+* Martin Halfen
+* Xaver Holzapfel
+* Pablo Marin Ogalla
+* Michael Schmidmaier
 
 .. _changelog-3-3-1:
 
