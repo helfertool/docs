@@ -7,47 +7,22 @@ helfertoolctl
 Repositories
 ------------
 
-There are Debian and CentOS repositories for `helfertoolctl` on https://repo.helfertool.org/.
+The Debian repository for `helfertoolctl` is hosted on https://repo.helfertool.org/.
 
 Debian
 ^^^^^^
 
-There is a stable repository for Debian Bookworm:
+There is a stable repository for Debian Trixie:
 
 .. code-block:: none
 
-   deb https://repo.helfertool.org/debian/ bookworm main
+   deb https://repo.helfertool.org/debian/ trixie main
 
 Additionally, there is a repository for Debian Unstable that may contain a less stable version:
 
 .. code-block:: none
 
    deb https://repo.helfertool.org/debian/ unstable main
-
-CentOS
-^^^^^^
-
-There is a stable and testing repository for CentOS 7, see `repo file <https://repo.helfertool.org/centos7.repo>`_:
-
-.. code-block:: none
-
-   [helfertoolctl-stable]
-   name=helfertoolctl stable - $basearch
-   baseurl=https://repo.helfertool.org/centos/7/$basearch/stable
-   gpgcheck=1
-   repo_gpgcheck=1
-   gpgkey=https://repo.helfertool.org/gpg.key
-   enabled=1
-   protect=1
-
-   [helfertoolctl-testing]
-   name=helfertoolctl testing - $basearch
-   baseurl=https://repo.helfertool.org/centos/7/$basearch/testing
-   gpgcheck=1
-   repo_gpgcheck=1
-   gpgkey=https://repo.helfertool.org/gpg.key
-   enabled=0
-   protect=1
 
 Basic commands
 --------------

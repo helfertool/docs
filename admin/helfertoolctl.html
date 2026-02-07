@@ -53,7 +53,6 @@
 <li class="toctree-l2 current"><a class="current reference internal" href="#">helfertoolctl</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#repositories">Repositories</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#debian">Debian</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#centos">CentOS</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#basic-commands">Basic commands</a><ul>
@@ -117,38 +116,15 @@
 <span id="id1"></span><h1>helfertoolctl<a class="headerlink" href="#helfertoolctl" title="Link to this heading"></a></h1>
 <section id="repositories">
 <h2>Repositories<a class="headerlink" href="#repositories" title="Link to this heading"></a></h2>
-<p>There are Debian and CentOS repositories for <cite>helfertoolctl</cite> on <a class="reference external" href="https://repo.helfertool.org/">https://repo.helfertool.org/</a>.</p>
+<p>The Debian repository for <cite>helfertoolctl</cite> is hosted on <a class="reference external" href="https://repo.helfertool.org/">https://repo.helfertool.org/</a>.</p>
 <section id="debian">
 <h3>Debian<a class="headerlink" href="#debian" title="Link to this heading"></a></h3>
-<p>There is a stable repository for Debian Bookworm:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>deb https://repo.helfertool.org/debian/ bookworm main
+<p>There is a stable repository for Debian Trixie:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>deb https://repo.helfertool.org/debian/ trixie main
 </pre></div>
 </div>
 <p>Additionally, there is a repository for Debian Unstable that may contain a less stable version:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>deb https://repo.helfertool.org/debian/ unstable main
-</pre></div>
-</div>
-</section>
-<section id="centos">
-<h3>CentOS<a class="headerlink" href="#centos" title="Link to this heading"></a></h3>
-<p>There is a stable and testing repository for CentOS 7, see <a class="reference external" href="https://repo.helfertool.org/centos7.repo">repo file</a>:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>[helfertoolctl-stable]
-name=helfertoolctl stable - $basearch
-baseurl=https://repo.helfertool.org/centos/7/$basearch/stable
-gpgcheck=1
-repo_gpgcheck=1
-gpgkey=https://repo.helfertool.org/gpg.key
-enabled=1
-protect=1
-
-[helfertoolctl-testing]
-name=helfertoolctl testing - $basearch
-baseurl=https://repo.helfertool.org/centos/7/$basearch/testing
-gpgcheck=1
-repo_gpgcheck=1
-gpgkey=https://repo.helfertool.org/gpg.key
-enabled=0
-protect=1
 </pre></div>
 </div>
 </section>

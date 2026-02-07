@@ -82,7 +82,7 @@ If that worked, push the new container:
 Website and documentation
 -------------------------
 
-* Write changelog and update tables with releases (:ref:`here <versions>` and :ref:`here <version_history>`)
+* Write changelog and update tables with releases (:ref:`here <versions>` and :ref:`here <version_history>`), update version on installation page (:ref:`here <installation>`).
 * Publish news with tag ``update`` on website
 
 Git cleanup

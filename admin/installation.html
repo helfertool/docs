@@ -104,22 +104,28 @@
              
   <section id="installation">
 <span id="id1"></span><h1>Installation<a class="headerlink" href="#installation" title="Link to this heading"></a></h1>
-<p>This installation guide is written for Debian Bookworm.</p>
+<p>This installation guide is written for Debian Trixie.</p>
 <section id="docker-and-helfertoolctl">
 <h2>Docker and helfertoolctl<a class="headerlink" href="#docker-and-helfertoolctl" title="Link to this heading"></a></h2>
-<p>First, install Docker according to the <a class="reference external" href="https://docs.docker.com/install/linux/docker-ce/debian/">Docker documentation</a>.</p>
+<p>First, install Docker according to the <a class="reference external" href="https://docs.docker.com/engine/install/debian/">Docker documentation</a>.</p>
 <p>The <cite>helfertoolctl</cite> package can be installed from the Debian repository <a class="reference external" href="https://repo.helfertool.org/debian/">https://repo.helfertool.org/debian/</a>:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>sudo apt install gnupg
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>sudo curl https://repo.helfertool.org/gpg.key -o /etc/apt/keyrings/helfertool.asc
 
-echo &quot;deb https://repo.helfertool.org/debian/ bookworm main&quot; | sudo tee /etc/apt/sources.list.d/helfertool.list
-
-sudo apt-key adv --recv-keys FA1023F9F6AC494F
+sudo tee /etc/apt/sources.list.d/helfertool.sources &lt;&lt;EOF
+Architectures: amd64
+Components: main
+X-Repolib-Name: helfertool
+Signed-By: /etc/apt/keyrings/helfertool.asc
+Suites: trixie
+Types: deb
+URIs: https://repo.helfertool.org/debian/
+EOF
 
 sudo apt update
 sudo apt install helfertoolctl
 </pre></div>
 </div>
-<p>The available Debian and CentOS repositories are listed in the section about <a class="reference internal" href="helfertoolctl.html#helfertoolctl"><span class="std std-ref">helfertoolctl</span></a>.</p>
+<p>The available Debian repositories are listed in the section about <a class="reference internal" href="helfertoolctl.html#helfertoolctl"><span class="std std-ref">helfertoolctl</span></a>.</p>
 </section>
 <section id="database">
 <h2>Database<a class="headerlink" href="#database" title="Link to this heading"></a></h2>
@@ -202,7 +208,7 @@ sudo rabbitmqctl delete_user guest
 <p>If you want to, the used Docker tag can be changed in <code class="docutils literal notranslate"><span class="pre">/etc/default/helfertool</span></code>, for example:</p>
 <div class="literal-block-wrapper docutils container" id="id4">
 <div class="code-block-caption"><span class="caption-text">/etc/default/helfertool</span><a class="headerlink" href="#id4" title="Link to this code"></a></div>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>HELFERTOOL_DOCKER_IMAGE=&quot;helfertool/helfertool:2.0.x&quot;
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>HELFERTOOL_DOCKER_IMAGE=&quot;helfertool/helfertool:4.0.x&quot;
 </pre></div>
 </div>
 </div>

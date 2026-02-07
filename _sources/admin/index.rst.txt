@@ -6,7 +6,7 @@ The Helfertool should run on most current Linux distributions, but is mostly
 used on Debian at the moment.
 
 The most easy way to deploy the Helfertool is using Docker and the
-`helfertoolctl` package which is available for Debian and CentOS.
+`helfertoolctl` package which is available for Debian.
 Of course, you can also use the Docker container on other systems,
 but the `helfertoolctl` package provides a wrapper
 script around Docker and useful things like a systemd service file. Beside that,
@@ -21,8 +21,7 @@ To deploy the Helfertool to an own server, a few dependencies are necessary:
  * Mail server to send out mails
 
 The following documentation only explains the setup on Debian with Docker
-and `helfertoolctl` in detail. For CentOS, see in the :ref:`helfertoolctl`
-section for the repository and follow the Debian documentation.
+and `helfertoolctl` in detail.
 
 Please feel free to submit corrections and additions.
 
