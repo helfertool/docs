@@ -4,27 +4,33 @@
 Installation
 ============
 
-This installation guide is written for Debian Bookworm.
+This installation guide is written for Debian Trixie.
 
 Docker and helfertoolctl
 ------------------------
 
-First, install Docker according to the `Docker documentation <https://docs.docker.com/install/linux/docker-ce/debian/>`_.
+First, install Docker according to the `Docker documentation <https://docs.docker.com/engine/install/debian/>`_.
 
 The `helfertoolctl` package can be installed from the Debian repository https://repo.helfertool.org/debian/:
 
 .. code-block:: none
 
-   sudo apt install gnupg
+   sudo curl https://repo.helfertool.org/gpg.key -o /etc/apt/keyrings/helfertool.asc
 
-   echo "deb https://repo.helfertool.org/debian/ bookworm main" | sudo tee /etc/apt/sources.list.d/helfertool.list
-
-   sudo apt-key adv --recv-keys FA1023F9F6AC494F
+   sudo tee /etc/apt/sources.list.d/helfertool.sources <<EOF
+   Architectures: amd64
+   Components: main
+   X-Repolib-Name: helfertool
+   Signed-By: /etc/apt/keyrings/helfertool.asc
+   Suites: trixie
+   Types: deb
+   URIs: https://repo.helfertool.org/debian/
+   EOF
 
    sudo apt update
    sudo apt install helfertoolctl
 
-The available Debian and CentOS repositories are listed in the section about :ref:`helfertoolctl`.
+The available Debian repositories are listed in the section about :ref:`helfertoolctl`.
 
 Database
 --------
@@ -127,7 +133,7 @@ If you want to, the used Docker tag can be changed in ``/etc/default/helfertool`
 .. code-block:: none
    :caption: /etc/default/helfertool
 
-   HELFERTOOL_DOCKER_IMAGE="helfertool/helfertool:2.0.x"
+   HELFERTOOL_DOCKER_IMAGE="helfertool/helfertool:4.0.x"
 
 Then download the Helfertool container:
 
