@@ -4,6 +4,15 @@
 Changelog
 =========
 
+.. _changelog-4-0-2:
+
+4.0.2 (2026-04-09)
+------------------
+
+* Fix wrong redirect (server error) when adding a helper in the internal admin interface
+
+See below at version :ref:`4.0.0 <changelog-4-0-0>` for all changes in the 4.0.x release.
+
 .. _changelog-4-0-1:
 
 4.0.1 (2026-02-03)
