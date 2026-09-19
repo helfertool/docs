@@ -141,8 +141,8 @@ If your instance is reachable with different domain names, this may be confusing
 If you access the same instance on <code class="docutils literal notranslate"><span class="pre">www.app.helfertool.org</span></code> instead, the link will be <code class="docutils literal notranslate"><span class="pre">www.app.helfertool.org</span></code>.</p>
 <p>It may be desirable that the same URL is used always. This can be achived with a redirect in the reverse proxy.
 For nginx, the example config contains:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span># redirect to &quot;app.helfertool.org&quot; if necessary (without www)
-if ($host != &#39;app.helfertool.org&#39;) {
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span># redirect to "app.helfertool.org" if necessary (without www)
+if ($host != 'app.helfertool.org') {
         return 301 https://app.helfertool.org$request_uri;
 }
 </pre></div>

@@ -108,27 +108,27 @@ Furthermore you have a mailing list / distribution group <code class="docutils l
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>mail:
     # Connection to mail server for sending
     send:
-        user: &quot;helfertool@app.helfertool.org&quot;
+        user: "helfertool@app.helfertool.org"
         ...
 
     # Connection to mail server for receiving
     receive:
-        user: &quot;helfertool@app.helfertool.org&quot;
+        user: "helfertool@app.helfertool.org"
         ...
 
         # The IMAP folder that should be checked for new mails
-        folder: &quot;INBOX&quot;
+        folder: "INBOX"
 
         # Time between checks (in seconds)
         interval: 300
 
     # Sender address and display name for all outgoing mails
-    sender_address: &quot;helfertool@app.helfertool.org&quot;
-    sender_name: &quot;Helfertool&quot;
+    sender_address: "helfertool@app.helfertool.org"
+    sender_name: "Helfertool"
 
     # Forward received mails that are not handled automatically to this address (with this display name)
-    forward_unhandled_address: &quot;volunteers@app.helfertool.org&quot;
-    forward_unhandled_name: &quot;Helfertool&quot;
+    forward_unhandled_address: "volunteers@app.helfertool.org"
+    forward_unhandled_name: "Helfertool"
 </pre></div>
 </div>
 <p>This means that (almost all) non delivery reports sent to <code class="docutils literal notranslate"><span class="pre">helfertool&#64;app.helfertool.org</span></code> are automatically processed and not forwarded to your team.
@@ -146,27 +146,27 @@ The setup might be a bit more complex than necessary but maybe it helps to under
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>mail:
     # Connection to mail server for sending
     send:
-        user: &quot;helfertoolservice@app.helfertool.org&quot;
+        user: "helfertoolservice@app.helfertool.org"
         ...
 
     # Connection to mail server for receiving
     receive:
-        user: &quot;helfertoolservice@app.helfertool.org&quot;
+        user: "helfertoolservice@app.helfertool.org"
         ...
 
         # The IMAP folder that should be checked for new mails
-        folder: &quot;helfertool&quot;
+        folder: "helfertool"
 
         # Time between checks (in seconds)
         interval: 300
 
     # Sender address and display name for all outgoing mails
-    sender_address: &quot;helfertool@app.helfertool.org&quot;
-    sender_name: &quot;Helfertool&quot;
+    sender_address: "helfertool@app.helfertool.org"
+    sender_name: "Helfertool"
 
     # Forward received mails that are not handled automatically to this address (with this display name)
-    forward_unhandled_address: &quot;volunteers@app.helfertool.org&quot;
-    forward_unhandled_name: &quot;Helfertool&quot;
+    forward_unhandled_address: "volunteers@app.helfertool.org"
+    forward_unhandled_name: "Helfertool"
 </pre></div>
 </div>
 <p>We now have a similar setup as the simple example above, but incoming mails are first handled by Mailman.

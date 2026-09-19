@@ -123,7 +123,7 @@ The following documentation describes the settings for a deployment with Docker,
 <section id="announcement">
 <h2>Announcement<a class="headerlink" href="#announcement" title="Link to this heading"></a></h2>
 <p>A text line can be displayed on every page of the Helfertool, this is useful to announce downtimes for maintenance.</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>announcement: &quot;Maintenance on May 4th from 8 pm to 10 pm.&quot;
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>announcement: "Maintenance on May 4th from 8 pm to 10 pm."
 </pre></div>
 </div>
 </section>
@@ -144,19 +144,19 @@ The language of the badges can also be changed per event.</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span># Possible values: de, en
 language:
     # Default language if not specified by the browser
-    default: &quot;de&quot;
+    default: "de"
 
     # Only provide the tool in the default language (removed the language selection)
     singlelanguage: false
 
     # Language used for badges
-    badges: &quot;de&quot;
+    badges: "de"
 
     # Timezone
-    timezone: &quot;Europe/Berlin&quot;
+    timezone: "Europe/Berlin"
 
     # Default country for Corona contact tracing (ISO-3166-1)
-    country: &quot;DE&quot;
+    country: "DE"
 </pre></div>
 </div>
 </section>
@@ -165,10 +165,10 @@ language:
 <section id="postgresql">
 <h3>PostgreSQL<a class="headerlink" href="#postgresql" title="Link to this heading"></a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>database:
-    backend: &quot;postgresql&quot;
-    name: &quot;helfertool&quot;
-    user: &quot;helfertool&quot;
-    password: &quot;&lt;PASSWORD&gt;&quot;
+    backend: "postgresql"
+    name: "helfertool"
+    user: "helfertool"
+    password: "&lt;PASSWORD&gt;"
     host: 172.17.0.1
     port: 5432
 </pre></div>
@@ -177,10 +177,10 @@ language:
 <section id="mysql-mariadb">
 <h3>MySQL / MariaDB<a class="headerlink" href="#mysql-mariadb" title="Link to this heading"></a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>database:
-    backend: &quot;mysql&quot;
-    name: &quot;helfertool&quot;
-    user: &quot;helfertool&quot;
-    password: &quot;&lt;PASSWORD&gt;&quot;
+    backend: "mysql"
+    name: "helfertool"
+    user: "helfertool"
+    password: "&lt;PASSWORD&gt;"
     host: 172.17.0.1
     port: 3306
 </pre></div>
@@ -189,8 +189,8 @@ language:
 <section id="sqlite">
 <h3>SQLite<a class="headerlink" href="#sqlite" title="Link to this heading"></a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>database:
-    backend: &quot;sqlite3&quot;
-    name: &quot;/data/db.sqlite3&quot;
+    backend: "sqlite3"
+    name: "/data/db.sqlite3"
 </pre></div>
 </div>
 <p>For Docker deployments, the SQLite file needs to be placed in <code class="docutils literal notranslate"><span class="pre">/data</span></code>. Otherwise, it is not stored persistently.</p>
@@ -200,7 +200,7 @@ language:
 <p>Django allows to specify additional options like <code class="docutils literal notranslate"><span class="pre">init_command</span></code>, they can also be added in the Helfertool configuration file:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>database:
     options:
-        init_command: &quot;SET sql_mode=&#39;STRICT_TRANS_TABLES&#39;;&quot;
+        init_command: "SET sql_mode='STRICT_TRANS_TABLES';"
 </pre></div>
 </div>
 <p>The <a class="reference external" href="https://docs.djangoproject.com/en/dev/ref/databases/">Django documentation</a> describes the possible options for the different database backends.</p>
@@ -209,9 +209,9 @@ language:
 <section id="rabbitmq">
 <h2>RabbitMQ<a class="headerlink" href="#rabbitmq" title="Link to this heading"></a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>rabbitmq:
-    vhost: &quot;&quot;
-    user: &quot;guest&quot;
-    password: &quot;guest&quot;
+    vhost: ""
+    user: "guest"
+    password: "guest"
     host: 172.17.0.1
     port: 5672
 </pre></div>
@@ -224,7 +224,7 @@ Optionally, Helfertool can also receive mails and process non delivery reports, 
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>mail:
     # Connection to mail server for sending
     send:
-        host: &quot;localhost&quot;
+        host: "localhost"
         port: 25
         user: null
         password: null
@@ -233,26 +233,26 @@ Optionally, Helfertool can also receive mails and process non delivery reports, 
 
     # Connection to mail server for receiving
     #receive:
-    #    host: &quot;localhost&quot;
+    #    host: "localhost"
     #    port: 993
-    #    user: &quot;helfertool&quot;
-    #    password: &quot;&lt;PASSWORD&gt;&quot;
+    #    user: "helfertool"
+    #    password: "&lt;PASSWORD&gt;"
     #    tls: true
     #    starttls: false
     #
     #    # The IMAP folder that should be checked for new mails
-    #    folder: &quot;INBOX&quot;
+    #    folder: "INBOX"
     #
     #    # Time between checks (in seconds)
     #    interval: 300
 
     # Sender address and display name for all outgoing mails
-    sender_address: &quot;helfertool@localhost&quot;
-    sender_name: &quot;Helfertool&quot;
+    sender_address: "helfertool@localhost"
+    sender_name: "Helfertool"
 
     # Forward received mails that are not handled automatically to this address (with this display name)
-    #forward_unhandled_address: &quot;helfertoolintern@localhost&quot;
-    #forward_unhandled_name: &quot;Helfertool&quot;
+    #forward_unhandled_address: "helfertoolintern@localhost"
+    #forward_unhandled_name: "Helfertool"
 
     # Batch size if a high amount of mails is sent
     # This is currently only used for the newsletter, the other mails are sent
@@ -283,36 +283,36 @@ Here, <code class="docutils literal notranslate"><span class="pre">null</span></
     ldap:
         # Connection details
         server:
-            host: &quot;ldaps://ldap.helfertool.org&quot;
-            bind_dn: &quot;cn=helfertool,ou=Roles,dc=helfertool,dc=org&quot;
+            host: "ldaps://ldap.helfertool.org"
+            bind_dn: "cn=helfertool,ou=Roles,dc=helfertool,dc=org"
             bind_password: null
 
         # LDAP schema and attributes
         schema:
             # User search - option 1: search for user based on attribute, bind then
-            user_search_base: &quot;ou=People,dc=helfertool,dc=org&quot;
-            user_search_filter: &quot;(uid=%(user)s)&quot;
+            user_search_base: "ou=People,dc=helfertool,dc=org"
+            user_search_filter: "(uid=%(user)s)"
 
             # User search - option 2: direct bind
             # If this option is enabled, the search is skipped
-            #user_dn_template: &quot;uid=%(user)s,ou=People,dc=helfertool,dc=org&quot;
+            #user_dn_template: "uid=%(user)s,ou=People,dc=helfertool,dc=org"
 
             # User attribute definition
-            first_name_attr: &quot;givenName&quot;
-            last_name_attr: &quot;sn&quot;
-            email_attr: &quot;mail&quot;
+            first_name_attr: "givenName"
+            last_name_attr: "sn"
+            email_attr: "mail"
 
             # Group definition
             # See https://django-auth-ldap.readthedocs.io/en/latest/groups.html?highlight=AUTH_LDAP_GROUP_TYPE#types-of-groups
             # for a list of all posible values for group_type
-            group_type: &quot;GroupOfNamesType&quot;
-            group_base_dn: &quot;ou=Groups,dc=helfertool,dc=org&quot;
-            group_object_class: &quot;groupOfNames&quot;
+            group_type: "GroupOfNamesType"
+            group_base_dn: "ou=Groups,dc=helfertool,dc=org"
+            group_object_class: "groupOfNames"
 
         # Permissions based on groups
         groups:
             login: null
-            admin: &quot;cn=admins,ou=Group,dc=helfertool,dc=org&quot;
+            admin: "cn=admins,ou=Group,dc=helfertool,dc=org"
 </pre></div>
 </div>
 </section>
@@ -344,28 +344,28 @@ You should configure the logout URL as described below, but this depends on the 
     # Get users over OpenID Connect
     oidc:
         # Name of the provider (only for login view)
-        provider_name: &quot;OpenID Connect&quot;
+        provider_name: "OpenID Connect"
 
         # Provider details
         provider:
             # Endpoint URLs
-            authorization_endpoint: &quot;https://auth.helfertool.org/auth/realms/test/protocol/openid-connect/auth&quot;
-            token_endpoint: &quot;https://auth.helfertool.org/auth/realms/test/protocol/openid-connect/token&quot;
-            user_endpoint: &quot;https://auth.helfertool.org/auth/realms/test/protocol/openid-connect/userinfo&quot;
+            authorization_endpoint: "https://auth.helfertool.org/auth/realms/test/protocol/openid-connect/auth"
+            token_endpoint: "https://auth.helfertool.org/auth/realms/test/protocol/openid-connect/token"
+            user_endpoint: "https://auth.helfertool.org/auth/realms/test/protocol/openid-connect/userinfo"
 
             # URI to get JWKS
-            jwks_uri: &quot;https://auth.helfertool.org/auth/realms/test/protocol/openid-connect/certs&quot;
+            jwks_uri: "https://auth.helfertool.org/auth/realms/test/protocol/openid-connect/certs"
 
             # Client ID and secret
-            client_id: &quot;helfertool&quot;
-            client_secret: &quot;&lt;SECRET&gt;&quot;
+            client_id: "helfertool"
+            client_secret: "&lt;SECRET&gt;"
 
             # The requested scopes
-            scopes: &quot;openid email profile&quot;
+            scopes: "openid email profile"
 
             # The claim that should be used as username
             # Reasonable choices are email or preferred_username
-            username_claim: &quot;email&quot;
+            username_claim: "email"
 
             # It could happen that the user is disabled or claims change. So we can redirect the users from time to time
             # to the OIDC provider and validate if they are still allowed to login.
@@ -376,8 +376,8 @@ You should configure the logout URL as described below, but this depends on the 
             # Therefore, we can also trigger a logout at the OIDC provider.
             # We built URLs according to the OpenID Connect RP-Initiated Logout 1.0 standard by default
             logout:
-                endpoint: &quot;https://auth.helfertool.org/auth/realms/test/protocol/openid-connect/logout&quot;
-                redirect_parameter: &quot;redirect_uri&quot;
+                endpoint: "https://auth.helfertool.org/auth/realms/test/protocol/openid-connect/logout"
+                redirect_parameter: "redirect_uri"
                 id_token_hint: true
 
         # Permissions based on claims
@@ -385,36 +385,36 @@ You should configure the logout URL as described below, but this depends on the 
             # There are two types to handle claims
             # 1) direct: the claim is directly compared
             # 2) member: the claim is a list and it is checked if the specified value is included (useful for groups/roles)
-            # The path is a JMESPath. Plain claim names like &quot;roles&quot; are also a valid JMESPath.
+            # The path is a JMESPath. Plain claim names like "roles" are also a valid JMESPath.
             login:
-                #compare: &quot;direct&quot;
-                #path: &quot;helfertool_login&quot;
+                #compare: "direct"
+                #path: "helfertool_login"
                 #value: true
-                compare: &quot;member&quot;
-                path: &quot;roles&quot;
-                value: &quot;helfertool_login&quot;
+                compare: "member"
+                path: "roles"
+                value: "helfertool_login"
 
             admin:
-                #compare: &quot;direct&quot;
-                #path: &quot;helfertool_admin&quot;
+                #compare: "direct"
+                #path: "helfertool_admin"
                 #value: true
-                compare: &quot;member&quot;
-                path: &quot;roles&quot;
-                value: &quot;helfertool_admin&quot;
+                compare: "member"
+                path: "roles"
+                value: "helfertool_admin"
 </pre></div>
 </div>
 <p>You can use more complex JMESPath queries like this (it allows the login if the claim <cite>custom-claim</cite> is set to <cite>value1</cite> or <cite>value2</cite>):</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>login:
-    compare: &quot;direct&quot;
-    path: &quot;\&quot;custom-claim\&quot; == &#39;value1&#39; || \&quot;custom-claim\&quot; == &#39;value2&#39;&quot;
+    compare: "direct"
+    path: "\"custom-claim\" == 'value1' || \"custom-claim\" == 'value2'"
     value: True
 </pre></div>
 </div>
 <p>Another pitfall are claims with dashes, the correct escaping looks like this:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>admin:
-    compare: &quot;member&quot;
-    path: &quot;\&quot;custom-claim\&quot;&quot;
-    value: &quot;admin&quot;
+    compare: "member"
+    path: "\"custom-claim\""
+    value: "admin"
 </pre></div>
 </div>
 </section>
@@ -425,9 +425,9 @@ This can be done by prepending a special character in front of local usernames (
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>authentication:
     # Prepend character to all locally created users
     # This is useful if you have for example users from LDAP but also local
-    # users. The additional character like &#39;@&#39; is used to prevent identical
+    # users. The additional character like '@' is used to prevent identical
     # user names for different users
-    local_user_char: &#39;@&#39;
+    local_user_char: '@'
 </pre></div>
 </div>
 <div class="admonition note">
@@ -458,16 +458,16 @@ The syslog forwarding can be used additionally.</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>logging:
     syslog:
         # Log level that will be sent to syslog: INFO, WARNING, ERROR
-        level: &#39;INFO&#39;
+        level: 'INFO'
 
         # Server, port and protocol
         # UDP is recommended. With TCP, the syslog server needs to run and accept connections when the Helfertool is started.
-        server: &#39;localhost&#39;
+        server: 'localhost'
         port: 514
-        protocol: &#39;udp&#39;
+        protocol: 'udp'
 
         # Syslog facility to use
-        facility: &#39;local7&#39;
+        facility: 'local7'
 </pre></div>
 </div>
 </section>
@@ -497,12 +497,12 @@ are not stored in the database (see previous section for syslog and log files).<
 
     # Unique and secret key
     # At least 50 characters recommended, for example: pwgen -s 50 1
-    secret: &quot;change_this_for_production&quot;
+    secret: "change_this_for_production"
 
     # URLs that are used for the software
     allowed_hosts:
-    #    - &quot;app.helfertool.org&quot;
-    #    - &quot;www.app.helfertool.org&quot;
+    #    - "app.helfertool.org"
+    #    - "www.app.helfertool.org"
 
     # Account lockout
     lockout:
@@ -557,7 +557,7 @@ Enabling a feature does not change event settings.</p>
 <h2>Customization<a class="headerlink" href="#customization" title="Link to this heading"></a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>customization:
     # Title for all pages
-    title: &quot;Helfertool&quot;
+    title: "Helfertool"
 
     # Modify certain properties for the general helfertool to display
     display:
@@ -579,16 +579,16 @@ Enabling a feature does not change event settings.</p>
     # There are some external links that should/can be changed
     urls:
         # Imprint with contact details
-        imprint: &quot;https://app.helfertool.org/impressum/&quot;
+        imprint: "https://app.helfertool.org/impressum/"
 
         # Privacy statement
-        privacy: &quot;https://app.helfertool.org/datenschutz/&quot;
+        privacy: "https://app.helfertool.org/datenschutz/"
 
         # Link to documentation (usually no change necessary)
-        docs: &quot;https://docs.helfertool.org&quot;
+        docs: "https://docs.helfertool.org"
 
     # Contact address for support requests
-    contact_address: &quot;helfertool@localhost&quot;
+    contact_address: "helfertool@localhost"
 </pre></div>
 </div>
 </section>
@@ -597,7 +597,7 @@ Enabling a feature does not change event settings.</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>badges:
     # Alternative default template, path to tex file
     # Relative paths again are relative to the git directory
-    template: &quot;src/badges/latextemplate/badge.tex&quot;
+    template: "src/badges/latextemplate/badge.tex"
 
     # Maximum photo size in kb
     photo_max_size: 1000
@@ -630,7 +630,7 @@ Enabling a feature does not change event settings.</p>
 <h2>Admin automation settings<a class="headerlink" href="#admin-automation-settings" title="Link to this heading"></a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>automation:
     # Send reminder mails to event admins that did not archive the event within time
-    # &quot;deadline&quot; and &quot;interval&quot; need to be set to enable the feature
+    # "deadline" and "interval" need to be set to enable the feature
     event_archive:
         # Deadline (months)
         deadline: 6
@@ -642,7 +642,7 @@ Enabling a feature does not change event settings.</p>
         start_before_deadline: 14
 
         # Link to some documentation that is included in the mail (optional)
-        #docs: &quot;&quot;
+        #docs: ""
 </pre></div>
 </div>
 </section>
@@ -653,9 +653,9 @@ Enabling a feature does not change event settings.</p>
 # Relative paths are relative to the git directory, absolute paths
 # are also possible.
 files:
-    static: &quot;static&quot;
-    media: &quot;media&quot;
-    tmp: &quot;/tmp&quot;
+    static: "static"
+    media: "media"
+    tmp: "/tmp"
 
 security:
     # Application is behind reverse proxy. In this case, the HTTP header X-Forwarded-Proto
@@ -664,7 +664,7 @@ security:
 
 badges:
     # Path to pdflatex binary
-    pdflatex: &quot;/usr/bin/pdflatex&quot;
+    pdflatex: "/usr/bin/pdflatex"
 </pre></div>
 </div>
 </section>

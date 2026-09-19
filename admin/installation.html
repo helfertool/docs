@@ -151,7 +151,7 @@ CREATE EXTENSION pg_trgm;
 the following configuration files need to be modified:</p>
 <div class="literal-block-wrapper docutils container" id="id2">
 <div class="code-block-caption"><span class="caption-text">/etc/postgresql/15/main/postgresql.conf</span><a class="headerlink" href="#id2" title="Link to this code"></a></div>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>listen_addresses = &#39;*&#39;
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>listen_addresses = '*'
 </pre></div>
 </div>
 </div>
@@ -175,7 +175,7 @@ host    all             all             172.17.0.0/16           scram-sha-256
 <p>Then create an user and database:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>sudo mysql
 MariaDB [(none)]&gt; CREATE DATABASE helfertool;
-MariaDB [(none)]&gt; CREATE USER helfertool IDENTIFIED BY &#39;&lt;PASSWORD&gt;&#39;;
+MariaDB [(none)]&gt; CREATE USER helfertool IDENTIFIED BY '&lt;PASSWORD&gt;';
 MariaDB [(none)]&gt; GRANT ALL PRIVILEGES ON helfertool.* TO helfertool;
 MariaDB [(none)]&gt; ALTER DATABASE helfertool CHARACTER SET utf8;
 </pre></div>
@@ -197,7 +197,7 @@ sudo systemctl restart mysql
 default user <code class="docutils literal notranslate"><span class="pre">guest</span></code> should be deleted for security reasons.</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>sudo rabbitmqctl add_user helfertool &lt;PASSWORD&gt;
 sudo rabbitmqctl add_vhost helfertool
-sudo rabbitmqctl set_permissions -p helfertool helfertool &#39;.*&#39; &#39;.*&#39; &#39;.*&#39;
+sudo rabbitmqctl set_permissions -p helfertool helfertool '.*' '.*' '.*'
 sudo rabbitmqctl delete_user guest
 </pre></div>
 </div>
@@ -208,7 +208,7 @@ sudo rabbitmqctl delete_user guest
 <p>If you want to, the used Docker tag can be changed in <code class="docutils literal notranslate"><span class="pre">/etc/default/helfertool</span></code>, for example:</p>
 <div class="literal-block-wrapper docutils container" id="id4">
 <div class="code-block-caption"><span class="caption-text">/etc/default/helfertool</span><a class="headerlink" href="#id4" title="Link to this code"></a></div>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>HELFERTOOL_DOCKER_IMAGE=&quot;helfertool/helfertool:4.0.x&quot;
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>HELFERTOOL_DOCKER_IMAGE="helfertool/helfertool:4.0.x"
 </pre></div>
 </div>
 </div>
@@ -304,13 +304,13 @@ server {
         ssl_ciphers ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-CHACHA20-POLY1305:ECDHE-RSA-CHACHA20-POLY1305:DHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384;
         ssl_prefer_server_ciphers off;
 
-        add_header Strict-Transport-Security &quot;max-age=15552000&quot;;
+        add_header Strict-Transport-Security "max-age=15552000";
 
         ssl_stapling on;
         ssl_stapling_verify on;
 
-        # redirect to &quot;app.helfertool.org&quot; if necessary (without www)
-        if ($host != &#39;app.helfertool.org&#39;) {
+        # redirect to "app.helfertool.org" if necessary (without www)
+        if ($host != 'app.helfertool.org') {
                 return 301 https://app.helfertool.org$request_uri;
         }
 

@@ -194,7 +194,7 @@ The following sections explain how to run these services for development purpose
 <p>Additionally, set the SMTP port to 1025 in <code class="docutils literal notranslate"><span class="pre">helfertool.yaml</span></code>:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>mail:
     send:
-        host: &quot;localhost&quot;
+        host: "localhost"
         port: 1025
 </pre></div>
 </div>
@@ -254,10 +254,10 @@ CREATE EXTENSION pg_trgm;
 </div>
 <p>And the database settings need to be changed in <code class="docutils literal notranslate"><span class="pre">helfertool.yaml</span></code>:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>database:
-    backend: &quot;postgresql&quot;
-    name: &quot;helfertool&quot;
-    user: &quot;helfertool&quot;
-    password: &quot;password&quot;
+    backend: "postgresql"
+    name: "helfertool"
+    user: "helfertool"
+    password: "password"
     host: 127.0.0.1
     port: 5432
 </pre></div>
@@ -271,9 +271,9 @@ CREATE EXTENSION pg_trgm;
 </div>
 <p>Additionally, the syslog output needs to be enabled in <code class="docutils literal notranslate"><span class="pre">helfertool.yaml</span></code>:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>syslog:
-    server: &#39;localhost&#39;
+    server: 'localhost'
     port: 5140
-    protocol: &#39;udp&#39;
+    protocol: 'udp'
 </pre></div>
 </div>
 </section>
@@ -284,24 +284,24 @@ CREATE EXTENSION pg_trgm;
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ldap:
    # Connection details
    server:
-      host: &quot;ldap://localhost:10389&quot;
-      bind_dn: &quot;cn=admin,dc=planetexpress,dc=com&quot;
-      bind_password: &quot;GoodNewsEveryone&quot;
+      host: "ldap://localhost:10389"
+      bind_dn: "cn=admin,dc=planetexpress,dc=com"
+      bind_password: "GoodNewsEveryone"
 
    # LDAP schema and attributes
    schema:
       # User search - option 1: search for user based on attribute, bind then
-      user_search_base: &quot;ou=people,dc=planetexpress,dc=com&quot;
-      user_search_filter: &quot;(uid=%(user)s)&quot;
+      user_search_base: "ou=people,dc=planetexpress,dc=com"
+      user_search_filter: "(uid=%(user)s)"
 
       # User search - option 2: direct bind
       # If this option is enabled, the search is skipped
-      #user_dn_template: &quot;cn=%(user)s,ou=people,dc=planetexpress,dc=com&quot;
+      #user_dn_template: "cn=%(user)s,ou=people,dc=planetexpress,dc=com"
 
       # User attribute definition
-      first_name_attr: &quot;givenName&quot;
-      last_name_attr: &quot;sn&quot;
-      email_attr: &quot;mail&quot;
+      first_name_attr: "givenName"
+      last_name_attr: "sn"
+      email_attr: "mail"
 </pre></div>
 </div>
 <p>If the user search is enabled (option 1), login is possible with <code class="docutils literal notranslate"><span class="pre">uid</span></code> as username, if the direct bind is used (option 2) the username is the <code class="docutils literal notranslate"><span class="pre">cn</span></code>.</p>
