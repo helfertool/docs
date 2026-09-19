@@ -4,6 +4,15 @@
 Changelog
 =========
 
+.. _changelog-4-0-3:
+
+4.0.3 (2026-09-19)
+------------------
+
+* Security update for Pillow Python library
+
+See below at version :ref:`4.0.0 <changelog-4-0-0>` for all changes in the 4.0.x release.
+
 .. _changelog-4-0-2:
 
 4.0.2 (2026-04-09)
