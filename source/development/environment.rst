@@ -156,6 +156,8 @@ Now start Celery:
 
 In case you receive a very long error message ending with ``django.core.exceptions.AppRegistryNotReady: Apps aren't loaded yet.``, try to run Celery and Beats separately:
 
+.. code-block:: none
+
    cd src
    celery -A helfertool worker --loglevel=info
    celery -A helfertool beat --loglevel=info
