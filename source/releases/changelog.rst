@@ -4,6 +4,16 @@
 Changelog
 =========
 
+.. _changelog-4-1-0:
+
+4.1.0 (2026-11-11)
+------------------
+
+* Security update for Pillow Python library
+* Add configuration option to enable PKCE for OpenID Connect
+* Include shift names in PDF export
+* Minor further fixes
+
 .. _changelog-4-0-3:
 
 4.0.3 (2026-09-19)

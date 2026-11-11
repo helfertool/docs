@@ -269,6 +269,11 @@ If the ``admin`` configuration is not present, the admin privilege is not touche
                client_id: "helfertool"
                client_secret: "<SECRET>"
 
+               # Use PKCE - recommended!
+               # Challenge can be "S256" or "plain" (S256 recommended)
+               pkce: false
+               pkce_code_challenge: "S256"
+
                # The requested scopes
                scopes: "openid email profile"
 

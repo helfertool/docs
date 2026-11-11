@@ -32,7 +32,7 @@ Then create the new version:
 
 .. code-block:: none
    
-   bump2version --allow-dirty major|minor|patch
+   bump-my-version bump --allow-dirty minor
 
 Check the git log:
 
