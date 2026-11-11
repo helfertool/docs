@@ -16,8 +16,8 @@
       <script src="../_static/jquery.js?v=5d32c60e"></script>
       <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
       <script src="../_static/documentation_options.js?v=2709fde1"></script>
-      <script src="../_static/doctools.js?v=9a2dae69"></script>
-      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -221,6 +221,12 @@ docker run -d --rm --hostname helfertool-rabbitmq --name helfertool-rabbitmq -p 
 celery -A helfertool worker --loglevel=info -B
 </pre></div>
 </div>
+<p>In case you receive a very long error message ending with <code class="docutils literal notranslate"><span class="pre">django.core.exceptions.AppRegistryNotReady:</span> <span class="pre">Apps</span> <span class="pre">aren't</span> <span class="pre">loaded</span> <span class="pre">yet.</span></code>, try to run Celery and Beats separately:</p>
+<blockquote>
+<div><p>cd src
+celery -A helfertool worker –loglevel=info
+celery -A helfertool beat –loglevel=info</p>
+</div></blockquote>
 <p>The default settings in helfertool.yaml do not need to be changed for this setup.
 The celery worker here has the celery beat service included (<code class="docutils literal notranslate"><span class="pre">-B</span></code>).
 This is not recommended for production (see <a class="reference external" href="https://docs.celeryproject.org/en/latest/userguide/periodic-tasks.html#starting-the-scheduler">celery documentation</a>)!</p>

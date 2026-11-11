@@ -154,6 +154,12 @@ Now start Celery:
    cd src  # we need to be in the directory with the manage.py file
    celery -A helfertool worker --loglevel=info -B
 
+In case you receive a very long error message ending with ``django.core.exceptions.AppRegistryNotReady: Apps aren't loaded yet.``, try to run Celery and Beats separately:
+
+   cd src
+   celery -A helfertool worker --loglevel=info
+   celery -A helfertool beat --loglevel=info
+
 The default settings in helfertool.yaml do not need to be changed for this setup.
 The celery worker here has the celery beat service included (``-B``).
 This is not recommended for production (see `celery documentation <https://docs.celeryproject.org/en/latest/userguide/periodic-tasks.html#starting-the-scheduler>`_)!
