@@ -222,11 +222,11 @@ celery -A helfertool worker --loglevel=info -B
 </pre></div>
 </div>
 <p>In case you receive a very long error message ending with <code class="docutils literal notranslate"><span class="pre">django.core.exceptions.AppRegistryNotReady:</span> <span class="pre">Apps</span> <span class="pre">aren't</span> <span class="pre">loaded</span> <span class="pre">yet.</span></code>, try to run Celery and Beats separately:</p>
-<blockquote>
-<div><p>cd src
-celery -A helfertool worker –loglevel=info
-celery -A helfertool beat –loglevel=info</p>
-</div></blockquote>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>cd src
+celery -A helfertool worker --loglevel=info
+celery -A helfertool beat --loglevel=info
+</pre></div>
+</div>
 <p>The default settings in helfertool.yaml do not need to be changed for this setup.
 The celery worker here has the celery beat service included (<code class="docutils literal notranslate"><span class="pre">-B</span></code>).
 This is not recommended for production (see <a class="reference external" href="https://docs.celeryproject.org/en/latest/userguide/periodic-tasks.html#starting-the-scheduler">celery documentation</a>)!</p>
