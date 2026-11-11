@@ -133,7 +133,7 @@ If you want to, the used Docker tag can be changed in ``/etc/default/helfertool`
 .. code-block:: none
    :caption: /etc/default/helfertool
 
-   HELFERTOOL_DOCKER_IMAGE="helfertool/helfertool:4.0.x"
+   HELFERTOOL_DOCKER_IMAGE="helfertool/helfertool:4.1.x"
 
 Then download the Helfertool container:
 

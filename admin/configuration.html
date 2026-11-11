@@ -360,6 +360,11 @@ You should configure the logout URL as described below, but this depends on the 
             client_id: "helfertool"
             client_secret: "&lt;SECRET&gt;"
 
+            # Use PKCE - recommended!
+            # Challenge can be "S256" or "plain" (S256 recommended)
+            pkce: false
+            pkce_code_challenge: "S256"
+
             # The requested scopes
             scopes: "openid email profile"
 
